@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group name="M7 Tema 3">
+            <file>file:/opt/lampp/htdocs/josep/M7/Tema3/02_Videoclub/model/Persistence/class_peliculadb.php</file>
+            <file>file:/opt/lampp/htdocs/josep/M7/Tema3/02_Videoclub/model/Persistence/class_db.php</file>
+            <file>file:/opt/lampp/htdocs/josep/M7/Tema3/02_Videoclub/model/Persistence/class_directordb.php</file>
+            <file>file:/opt/lampp/htdocs/josep/M7/Tema3/02_Videoclub/model/Persistence/class_productoradb.php</file>
+            <file>file:/opt/lampp/htdocs/josep/M7/Tema3/02_Videoclub/view/mostrar_pelicules.php</file>
+            <file>file:/opt/lampp/htdocs/josep/M7/Tema3/02_Videoclub/model/business/class_director.php</file>
+            <file>file:/opt/lampp/htdocs/josep/M7/Tema3/02_Videoclub/view/formulari_inserir_pelicula.php</file>
+            <file>file:/opt/lampp/htdocs/josep/M7/Tema3/02_Videoclub/controller/controllerNovaPelicula.php</file>
+            <file>file:/opt/lampp/htdocs/josep/M7/Tema3/02_Videoclub/model/Persistence/class_videoclubdb.php</file>
+            <file>file:/opt/lampp/htdocs/josep/M7/Tema3/02_Videoclub/index.php</file>
+            <file>file:/opt/lampp/htdocs/josep/M7/Tema3/02_Videoclub/model/business/class_videoclub.php</file>
+            <file>file:/opt/lampp/htdocs/josep/M7/Tema3/02_Videoclub/model/business/class_productora.php</file>
+        </group>
+    </open-files>
+</project-private>
