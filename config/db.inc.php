@@ -1,4 +1,0 @@
-<?php
-
-$GLOBALS['bd'] = "videoclub";
-?>
