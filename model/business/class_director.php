@@ -5,16 +5,23 @@ require_once("controller/function_AutoLoad.php");
 class director {
 
     private $id;
+    private $nif;
     private $nom;
     private $cognom;
-    
-    public function __construct($nom, $cognom) {
+
+    public function __construct($nom, $cognom, $nif) {
         $this->setId(null);
+        $this->setNif($nif);
         $this->setNom($nom);
         $this->setCognom($cognom);
     }
+
     public function getId() {
         return $this->id;
+    }
+
+    function getNif() {
+        return $this->nif;
     }
 
     public function getNom() {
@@ -29,6 +36,10 @@ class director {
         $this->id = $id;
     }
 
+    function setNif($nif) {
+        $this->nif = $nif;
+    }
+
     public function setNom($nom) {
         $this->nom = $nom;
     }
@@ -36,12 +47,11 @@ class director {
     public function setCognom($cognom) {
         $this->cognom = $cognom;
     }
-
     
-//    public function inserirPelicula() {
-//        $peliculaDb = new peliculadb();
-//        $peliculaDb->inserir($this);
-//    }
+    public function showMe() {
+        printSomething($this->getId(), $this->getNif(), $this->nom, $this->getCognom());
+    }
+
 }
 
 ?>
