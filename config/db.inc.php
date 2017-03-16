@@ -1,4 +1,4 @@
 <?php
 
-$GLOBALS['bd'] = "videoclub";
+$GLOBALS['bd'] = "agencia";
 ?>

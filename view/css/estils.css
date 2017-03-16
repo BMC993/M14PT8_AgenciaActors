@@ -1,0 +1,235 @@
+/*Colores: rojo flojo(#ce2929), rojo granate(#770e0e), blanco(white)*/
+html, body {
+	height: 100%;
+}
+
+#wrap {min-height: 100%;}
+
+#main {overflow:auto;
+	padding-bottom: 60px;}  /* must be same height as the footer */
+
+#footer {position: relative; 
+	margin-top: -60px; /* negative value of footer height */
+	height: 60px;
+	clear:both;} 
+
+/* HEADER */
+.header {
+	background-color: lightgrey; 
+}
+
+.header {
+	color: white !important;
+	background-color: #ce2929 !important;
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+	padding: 20px 0;
+}
+
+.header h2{
+	color: white !important;
+}
+
+.btn-login{
+	transition: 0.5s;
+	float: right;
+	margin: 10px 0;
+	background-color: #770e0e;
+	color: white;
+	border: 1px solid white;
+}
+
+.btn-login:hover{
+	transition: 0.7s;
+	background-color: white;
+	border: 1px solid #770e0e;
+	color: #770e0e;
+}
+
+.seleccio-menu li{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.menu ul{
+	text-align: center;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu li{
+	transition: 0.3s;
+	display: inline;
+	color:white;
+	background-color:#770e0e;
+}
+
+.menu li:hover{
+	transition: 0.3s;
+	color:#770e0e;
+	background-color:white;
+}
+
+/* FOOTER */
+.footer{
+	color: white !important;
+	background-color: #770e0e !important;
+	padding:20px 0;
+}
+
+.footer p{
+	margin:0;
+	padding:0;
+}
+
+.footer a {
+	transition: 0.3s;
+	color: white;
+	text-decoration:none;
+}
+
+.footer a:hover {
+	transition: 0.3s;
+	color: #770e0e;
+	background-color:white;
+	text-decoration:none;
+}
+
+/* IMGs */
+.img-llarga {
+	width:90%;
+	height:90%;
+}
+
+.img-llista {
+	height:150px;
+}
+
+.proyectos-miniatura{
+	height:100%;
+	margin-right: 5px !important;
+	margin-bottom: 0px !important;
+	float:left;
+	width:50%;
+	margin:0 10px 10px 0;
+	padding:4px;
+	margin-right:20px;
+}
+
+.icono {
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+}
+
+/* LLISTAS */
+
+.llista {
+	padding-bottom: 30px;
+}
+
+/* COSAS GENERALES */
+a {
+	transition: 0.3s;
+	color: #770e0e;
+	text-decoration:none;
+}
+
+a:hover {
+	transition: 0.3s;
+	color: white;
+	background-color:#770e0e;
+	text-decoration:none;
+}
+
+h3{
+	text-align: center;
+	font-size: 35px;
+	font-weight: bold;
+	color: #770e0e;
+}
+
+h2{
+	text-align: center;
+	font-size: 28px;
+	color: #770e0e;
+}
+
+.btn-color{
+	transition: 0.5s;
+	margin: 10px 0;
+	background-color: #770e0e;
+	color: white;
+	border: 1px solid white;
+}
+
+.btn-color:hover{
+	transition: 0.7s;
+	background-color: white;
+	border: 1px solid #770e0e;
+	color: #770e0e;
+}
+
+.rounded{
+	border-radius: 5px;
+	padding: 5px 5px;
+}
+
+.rounded:hover{
+	border-radius: 17px;
+}
+
+.rounded-icon{
+	border-radius: 20px;
+	padding: 9px 0px;
+	border: 1px dashed #770e0e;
+}
+
+.rounded-icon:hover{
+	border: none;
+}
+
+#container{
+	padding:30px 0;
+}
+
+/* MOSTRAR PROYECTO */
+
+.area-proyecto{
+	background-color: #ce2929 !important;
+	padding: 10px 10px;
+	color: white;
+}
+
+.area-proyecto li{
+	list-style-type: none;
+	padding-left: 30px;
+	margin-top: 5px;
+	margin-bottom: 20px;
+}
+
+.img-proyecto {
+	max-width: 300px;
+	background-color: #770e0e;
+	padding: 20px 20px;
+}
+
+.area-proyecto-actores{
+	margin-top: 40px;	
+	border-radius: 10px;
+	border: 1px dotted #770e0e;
+	padding: 20px 20px;
+}
+
+.area-proyecto-actores p{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 30px;
+}
+
+.info-proyecto{
+	padding-top: 10px;
+}
