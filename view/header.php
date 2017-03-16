@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Protectora Sant Celoni</title>
+        <title>Agencia</title>
         <meta name="keywords" content="protectora,animals,sant,celoni,inici,home,gos,gat" />
         <meta name="description" content="Aquesta es la web principal de la nostra protectora d'animals" />
         <link href="https://fonts.googleapis.com/css?family=Proza+Libre" rel="stylesheet"/>
