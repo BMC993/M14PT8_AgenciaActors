@@ -15,13 +15,13 @@ session_start();
 require_once("config/inici.inc.php");
 require_once("controller/function_AutoLoad.php");
 
-//if (isset($_SESSION['agencia'])) {
-//    $agencia = unserialize($_SESSION['agencia']);
-//} else {
-//    $agencia = New videoclub("Videoclub Josep");
-//    $agencia->populateVideoclub();
-//    $_SESSION['agencia'] = serialize($agencia);
-//}
+if (isset($_SESSION['agencia'])) {
+    $agencia = unserialize($_SESSION['agencia']);
+} else {
+    $agencia = New agencia("Agencia XXX");
+    $agencia->populateAgencia();
+    $_SESSION['agencia'] = serialize($agencia);
+}
 
 
 
@@ -34,6 +34,12 @@ if (isset($_REQUEST['ctl'])) {
     if (isset($_REQUEST['param'])) {
         $id = $_REQUEST['param'];
     }
+}
+
+if (validarSessio($nom, $pass)) {
+    $loguejat = true;
+} else {
+    $loguejat = false;
 }
 
 //if (validarSessio($nom, $pass)) {
@@ -55,10 +61,10 @@ switch ($ctl) {
     case "director":
         if ($act == "crear") {
             include "controller/director/crearDirector_ctl.php";
-        } else if ($act == "editar") {
-            include "controller/director/editarDirector_ctl.php";
         } else if ($act == "eliminar") {
             include "controller/director/eliminarDirector_ctl.php";
+        } else if ($act == "editar") {
+            include "controller/director/editarDirector_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
