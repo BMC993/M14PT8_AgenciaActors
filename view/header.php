@@ -1,26 +1,45 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Agencia</title>
-        <meta name="keywords" content="protectora,animals,sant,celoni,inici,home,gos,gat" />
-        <meta name="description" content="Aquesta es la web principal de la nostra protectora d'animals" />
-        <link href="https://fonts.googleapis.com/css?family=Proza+Libre" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css?family=Istok+Web" rel="stylesheet"/> 
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Agencia RA</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <link href="view/css/estil.css" rel="stylesheet" type="text/css" />
-        <link rel="shortcut icon" type="image/x-icon" href="view/images/favicon.ico" />
-        </head>
-        <body>
-            <div class="container-fluid">
-                <div class="container topPagina fonsBlanc">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <img src="view/images/dalmatian-dogs.jpg" class="img-responsive" alt="banner" />
+        <link rel="stylesheet" type="text/css" href="view/css/estils.css">
+    <link rel="icon" type="image/x-icon" href="view/imatges/movie.ico" />
+</head>
+<body>
+    <div id="wrap">
+        <div id="header" class="container-fluid header">
+            <div id="hgroup" class="col-xs-12 col-sm-3 text-center">
+                <div>
+                    <div class="logo"></div>
+                </div>
+                <h2 class="col-xs-12">Agencia RA</h2>
+            </div>
+            <div class="text-right reloj col-sm-9 col-xs-12">
+                <!--Añadir botones para acceder backend/frontend dependiendo de la vista + boton de logout en el caso de que este logged -->
+                <!--{# {% if session != null %}
+                    <div class="col-xs-7 text-right logoutButton">
+                        <span class="col-md-9 col-xs-8 loginUsuari">Esteu registrats com a <strong>{{session}}</strong></span>
+                        <div id="logout" onclick="logout()" class="btn btn-login col-lg-2 col-md-3 col-sm-3 col-xs-4">
+                            <span>Logout</span>
                         </div>
+                    </div>-->
+                <!--{% else %}-->
+                    <div id="login" onclick="login()" class="col-lg-1 col-md-2 col-sm-3 col-xs-4 btn btn-login">
+                        <span>Login</span>
                     </div>
-                    <?php
-                    require_once 'view/menu.php';
-                    ?>
+                <!--{% endif %} #}-->
+                <div class="menu seleccio-menu">
+                    <ul>
+                       <a href="{{path('frontend_homepage')}}"><li class="col-sm-2 col-xs-12">Inicio</li></a>
+                       <a href="{{path('frontend_proyectos')}}"><li class="col-sm-2 col-xs-12">Proyectos</li></a>
+                       <a href="{{path('frontend_directores')}}"><li class="col-sm-2 col-xs-12">Directores</li></a>
+                       <a href="{{path('frontend_actores')}}"><li class="col-sm-2 col-xs-12">Actores</li></a>
+                   </ul>
+               </div>
+           </div>
+       </div>
+        <div id="main" class="container-fluid">
+        <div class="row2">
+            <div id="container" class="col-xs-12">
