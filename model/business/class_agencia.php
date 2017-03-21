@@ -28,7 +28,11 @@ class agencia {
         $director->inserirDirector();
     }
     
-    
+    public function afegirActor($nom, $cognom, $nif, $fotografia, $genere){
+        
+        $actor = new actor($nif, $nom, $cognom, $genere, $fotografia);
+        $actor->inserirActor();
+    }
 }
 
 ?>
