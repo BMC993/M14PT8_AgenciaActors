@@ -52,6 +52,11 @@ class director {
         printSomething($this->getId(), $this->getNif(), $this->nom, $this->getCognom());
     }
 
+    public function inserirDirector() {
+        $directorDb = new directordb();
+        $directorDb->inserir($this);
+    }
+    
 }
 
 ?>

@@ -11,7 +11,7 @@
 
 
 
-session_start();
+//session_start();
 require_once("config/inici.inc.php");
 require_once("controller/function_AutoLoad.php");
 
@@ -24,7 +24,7 @@ if (isset($_SESSION['agencia'])) {
 }
 
 
-
+$ctl = "inici";
 if (isset($_REQUEST['ctl'])) {
     $ctl = $_REQUEST['ctl'];
     $act = null;
@@ -35,12 +35,45 @@ if (isset($_REQUEST['ctl'])) {
         $id = $_REQUEST['param'];
     }
 }
+//
+//if (validarSessio($nom, $pass)) {
+//    $loguejat = true;
+//} else {
+//    $loguejat = false;
+//}
 
-if (validarSessio($nom, $pass)) {
-    $loguejat = true;
-} else {
-    $loguejat = false;
-}
+
+//POSAR A AGENCIABD:
+
+//function verificar_login($user,$password,&$result)
+//    {
+//        $sql = "SELECT * FROM usuarios WHERE usuario='$user' and password='$password'";
+//        $rec = mysql_query($sql);
+//        $count = 0;
+//        while($row = mysql_fetch_object($rec))
+//        {
+//            $count++;
+//            $result = $row;
+//        }
+//        if($count == 1)
+//        {
+//            return 1;
+//        }
+//        else
+//        {
+//            return 0;
+//        }
+//    }
+
+
+
+
+
+
+
+
+
+
 
 //if (validarSessio($nom, $pass)) {
 switch ($ctl) {
@@ -119,7 +152,7 @@ switch ($ctl) {
 //        }
         break;
     default:
-        include "controller/" . $ctl . "_ctl.php";
+        include "controller/".$ctl."_ctl.php";
 }
 //}
 ?>

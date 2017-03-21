@@ -9,13 +9,13 @@ require_once("config/db.inc.php");
 
 class directordb {
 
-//    public function inserir($pelicula) {
-//
-//        $query = "insert into pelicules values('', '" . $pelicula->getTitol() . "', '" . $pelicula->getDirector() . "', '" . $pelicula->getProductora() . "');";
-//        $con = new db();
-//        $con->consulta($query);
-//        $con->close();
-//    }
+    public function inserir($director) {
+
+        $query = "insert into director values('', '" . $director->getNom() . "', '" . $director->getCognom() . "', '" . $director->getNif() . "');";
+        $con = new db();
+        $con->consulta($query);
+        $con->close();
+    }
 
 }
 
