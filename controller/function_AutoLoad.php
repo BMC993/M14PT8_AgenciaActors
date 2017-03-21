@@ -7,7 +7,7 @@ function __autoload($class_name) {
     //
     //bernabe/M14/PT8
     //josep/M14/M14PT8_AgenciaActors
-    chdir("$root/XXX");
+    chdir("$root/josep/M14/M14PT8_AgenciaActors");
 
     $nomFile = "class_" . $class_name . ".php";
     $arxiuPersistence = "model/Persistence/" . $nomFile;

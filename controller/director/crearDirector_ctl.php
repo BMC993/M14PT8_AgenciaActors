@@ -1,8 +1,8 @@
 <?php
 
 if (isset($_POST['submit'])) {
-    if (isset($_REQUEST['id']) && isset($_REQUEST['nom']) && isset($_REQUEST['cognom']) && isset($_REQUEST['nif'])) {
-        $id = $_REQUEST['id'];
+    if (isset($_REQUEST['nom']) && isset($_REQUEST['cognom']) && isset($_REQUEST['nif'])) {
+        
         $nom = $_REQUEST['nom'];
         $cognom = $_REQUEST['cognom'];
         $nif = $_REQUEST['nif'];
@@ -13,8 +13,9 @@ if (isset($_POST['submit'])) {
         echo 'caca';
     }
 } else {
+    
     include 'view/header.php';
-    include 'view/director/formDirector.php';
+    include 'view/director/formCrearDirector.php';
     include 'view/footer.php';
     
 }

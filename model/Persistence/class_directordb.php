@@ -11,7 +11,7 @@ class directordb {
 
     public function inserir($director) {
 
-        $query = "insert into director values('', '" . $director->getNom() . "', '" . $director->getCognom() . "', '" . $director->getNif() . "');";
+        $query = "insert into director values('', '" . $director->getNif() . "', '" . $director->getCognom() . "', '" . $director->getNom() . "');";
         $con = new db();
         $con->consulta($query);
         $con->close();

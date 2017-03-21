@@ -3,13 +3,13 @@
     <div class="col-xs-12 col-sm-6">
 
         <div class="form-group col-xs-12">           
-            <label class="control-label">Nombre</label>
+            <label class="control-label">Nom</label>
             <div>
                 <input class="form-control" type="text" name="nom">       
             </div>
         </div>
         <div class="form-group col-xs-12">           
-            <label class="control-label">Apellido</label>
+            <label class="control-label">Cognom</label>
             <div>
                 <input class="form-control" type="text" name="cognom" >       
             </div>

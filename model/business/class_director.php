@@ -9,7 +9,7 @@ class director {
     private $nom;
     private $cognom;
 
-    public function __construct($nom, $cognom, $nif) {
+    public function __construct($nif, $nom, $cognom) {
         $this->setId(null);
         $this->setNif($nif);
         $this->setNom($nom);
