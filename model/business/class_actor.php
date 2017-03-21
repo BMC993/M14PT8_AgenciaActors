@@ -19,14 +19,7 @@ class actor {
         $this->setSexe($sexe);
         $this->setFotografia($fotografia);
     }
-
-//    public function __construct($titol_pelicula, $director_pelicula, $productora_pelicula) {
-//        $this->setId(null);
-//        $this->setTitol($titol_pelicula);
-//        $this->setDirector($director_pelicula);
-//        $this->setProductora($productora_pelicula);
-//    }
-
+    
     public function getId() {
         return $this->id;
     }
@@ -73,6 +66,11 @@ class actor {
 
     function setFotografia($fotografia) {
         $this->fotografia = $fotografia;
+    }
+    
+    public function inserirActor() {
+        $actorDb = new actordb();
+        $actorDb->inserir($this);
     }
 
     public function showMe() {

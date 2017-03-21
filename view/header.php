@@ -32,10 +32,10 @@
                 <!--{% endif %} #}-->
                 <div class="menu seleccio-menu">
                     <ul>
-                       <a href="{{path('frontend_homepage')}}"><li class="col-sm-2 col-xs-12">Inicio</li></a>
+                       <a href="?ctl=inici"><li class="col-sm-2 col-xs-12">Inicio</li></a>
                        <a href="{{path('frontend_proyectos')}}"><li class="col-sm-2 col-xs-12">Proyectos</li></a>
                        <a href="?ctl=director&act=crear"><li class="col-sm-2 col-xs-12">Directores</li></a>
-                       <a href="{{path('frontend_actores')}}"><li class="col-sm-2 col-xs-12">Actores</li></a>
+                       <a href="?ctl=actor&act=crear"><li class="col-sm-2 col-xs-12">Actores</li></a>
                    </ul>
                </div>
            </div>

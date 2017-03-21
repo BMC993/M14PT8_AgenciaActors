@@ -24,18 +24,11 @@ class agencia {
     
     public function afegirDirector($nom, $cognom, $nif){
         
-            
-        $director = new director($nom, $cognom, $nif);
+        $director = new director($nif, $nom, $cognom);
         $director->inserirDirector();
-    
-        
-        
-        
-        
-        
-        
-        
     }
+    
+    
 }
 
 ?>
