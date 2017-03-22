@@ -7,7 +7,11 @@ function __autoload($class_name) {
     //
     ///M14/M14PT8_AgenciaActors
     //josep/M14/M14PT8_AgenciaActors
+<<<<<<< Updated upstream
     chdir("$root/M14/M14PT8_AgenciaActors");
+=======
+    chdir("$root/bernabe/M14/PT8");
+>>>>>>> Stashed changes
 
     $nomFile = "class_" . $class_name . ".php";
     $arxiuPersistence = "model/Persistence/" . $nomFile;
