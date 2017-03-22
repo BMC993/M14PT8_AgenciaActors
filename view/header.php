@@ -37,6 +37,7 @@
                        <a href="?ctl=director&act=crear"><li class="col-sm-2 col-xs-12">Directores</li></a>
                        <a href="?ctl=actor&act=crear"><li class="col-sm-2 col-xs-12">Actores</li></a>
                        <a href="?ctl=tipoObra&act=crear"><li class="col-sm-2 col-xs-12">Tipo Obres</li></a>
+                       <a href="?ctl=tipoPaper&act=crear"><li class="col-sm-2 col-xs-12">Tipo Paper</li></a>
                    </ul>
                </div>
            </div>

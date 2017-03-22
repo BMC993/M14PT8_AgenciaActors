@@ -132,6 +132,22 @@ switch ($ctl) {
 //            include "controller/afegirAnimal_ctl.php";
 //        }
         break;
+
+    case "tipoPaper":
+        if ($act == "crear") {
+            include "controller/tipo_paper/crearTipoPaper_ctl.php";
+        } else if ($act == "editar") {
+            include "controller/tipo_paper/editarTipoPaper_ctl.php";
+        } else if ($act == "eliminar") {
+            include "controller/tipo_paper/eliminarTipoPaper_ctl.php";
+        } else if ($act == "cercar") {
+            include "controller/tipo_paper/c5.php";
+        }
+//        else {
+//            include "controller/afegirAnimal_ctl.php";
+//        }
+        break;
+
     case "user":
         if ($act == "crear") {
             include "controller/user/crearUser_ctl.php";

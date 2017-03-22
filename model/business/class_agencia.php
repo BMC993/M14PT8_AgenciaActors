@@ -101,13 +101,21 @@ class agencia {
         $actor = new actor($nif, $nom, $cognom, $genere, $fotografia);
         $actor->inserirActor();
     }
-    
-        public function afegirTipoObra($nom) {
+
+    public function afegirTipoObra($nom) {
 
 
         $tipo_obra = new tipo_obra($nom);
         $tipo_obra->inserirTipoObra();
     }
+
+    public function afegirTipoPaper($nom) {
+
+
+        $tipo_paper = new tipo_paper($nom);
+        $tipo_paper->inserirTipoPaper();
+    }
+
 //    public function afegirPelicula($titol, $director, $productora) {
 //        $pelicula = new pelicula($titol, $director, $productora);
 //        $pelicula->inserirPelicula();
