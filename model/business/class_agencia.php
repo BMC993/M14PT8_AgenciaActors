@@ -33,11 +33,11 @@ class agencia {
     public function populateAgencia() {
         $agenciadb = new agenciadb();
 //        $arraydePelicules = $agenciadb->populateVideoclubdb();
-        $this->arrayDeProjectes = $agenciadb->cercarProjectes();
-        $this->arrayDeTipusObres = $agenciadb->cercarTipusObres();
-        $this->arrayDeActors = $agenciadb->cercarActors();
-        $this->arrayDeDirectors = $agenciadb->cercarDirectors();
-        $this->arrayDePapers = $agenciadb->cercarPapers();
+//        $this->arrayDeProjectes = $agenciadb->cercarProjectes();
+//        $this->arrayDeTipusObres = $agenciadb->cercarTipusObres();
+//        $this->arrayDeActors = $agenciadb->cercarActors();
+//        $this->arrayDeDirectors = $agenciadb->cercarDirectors();
+//        $this->arrayDePapers = $agenciadb->cercarPapers();
         $this->arrayDeTipusPapers = $agenciadb->cercarTipusPapers();
 
 //        return $arraydePelicules;
