@@ -7,11 +7,11 @@ include_once("controller/function_AutoLoad.php");
 require_once("config/config.inc.php");
 require_once("config/db.inc.php");
 
-class directordb {
+class tipo_paperdb {
 
-    public function inserir($director) {
+    public function inserir($tipo_paper) {
 
-        $query = "insert into director values('', '" . $director->getNif() . "', '" . $director->getNom() . "', '" . $director->getCognom() . "');";
+        $query = "insert into tipo_papel values('', '" . $tipo_paper->getTipo() ."');";
         $con = new db();
         $con->consulta($query);
         $con->close();

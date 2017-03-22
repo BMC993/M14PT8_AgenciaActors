@@ -5,9 +5,14 @@ function __autoload($class_name) {
     $curdir = getcwd();
     //
     //
-    ///M14/M14PT8_AgenciaActors
-    //josep/M14/M14PT8_AgenciaActors
-    chdir("$root/bernabe/M14/PT8");
+    $ruta = "$root/aleix/M14/Actors_Sense_Symfony/M14PT8_AgenciaActors";
+    //chdir("$root/josep/M14/M14PT8_AgenciaActors");
+    //var_dump($ruta);
+    
+    chdir($ruta);
+    
+    //chdir("$root/XXX");
+
 
     $nomFile = "class_" . $class_name . ".php";
     $arxiuPersistence = "model/Persistence/" . $nomFile;

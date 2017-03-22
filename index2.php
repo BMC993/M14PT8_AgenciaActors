@@ -8,6 +8,7 @@
 //$ctl = "inici";
 //session_start();
 require_once("config/inici.inc.php");
+require_once("config/config.inc.php");
 require_once("controller/function_AutoLoad.php");
 
 if (isset($_SESSION['agencia'])) {
@@ -109,8 +110,8 @@ switch ($ctl) {
             include "controller/projecte/editarProjecte_ctl.php";
         } else if ($act == "eliminar") {
             include "controller/projecte/eliminarProjecte_ctl.php";
-        } else if ($act == "eliminar") {
-            include "controller/projecte/llistarProjectes_ctl.php";
+        } else if ($act == "llistar") {
+            include "controller/projecte/llistarProjecte_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
@@ -132,6 +133,22 @@ switch ($ctl) {
 //            include "controller/afegirAnimal_ctl.php";
 //        }
         break;
+
+    case "tipoPaper":
+        if ($act == "crear") {
+            include "controller/tipo_paper/crearTipoPaper_ctl.php";
+        } else if ($act == "editar") {
+            include "controller/tipo_paper/editarTipoPaper_ctl.php";
+        } else if ($act == "eliminar") {
+            include "controller/tipo_paper/eliminarTipoPaper_ctl.php";
+        } else if ($act == "cercar") {
+            include "controller/tipo_paper/c5.php";
+        }
+//        else {
+//            include "controller/afegirAnimal_ctl.php";
+//        }
+        break;
+
     case "user":
         if ($act == "crear") {
             include "controller/user/crearUser_ctl.php";
