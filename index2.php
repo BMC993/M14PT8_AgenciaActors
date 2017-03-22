@@ -6,11 +6,6 @@
 //include 'view/mostrarMissatge.php';
 //$animals = new AnimalsDAO();
 //$ctl = "inici";
-
-
-
-
-
 //session_start();
 require_once("config/inici.inc.php");
 require_once("controller/function_AutoLoad.php");
@@ -41,10 +36,7 @@ if (isset($_REQUEST['ctl'])) {
 //} else {
 //    $loguejat = false;
 //}
-
-
 //POSAR A AGENCIABD:
-
 //function verificar_login($user,$password,&$result)
 //    {
 //        $sql = "SELECT * FROM usuarios WHERE usuario='$user' and password='$password'";
@@ -64,17 +56,6 @@ if (isset($_REQUEST['ctl'])) {
 //            return 0;
 //        }
 //    }
-
-
-
-
-
-
-
-
-
-
-
 //if (validarSessio($nom, $pass)) {
 switch ($ctl) {
 
@@ -86,6 +67,8 @@ switch ($ctl) {
             include "controller/actor/editarActor_ctl.php";
         } else if ($act == "eliminar") {
             include "controller/actor/eliminarActor_ctl.php";
+        } else if ($act == "llistar") {
+            include "controller/actor/llistarActor_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
@@ -98,6 +81,8 @@ switch ($ctl) {
             include "controller/director/eliminarDirector_ctl.php";
         } else if ($act == "editar") {
             include "controller/director/editarDirector_ctl.php";
+        } else if ($act == "llistar") {
+            include "controller/director/llistarDirector_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
@@ -110,6 +95,8 @@ switch ($ctl) {
             include "controller/paper/editarPaper_ctl.php";
         } else if ($act == "eliminar") {
             include "controller/paper/eliminarPaper_ctl.php";
+        } else if ($act == "llistar") {
+            include "controller/paper/llistarPaper_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
@@ -122,6 +109,8 @@ switch ($ctl) {
             include "controller/projecte/editarProjecte_ctl.php";
         } else if ($act == "eliminar") {
             include "controller/projecte/eliminarProjecte_ctl.php";
+        } else if ($act == "eliminar") {
+            include "controller/projecte/llistarProjecte_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
@@ -134,8 +123,10 @@ switch ($ctl) {
             include "controller/tipo_obra/editarTipoObra_ctl.php";
         } else if ($act == "eliminar") {
             include "controller/tipo_obra/eliminarTipoObra_ctl.php";
-        } else if ($act == "cercar"){
+        } else if ($act == "cercar") {
             include "controller/tipo_obra/c5.php";
+        } else if ($act == "llistar") {
+            include "controller/tipo_obra/llistarTipoPaper_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
@@ -148,13 +139,15 @@ switch ($ctl) {
             include "controller/user/editarUser_ctl.php";
         } else if ($act == "eliminar") {
             include "controller/user/eliminarUser_ctl.php";
+        } else if ($act == "llistar"){
+            include "controller/user/llistarUser_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
 //        }
         break;
     default:
-        include "controller/".$ctl."_ctl.php";
+        include "controller/" . $ctl . "_ctl.php";
 }
 //}
 ?>
