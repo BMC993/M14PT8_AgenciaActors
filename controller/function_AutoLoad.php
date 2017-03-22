@@ -5,8 +5,13 @@ function __autoload($class_name) {
     $curdir = getcwd();
     //
     //
-    ///M14/M14PT8_AgenciaActors
-    //josep/M14/M14PT8_AgenciaActors
+    $ruta = "$root/aleix/M14/Actors_Sense_Symfony/M14PT8_AgenciaActors";
+    //chdir("$root/josep/M14/M14PT8_AgenciaActors");
+    //var_dump($ruta);
+    
+    chdir($ruta);
+    
+    //chdir("$root/XXX");
 
     chdir("$root/M14/M14PT8_AgenciaActors");
 

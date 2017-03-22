@@ -8,6 +8,7 @@
 //$ctl = "inici";
 //session_start();
 require_once("config/inici.inc.php");
+require_once("config/config.inc.php");
 require_once("controller/function_AutoLoad.php");
 
 if (isset($_SESSION['agencia'])) {
