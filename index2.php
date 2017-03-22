@@ -129,11 +129,13 @@ switch ($ctl) {
         break;
     case "tipoObra":
         if ($act == "crear") {
-            include "controller/tipo_obra/crearTipoObr_ctl.php";
+            include "controller/tipo_obra/crearTipoObra_ctl.php";
         } else if ($act == "editar") {
-            include "controller/tipo_obra/editarTipoObr_ctl.php";
+            include "controller/tipo_obra/editarTipoObra_ctl.php";
         } else if ($act == "eliminar") {
             include "controller/tipo_obra/eliminarTipoObra_ctl.php";
+        } else if ($act == "cercar"){
+            include "controller/tipo_obra/c5.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";

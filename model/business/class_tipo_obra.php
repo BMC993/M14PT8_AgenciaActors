@@ -1,5 +1,6 @@
 <?php
 
+require_once("controller/function_AutoLoad.php");
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,7 +12,7 @@
  *
  * @author bernabe
  */
-class obra {
+class tipo_obra {
 
     private $id;
     private $tipo;
@@ -39,6 +40,15 @@ class obra {
 
     public function showMe() {
         printSomething($this->getId(), $this->getTipo());
+    }
+
+    public function getArrayTipoObres() {
+        return $this->arrayTipoObres;
+    }
+
+    public function inserirTipoObra() {
+        $tipo_obraDb = new tipo_obradb();
+        $tipo_obraDb->inserir($this);
     }
 
 }
