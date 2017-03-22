@@ -13,8 +13,6 @@ function __autoload($class_name) {
     
     //chdir("$root/XXX");
 
-    chdir("$root/M14/M14PT8_AgenciaActors");
-
 
     $nomFile = "class_" . $class_name . ".php";
     $arxiuPersistence = "model/Persistence/" . $nomFile;
