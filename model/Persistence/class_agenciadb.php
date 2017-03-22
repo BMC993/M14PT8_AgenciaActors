@@ -85,8 +85,8 @@ class agenciadb {
         $consulta = mysqli_query($con2, $query) or die('Error, query failed: ' . $this->error());
         $cont = 0;
         while ($row = mysqli_fetch_array($consulta)) {
-            $actors = new actor($row["tipo"]);
-            $actors->setId($row["nif"], $row["nom"], $row["cognom"], $row["sexe"], $row["fotografia"]);
+            $actors = new actor($row["nif"], $row["nom"], $row["cognom"], $row["sexe"], $row["fotografia"]);
+            $actors->setId($row["id"]);
             $arrayActors[$cont] = $actors;
             $cont++;
         }

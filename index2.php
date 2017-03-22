@@ -68,7 +68,7 @@ switch ($ctl) {
         } else if ($act == "eliminar") {
             include "controller/actor/eliminarActor_ctl.php";
         } else if ($act == "llistar") {
-            include "controller/actor/llistarActor_ctl.php";
+            include "controller/actor/llistarActors_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
@@ -82,7 +82,7 @@ switch ($ctl) {
         } else if ($act == "editar") {
             include "controller/director/editarDirector_ctl.php";
         } else if ($act == "llistar") {
-            include "controller/director/llistarDirector_ctl.php";
+            include "controller/director/llistarDirectors_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
@@ -96,7 +96,7 @@ switch ($ctl) {
         } else if ($act == "eliminar") {
             include "controller/paper/eliminarPaper_ctl.php";
         } else if ($act == "llistar") {
-            include "controller/paper/llistarPaper_ctl.php";
+            include "controller/paper/llistarPapers_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
@@ -110,7 +110,7 @@ switch ($ctl) {
         } else if ($act == "eliminar") {
             include "controller/projecte/eliminarProjecte_ctl.php";
         } else if ($act == "eliminar") {
-            include "controller/projecte/llistarProjecte_ctl.php";
+            include "controller/projecte/llistarProjectes_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
@@ -126,7 +126,7 @@ switch ($ctl) {
         } else if ($act == "cercar") {
             include "controller/tipo_obra/c5.php";
         } else if ($act == "llistar") {
-            include "controller/tipo_obra/llistarTipoPaper_ctl.php";
+            include "controller/tipo_obra/llistarTipoPapers_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
@@ -140,7 +140,7 @@ switch ($ctl) {
         } else if ($act == "eliminar") {
             include "controller/user/eliminarUser_ctl.php";
         } else if ($act == "llistar"){
-            include "controller/user/llistarUser_ctl.php";
+            include "controller/user/llistarUsers_ctl.php";
         }
 //        else {
 //            include "controller/afegirAnimal_ctl.php";
