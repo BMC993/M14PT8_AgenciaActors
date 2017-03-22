@@ -109,7 +109,7 @@ switch ($ctl) {
             include "controller/projecte/editarProjecte_ctl.php";
         } else if ($act == "eliminar") {
             include "controller/projecte/eliminarProjecte_ctl.php";
-        } else if ($act == "eliminar") {
+        } else if ($act == "llistar") {
             include "controller/projecte/llistarProjecte_ctl.php";
         }
 //        else {
