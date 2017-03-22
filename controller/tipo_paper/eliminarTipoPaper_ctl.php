@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['submit'])) {
+if (isset($_POST['eliminar'])) {
     if (isset($_REQUEST['id']) && isset($_REQUEST['nom'])) {
         $id = $_REQUEST['id'];
         $nom = $_REQUEST['nom'];
