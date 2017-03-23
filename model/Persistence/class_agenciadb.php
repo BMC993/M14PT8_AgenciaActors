@@ -130,9 +130,10 @@ class agenciadb {
         $con2 = $con->connect();
         $consulta = mysqli_query($con2, $query) or die('Error, query failed: ' . $this->error());
         $cont = 0;
+        $arrayTipusPapers = array();
         while ($row = mysqli_fetch_array($consulta)) {
             //FALTEN ROWS! CLAUS FORANES
-            $tipusPapers = new paper($row["tipo"]);
+            $tipusPapers = new tipo_paper($row["tipo"]);
             $tipusPapers->setId($row["id"]);
             $arrayTipusPapers[$cont] = $tipusPapers;
             $cont++;

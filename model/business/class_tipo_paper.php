@@ -42,8 +42,8 @@ class tipo_paper {
         printSomething($this->getId(), $this->getTipo());
     }
 
-    public function getArrayTipoObres() {
-        return $this->arrayTipoObres;
+    public function getArrayTipoPaper() {
+        return $this->arrayTipoPaper;
     }
 
     public function inserirTipoPaper() {
