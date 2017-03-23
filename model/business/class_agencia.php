@@ -14,11 +14,11 @@ class agencia {
 
     public function __construct($nom) {
         $this->setNom($nom);
-        $this->arrayDeProjectes = array();
-        $this->arrayDeTipusObres = array();
-        $this->arrayDeActors = array();
-        $this->arrayDeDirectors = array();
-        $this->arrayDePapers = array();
+//        $this->arrayDeProjectes = array();
+//        $this->arrayDeTipusObres = array();
+//        $this->arrayDeActors = array();
+//        $this->arrayDeDirectors = array();
+//        $this->arrayDePapers = array();
         $this->arrayDeTipusPapers = array();
     }
 

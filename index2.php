@@ -62,37 +62,37 @@ switch ($ctl) {
 
 
     case "actor":
-        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "llistar") {
             include "controller/actor/" . $act . "Actor_ctl.php";
         }
         break;
     case "director":
-        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "llistar") {
             include "controller/director/" . $act . "Director_ctl.php";
         }
         break;
     case "paper":
-        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "llistar") {
             include "controller/paper/" . $act . "Paper_ctl.php";
         }
         break;
     case "projecte":
-        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "llistar") {
             include "controller/projecte/" . $act . "Projecte_ctl.php";
         }
         break;
     case "tipoObra":
-        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "llistar") {
             include "controller/tipo_obra/" . $act . "TipoObra_ctl.php";
         }
         break;
     case "tipoPaper":
-        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "llistar") {
             include "controller/tipo_paper/" . $act . "TipoPaper_ctl.php";
         }
         break;
     case "user":
-        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "llistar") {
             include "controller/user/" . $act . "TipoUser_ctl.php";
         }
         break;
