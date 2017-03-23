@@ -51,6 +51,9 @@ class tipo_paper {
         $tipo_paperDb->inserir($this);
     }
 
+    public function eliminarTipoPaper() {
+        $tipo_paperDb = new tipo_paperdb();
+        $tipo_paperDb->eliminar($this);
+    }
+
 }
-
-

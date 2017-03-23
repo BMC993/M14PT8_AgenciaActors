@@ -18,7 +18,7 @@ $arrayDeTipusPapers = $agencia->recuperarTipusPapers();
        <tr>
         <th><?php echo $value->getId();?></th>
         <th><?php echo $value->getTipo(); ?></th>
-        <th><a href="?ctl=tipoPaper&act=eliminar" name="eliminar" class="btn red">Eliminar</a></th>
+        <th><a href="?ctl=tipoPaper&act=eliminar&param=<?php echo $value->getId(); ?>" type="submit" class="btn red">Eliminar</a></th>
        </tr>
 
     <?php

@@ -16,6 +16,16 @@ class tipo_obradb {
         $con->consulta($query);
         $con->close();
     }
+    
+        public function eliminar($tipo_obra) {
+
+        $query = "insert into tipo_obra values('', '" . $tipo_obra->getTipo() ."');";
+        $con = new db();
+        $con->consulta($query);
+        $con->close();
+    }
+    
+    
 
 }
 

@@ -96,6 +96,17 @@ class agencia {
         return $director;
     }
 
+    public function cercarTipoPaper($idBuscar) {
+        $agenciadb = new agenciadb();
+        $tipo_obra=null;
+        foreach ($this->arrayDeTipusPapers as $d) {
+            if ($idBuscar == $d->getId()) {
+                $tipo_obra = $d;
+            }
+        }
+        $agenciadb->eliminarTipusPapers($idBuscar);
+    }
+
     public function afegirActor($nom, $cognom, $nif, $fotografia, $genere) {
 
         $actor = new actor($nif, $nom, $cognom, $genere, $fotografia);
