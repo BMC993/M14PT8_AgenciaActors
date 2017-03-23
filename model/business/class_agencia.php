@@ -32,7 +32,7 @@ class agencia {
 
     public function populateAgencia() {
         $agenciadb = new agenciadb();
-        $arraydePelicules = $agenciadb->populateVideoclubdb();
+//        $arraydePelicules = $agenciadb->populateVideoclubdb();
         $this->arrayDeProjectes = $agenciadb->cercarProjectes();
         $this->arrayDeTipusObres = $agenciadb->cercarTipusObres();
         $this->arrayDeActors = $agenciadb->cercarActors();
