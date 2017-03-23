@@ -2,7 +2,7 @@
     <div class="row contingut table-responsive">
         <div class="col-xs-12 text-center">
             <h2>Nuestros actores</h2>
-            <a href="?ctl=actor&act=crear"><button class="btn btn-color">Añadir actor</button></a>
+            <a href="?ctl=actor&act=crear"><button class="btn btn-color">Afegir actor</button></a>
         </div>
         <?php foreach ($llistaActors as $data) { ?>
             <div class="col-xs-12 col-sm-6 text-center llista">
