@@ -53,6 +53,7 @@ class agenciadb {
         $con2 = $con->connect();
         $consulta = mysqli_query($con2, $query) or die('Error, query failed: ' . $this->error());
         $cont = 0;
+        $arrayProjectes = array();
         while ($row = mysqli_fetch_array($consulta)) {
             //FALTEN ROWS! CLAUS FORANES
             $projectes = new projecte($row["nom"], $row["descripcio"], $row["datainici"], $row["datafinal"]);
@@ -69,6 +70,7 @@ class agenciadb {
         $con2 = $con->connect();
         $consulta = mysqli_query($con2, $query) or die('Error, query failed: ' . $this->error());
         $cont = 0;
+        $arrayTipusObres = array();
         while ($row = mysqli_fetch_array($consulta)) {
             $tipusObres = new tipo_obra($row["tipo"]);
             $tipusObres->setId($row["id"]);
@@ -84,6 +86,7 @@ class agenciadb {
         $con2 = $con->connect();
         $consulta = mysqli_query($con2, $query) or die('Error, query failed: ' . $this->error());
         $cont = 0;
+        $arrayActors = array();
         while ($row = mysqli_fetch_array($consulta)) {
             $actors = new actor($row["nif"], $row["nom"], $row["cognom"], $row["sexe"], $row["fotografia"]);
             $actors->setId($row["id"]);
@@ -99,6 +102,7 @@ class agenciadb {
         $con2 = $con->connect();
         $consulta = mysqli_query($con2, $query) or die('Error, query failed: ' . $this->error());
         $cont = 0;
+        $arrayDirectors = array();
         while ($row = mysqli_fetch_array($consulta)) {
             $directors = new director($row["nif"], $row["nom"], $row["cognom"]);
             $directors->setId($row["id"]);
@@ -114,6 +118,7 @@ class agenciadb {
         $con2 = $con->connect();
         $consulta = mysqli_query($con2, $query) or die('Error, query failed: ' . $this->error());
         $cont = 0;
+        $arrayPapers = array();
         while ($row = mysqli_fetch_array($consulta)) {
             //FALTEN ROWS! CLAUS FORANES
             $papers = new paper($row["nom"]);
