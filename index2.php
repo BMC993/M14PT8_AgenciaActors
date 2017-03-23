@@ -62,106 +62,39 @@ switch ($ctl) {
 
 
     case "actor":
-        if ($act == "crear") {
-            include "controller/actor/crearActor_ctl.php";
-        } else if ($act == "editar") {
-            include "controller/actor/editarActor_ctl.php";
-        } else if ($act == "eliminar") {
-            include "controller/actor/eliminarActor_ctl.php";
-        } else if ($act == "llistar") {
-            include "controller/actor/llistarActor_ctl.php";
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+            include "controller/actor/" . $act . "Actor_ctl.php";
         }
-//        else {
-//            include "controller/afegirAnimal_ctl.php";
-//        }
         break;
     case "director":
-        if ($act == "crear") {
-            include "controller/director/crearDirector_ctl.php";
-        } else if ($act == "eliminar") {
-            include "controller/director/eliminarDirector_ctl.php";
-        } else if ($act == "editar") {
-            include "controller/director/editarDirector_ctl.php";
-        } else if ($act == "llistar") {
-            include "controller/director/llistarDirector_ctl.php";
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+            include "controller/director/" . $act . "Director_ctl.php";
         }
-//        else {
-//            include "controller/afegirAnimal_ctl.php";
-//        }
         break;
     case "paper":
-        if ($act == "crear") {
-            include "controller/paper/crearPaper_ctl.php";
-        } else if ($act == "editar") {
-            include "controller/paper/editarPaper_ctl.php";
-        } else if ($act == "eliminar") {
-            include "controller/paper/eliminarPaper_ctl.php";
-        } else if ($act == "llistar") {
-            include "controller/paper/llistarPaper_ctl.php";
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+            include "controller/paper/" . $act . "Paper_ctl.php";
         }
-//        else {
-//            include "controller/afegirAnimal_ctl.php";
-//        }
         break;
     case "projecte":
-        if ($act == "crear") {
-            include "controller/projecte/crearProjecte_ctl.php";
-        } else if ($act == "editar") {
-            include "controller/projecte/editarProjecte_ctl.php";
-        } else if ($act == "eliminar") {
-            include "controller/projecte/eliminarProjecte_ctl.php";
-        } else if ($act == "llistar") {
-            include "controller/projecte/llistarProjecte_ctl.php";
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+            include "controller/projecte/" . $act . "Projecte_ctl.php";
         }
-//        else {
-//            include "controller/afegirAnimal_ctl.php";
-//        }
         break;
     case "tipoObra":
-        if ($act == "crear") {
-            include "controller/tipo_obra/crearTipoObra_ctl.php";
-        } else if ($act == "editar") {
-            include "controller/tipo_obra/editarTipoObra_ctl.php";
-        } else if ($act == "eliminar") {
-            include "controller/tipo_obra/eliminarTipoObra_ctl.php";
-        } else if ($act == "cercar") {
-            include "controller/tipo_obra/c5.php";
-        } else if ($act == "llistar") {
-            include "controller/tipo_obra/llistarTipoPaper_ctl.php";
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+            include "controller/tipo_obra/" . $act . "TipoObra_ctl.php";
         }
-//        else {
-//            include "controller/afegirAnimal_ctl.php";
-//        }
         break;
-
     case "tipoPaper":
-        if ($act == "crear") {
-            include "controller/tipo_paper/crearTipoPaper_ctl.php";
-        } else if ($act == "editar") {
-            include "controller/tipo_paper/editarTipoPaper_ctl.php";
-        } else if ($act == "eliminar") {
-            include "controller/tipo_paper/eliminarTipoPaper_ctl.php";
-        } else if ($act == "cercar") {
-            include "controller/tipo_paper/c5.php";
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+            include "controller/tipo_paper/" . $act . "TipoPaper_ctl.php";
         }
-//        else {
-//            include "controller/afegirAnimal_ctl.php";
-//        }
         break;
-
     case "user":
-        if ($act == "crear") {
-            include "controller/user/crearUser_ctl.php";
-        } else if ($act == "editar") {
-            include "controller/user/editarUser_ctl.php";
-        } else if ($act == "eliminar") {
-            include "controller/user/eliminarUser_ctl.php";
-        } else if ($act == "llistar"){
-            include "controller/user/llistarUser_ctl.php";
+        if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "mostrar") {
+            include "controller/user/" . $act . "TipoUser_ctl.php";
         }
-//        else {
-//            include "controller/afegirAnimal_ctl.php";
-//        }
         break;
     default:
         include "controller/" . $ctl . "_ctl.php";
