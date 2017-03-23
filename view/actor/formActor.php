@@ -32,8 +32,8 @@
         <div class="form-group col-xs-12"> 
             <label class="control-label">Genere</label><br>
             <div>
-                Home<input class="form-control" type="radio" name="genere" value="home"> 
-                Dona<input class="form-control" type="radio" name="genere" value="dona">
+                Home<input class="form-control" type="radio" name="genere" value="Home"> 
+                Dona<input class="form-control" type="radio" name="genere" value="Dona">
             </div>
         </div>
 
