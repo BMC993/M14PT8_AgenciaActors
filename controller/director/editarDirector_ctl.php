@@ -1,8 +1,8 @@
 <?php
 
 if (isset($_POST['submit'])) {
-    if (isset($_REQUEST['id']) && isset($_REQUEST['nif']) && isset($_REQUEST['nom']) && isset($_REQUEST['cognom'])) {
-        $id = $_REQUEST['id'];
+    if (isset($_REQUEST['nif']) && isset($_REQUEST['nom']) && isset($_REQUEST['cognom'])) {
+        
         $nom = $_REQUEST['nom'];
         $cognom = $_REQUEST['cognom'];
         $nif = $_REQUEST['nif'];
@@ -13,6 +13,8 @@ if (isset($_POST['submit'])) {
         echo 'caca';
     }
 } else {
+    
+    $d = $agencia->cercarDirector($id);
     
     include 'view/header.php';
     include 'view/director/formEditarDirector.php';

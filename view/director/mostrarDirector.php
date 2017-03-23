@@ -1,4 +1,3 @@
-
 <div class = "col-xs-12 text-center">
     <h2><?php echo $director->getNom(); ?> <?php echo $director->getCognom(); ?></h2>
     <strong>DNI: </strong><?php echo $director->getNif(); ?>
