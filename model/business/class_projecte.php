@@ -101,4 +101,9 @@ class projecte {
         printSomething($this->getId(), $this->getNom(), $this->getDescripcio(), $this->dataInici, $this->getDataFinal(), $this->getId_director(), $this->getFotografia(), $this->getId_tipo_obra());
     }
 
+    public function inserirProjecte() {
+        $projecteDb = new projectedb();
+        $projecteDb->inserir($this);
+    }
+
 }
