@@ -106,6 +106,17 @@ class agencia {
         }
         $agenciadb->eliminarTipusPapers($idBuscar);
     }
+    
+        public function cercarTipoObra($idBuscar) {
+        $agenciadb = new agenciadb();
+        $tipo_obra=null;
+        foreach ($this->arrayDeTipusObres as $d) {
+            if ($idBuscar == $d->getId()) {
+                $tipo_obra = $d;
+            }
+        }
+        $agenciadb->eliminarTipusObres($idBuscar);
+    }
 
     public function afegirActor($nom, $cognom, $nif, $fotografia, $genere) {
 

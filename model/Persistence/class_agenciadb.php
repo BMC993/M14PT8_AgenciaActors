@@ -54,6 +54,12 @@ class agenciadb {
         return $arrayDeTipusPapers;
     }
 
+    public function eliminarTipusObres($tipo_paper) {
+        $query = "DELETE FROM tipo_obra WHERE id =" . $tipo_paper;
+        $arrayDeTipusObres = $this->esborrarTipusObres($query);
+        return $arrayDeTipusObres;
+    }
+
     public function consultarProjectes($query) {
         $con = new db();
         $con2 = $con->connect();
@@ -158,7 +164,16 @@ class agenciadb {
         $con2 = $con->connect();
         if ($con2->query($query) === FALSE) {
             echo "Error deleting record: " . $con2->error;
-        } 
+        }
+        $con2->close();
+    }
+
+    public function esborrarTipusObres($query) {
+        $con = new db();
+        $con2 = $con->connect();
+        if ($con2->query($query) === FALSE) {
+            echo "Error deleting record: " . $con2->error;
+        }
         $con2->close();
     }
 
