@@ -1,3 +1,8 @@
+<?php
+$arrayDeTipusObres = $agencia->recuperarTipusObres();
+$arrayDeTipusPapers = $agencia->recuperarTipusPapers();
+?> 
+
 <div id="content" class="container">
     <div class="wrapper row2">
         <div id="container" class="clear">
@@ -28,6 +33,21 @@
                     </div>
                     <div class="more"><a class="rounded" href="{{path('frontend_actores')}}">Leer más &raquo;</a></div>
                 </div>
+                <br><br>
+                <select>
+                    <?php
+                    foreach ($arrayDeTipusPapers as $tipo_paper) {
+                        echo "<option value='" . $tipo_paper->getId() . "'>" . $tipo_paper->getTipo() . "</option>";
+                    }
+                    ?>
+                </select>
+                <select>
+                    <?php
+                    foreach ($arrayDeTipusObres as $tipo_obra) {
+                        echo "<option value='" . $tipo_obra->getId() . "'>" . $tipo_obra->getTipo() . "</option>";
+                    }
+                    ?>
+                </select>
 
             </div>
         </div>
