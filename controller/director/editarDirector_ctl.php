@@ -9,6 +9,12 @@ if (isset($_POST['submit'])) {
 
         $director = $agencia->cercarDirector($id);
         $agencia->editarDirector($director, addslashes($nif), addslashes($nom), addslashes($cognom));
+        
+//        include 'view/header.php';
+//        include 'view/director/llistarDirector.php';
+//        include 'view/footer.php';
+        header('Location: ?ctl=director&act=llistar');
+        
     } else {
         echo 'caca';
     }

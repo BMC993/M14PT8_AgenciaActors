@@ -1,9 +1,3 @@
-<div class = "col-xs-12 text-center">
-    <a href="?ctl=director&act=crear">Crear Director</a>
-    <a href="?ctl=director&act=editar">Editar Director</a>
-</div>
-
-
 <div class="col-xs-12 text-center">
     <h2>Els nostres directors</h2>
     <a href="?ctl=director&act=crear"><button class="btn btn-color">Afegir director</button></a>

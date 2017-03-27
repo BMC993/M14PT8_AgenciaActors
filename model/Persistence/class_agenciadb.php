@@ -147,6 +147,13 @@ class agenciadb {
         return $arrayTipusPapers;
     }
 
+    public function editarDirector($director) {
+        $query = "UPDATE director SET nif = '" . $director->getNif() . "', nom = '" . $director->getNom() . "', cognom = '" . $director->getCognom() . "' WHERE id = " . $director->getId() . ";";
+        $con = new db();
+        $con->consulta($query);
+        $con->close();
+    }
+    
 //    public function populateVideoclubdb() {
 //        $query = "SELECT * FROM pelicules;";
 ////        $p = new peliculadb();
