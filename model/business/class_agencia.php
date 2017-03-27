@@ -11,6 +11,7 @@ class agencia {
     private $arrayDeDirectors;
     private $arrayDePapers;
     private $arrayDeTipusPapers;
+    private $arrayDeUsers;
 
     public function __construct($nom) {
         $this->setNom($nom);
@@ -20,6 +21,7 @@ class agencia {
         $this->arrayDeDirectors = array();
         $this->arrayDePapers = array();
         $this->arrayDeTipusPapers = array();
+        $this->arrayDeUsers = array();
     }
 
     public function getNom() {
@@ -39,7 +41,7 @@ class agencia {
         $this->arrayDeDirectors = $agenciadb->cercarDirectors();
         $this->arrayDePapers = $agenciadb->cercarPapers();
         $this->arrayDeTipusPapers = $agenciadb->cercarTipusPapers();
-
+        $this->arrayDeUsers = $agenciadb->cercarUser();
 //        return $arraydePelicules;
     }
 
@@ -79,6 +81,12 @@ class agencia {
         return $arrayDeTipusPapers;
     }
 
+    public function recuperarUser() {
+        $agenciadb = new agenciadb();
+        $arrayDeUsers = $agenciadb->cercarUser();
+        return $arrayDeUsers;
+    }
+
     public function afegirDirector($nif, $nom, $cognom) {
 
         $director = new director($nif, $nom, $cognom);
@@ -98,7 +106,7 @@ class agencia {
 
     public function cercarTipoPaper($idBuscar) {
         $agenciadb = new agenciadb();
-        $tipo_obra=null;
+        $tipo_obra = null;
         foreach ($this->arrayDeTipusPapers as $d) {
             if ($idBuscar == $d->getId()) {
                 $tipo_obra = $d;
@@ -106,10 +114,10 @@ class agencia {
         }
         $agenciadb->eliminarTipusPapers($idBuscar);
     }
-    
-        public function cercarTipoObra($idBuscar) {
+
+    public function cercarTipoObra($idBuscar) {
         $agenciadb = new agenciadb();
-        $tipo_obra=null;
+        $tipo_obra = null;
         foreach ($this->arrayDeTipusObres as $d) {
             if ($idBuscar == $d->getId()) {
                 $tipo_obra = $d;

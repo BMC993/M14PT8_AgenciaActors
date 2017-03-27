@@ -93,7 +93,7 @@ switch ($ctl) {
         break;
     case "user":
         if ($act == "crear" || $act == "editar" || $act == "eliminar" || $act == "mostrar" || $act == "llistar") {
-            include "controller/user/" . $act . "TipoUser_ctl.php";
+            include "controller/user/" . $act . "User_ctl.php";
         }
         break;
     default:

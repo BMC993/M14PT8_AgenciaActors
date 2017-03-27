@@ -48,6 +48,12 @@ class agenciadb {
         return $arrayDeTipusPapers;
     }
 
+    public function cercarUser() {
+        $query = "SELECT * FROM users;";
+        $arrayDeUsers = $this->consultarUser($query);
+        return $arrayDeUsers;
+    }
+
     public function eliminarTipusPapers($tipo_paper) {
         $query = "DELETE FROM tipo_papel WHERE id =" . $tipo_paper;
         $arrayDeTipusPapers = $this->esborrarTipusPapers($query);
@@ -140,6 +146,23 @@ class agenciadb {
         }
         $con2->close();
         return $arrayPapers;
+    }
+
+    public function consultarUser($query) {
+        $con = new db();
+        $con2 = $con->connect();
+        $consulta = mysqli_query($con2, $query) or die('Error, query failed: ' . $this->error());
+        $cont = 0;
+        $arrayUsers = array();
+        while ($row = mysqli_fetch_array($consulta)) {
+            //FALTEN ROWS! CLAUS FORANES
+            $user = new user($row["username"], $row["password"]);
+            $user->setId($row["id"]);
+            $arrayUsers[$cont] = $user;
+            $cont++;
+        }
+        $con2->close();
+        return $arrayUsers;
     }
 
     public function consultarTipusPapers($query) {

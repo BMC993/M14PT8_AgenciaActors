@@ -26,9 +26,11 @@
                         </div>
                     </div>-->
                 <!--{% else %}-->
-                    <div id="login" onclick="login()" class="col-lg-1 col-md-2 col-sm-3 col-xs-4 btn btn-login">
+                <a href="?ctl=user&act=llistar">
+                    <div id="login" class="col-lg-1 col-md-2 col-sm-3 col-xs-4 btn btn-login">
                         <span>Login</span>
                     </div>
+                </a>
                 <!--{% endif %} #}-->
                 <div class="menu seleccio-menu">
                     <ul>

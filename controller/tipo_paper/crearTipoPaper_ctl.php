@@ -1,4 +1,5 @@
 <?php
+$arrayDeTipusPapers = $agencia->recuperarTipusPapers();
 if (isset($_POST['submit'])) {
     if (isset($_REQUEST['id']) && isset($_REQUEST['nom'])) {
         $id = $_REQUEST['id'];

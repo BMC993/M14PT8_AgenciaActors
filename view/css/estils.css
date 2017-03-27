@@ -43,7 +43,7 @@ html, body {
 	transition: 0.7s;
 	background-color: white;
 	border: 1px solid #770e0e;
-	color: #770e0e;
+	color: #770e0e !important;
 }
 
 .seleccio-menu li{

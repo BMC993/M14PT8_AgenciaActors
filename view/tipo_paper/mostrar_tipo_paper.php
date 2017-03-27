@@ -1,6 +1,3 @@
-<?php
-$arrayDeTipusPapers = $agencia->recuperarTipusPapers();
-?> 
 <table>
     <tr>
         <th>

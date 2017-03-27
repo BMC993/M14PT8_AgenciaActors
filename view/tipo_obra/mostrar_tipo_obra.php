@@ -1,6 +1,3 @@
-<?php
-$arrayDeTipusObres = $agencia->recuperarTipusObres();
-?> 
 <table>
     <tr>
         <th>
