@@ -1,5 +1,5 @@
 <?php
-    $agencia->cercarTipoObra($id);
+    $agencia->eliminarTipoObra($id);
     //$videoclub->afegirPelicula(addslashes($_POST['titol']), addslashes($_POST['director']), addslashes($_POST['productora']));
 
     include 'view/header.php';

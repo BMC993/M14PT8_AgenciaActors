@@ -1,5 +1,5 @@
 <?php
-    $agencia->cercarTipoPaper($id);
+    $agencia->eliminarTipoPaper($id);
     //$videoclub->afegirPelicula(addslashes($_POST['titol']), addslashes($_POST['director']), addslashes($_POST['productora']));
 
     include 'view/header.php';

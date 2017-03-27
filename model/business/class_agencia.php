@@ -16,7 +16,7 @@ class agencia {
     public function __construct($nom) {
         $this->setNom($nom);
 //        $this->arrayDeProjectes = array();
-//        $this->arrayDeTipusObres = array();
+        $this->arrayDeTipusObres = array();
 //        $this->arrayDeActors = array();
         $this->arrayDeDirectors = array();
 //        $this->arrayDePapers = array();
@@ -36,7 +36,7 @@ class agencia {
         $agenciadb = new agenciadb();
 //        $arraydePelicules = $agenciadb->populateVideoclubdb();
 //        $this->arrayDeProjectes = $agenciadb->cercarProjectes();
-//        $this->arrayDeTipusObres = $agenciadb->cercarTipusObres();
+        $this->arrayDeTipusObres = $agenciadb->cercarTipusObres();
 //        $this->arrayDeActors = $agenciadb->cercarActors();
         $this->arrayDeDirectors = $agenciadb->cercarDirectors();
 //        $this->arrayDePapers = $agenciadb->cercarPapers();
@@ -112,8 +112,19 @@ class agencia {
         $agenciadb = new agenciadb();
         $agenciadb->editarDirector($director);
     }
+    
+        public function cercarTipoPaper($idBuscar) {
 
-    public function cercarTipoPaper($idBuscar) {
+        $tipo_obra = null;
+        foreach ($this->arrayDeTipusPapers as $d) {
+            if ($idBuscar == $d->getId()) {
+                $tipo_obra = $d;
+            }
+        }
+        return tipo_obra;
+    }
+
+    public function eliminarTipoPaper($idBuscar) {
         $agenciadb = new agenciadb();
         $tipo_obra = null;
         foreach ($this->arrayDeTipusPapers as $d) {
@@ -124,7 +135,18 @@ class agencia {
         $agenciadb->eliminarTipusPapers($idBuscar);
     }
 
-    public function cercarTipoObra($idBuscar) {
+        public function cercarTipoObra($idBuscar) {
+       
+        $tipo_obra = null;
+        foreach ($this->arrayDeTipusObres as $d) {
+            if ($idBuscar == $d->getId()) {
+                $tipo_obra = $d;
+            }
+        }
+        return tipo_obra;
+    }
+    
+    public function eliminarTipoObra($idBuscar) {
         $agenciadb = new agenciadb();
         $tipo_obra = null;
         foreach ($this->arrayDeTipusObres as $d) {
