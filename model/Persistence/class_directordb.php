@@ -17,6 +17,13 @@ class directordb {
         $con->close();
     }
 
+//    public function editar($director) {
+//        $query = "UPDATE director SET nif = " . $director->getNif() . ", nom = " . $director->getNom() . ", cognom = " . $director->getCognom() . " WHERE id = " . $director->getId() . ";";
+//        $con = new db();
+//        $con->consulta($query);
+//        $con->close();
+//    }
+
 }
 
 ?>

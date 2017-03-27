@@ -15,11 +15,11 @@ class agencia {
 
     public function __construct($nom) {
         $this->setNom($nom);
-        $this->arrayDeProjectes = array();
-        $this->arrayDeTipusObres = array();
-        $this->arrayDeActors = array();
+//        $this->arrayDeProjectes = array();
+//        $this->arrayDeTipusObres = array();
+//        $this->arrayDeActors = array();
         $this->arrayDeDirectors = array();
-        $this->arrayDePapers = array();
+//        $this->arrayDePapers = array();
         $this->arrayDeTipusPapers = array();
         $this->arrayDeUsers = array();
     }
@@ -35,11 +35,11 @@ class agencia {
     public function populateAgencia() {
         $agenciadb = new agenciadb();
 //        $arraydePelicules = $agenciadb->populateVideoclubdb();
-        $this->arrayDeProjectes = $agenciadb->cercarProjectes();
-        $this->arrayDeTipusObres = $agenciadb->cercarTipusObres();
-        $this->arrayDeActors = $agenciadb->cercarActors();
+//        $this->arrayDeProjectes = $agenciadb->cercarProjectes();
+//        $this->arrayDeTipusObres = $agenciadb->cercarTipusObres();
+//        $this->arrayDeActors = $agenciadb->cercarActors();
         $this->arrayDeDirectors = $agenciadb->cercarDirectors();
-        $this->arrayDePapers = $agenciadb->cercarPapers();
+//        $this->arrayDePapers = $agenciadb->cercarPapers();
         $this->arrayDeTipusPapers = $agenciadb->cercarTipusPapers();
         $this->arrayDeUsers = $agenciadb->cercarUser();
 //        return $arraydePelicules;
@@ -102,6 +102,15 @@ class agencia {
             }
         }
         return $director;
+    }
+    
+    public function editarDirector($director, $nif, $nom, $cognom){
+        $director->setNif($nif);
+        $director->setNom($nom);
+        $director->setCognom($cognom);
+        
+        $agenciadb = new agenciadb();
+        $agenciadb->editarDirector($director);
     }
 
     public function cercarTipoPaper($idBuscar) {

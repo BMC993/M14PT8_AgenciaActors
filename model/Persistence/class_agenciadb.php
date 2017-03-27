@@ -56,14 +56,12 @@ class agenciadb {
 
     public function eliminarTipusPapers($tipo_paper) {
         $query = "DELETE FROM tipo_papel WHERE id =" . $tipo_paper;
-        $arrayDeTipusPapers = $this->esborrarTipusPapers($query);
-        return $arrayDeTipusPapers;
+        $this->esborrarTipusPapers($query);
     }
 
-    public function eliminarTipusObres($tipo_paper) {
-        $query = "DELETE FROM tipo_obra WHERE id =" . $tipo_paper;
-        $arrayDeTipusObres = $this->esborrarTipusObres($query);
-        return $arrayDeTipusObres;
+    public function eliminarTipusObres($tipo_obra) {
+        $query = "DELETE FROM tipo_obra WHERE id =" . $tipo_obra;
+        $this->esborrarTipusObres($query);
     }
 
     public function consultarProjectes($query) {
@@ -182,6 +180,14 @@ class agenciadb {
         return $arrayTipusPapers;
     }
 
+
+    public function editarDirector($director) {
+        $query = "UPDATE director SET nif = '" . $director->getNif() . "', nom = '" . $director->getNom() . "', cognom = '" . $director->getCognom() . "' WHERE id = " . $director->getId() . ";";
+        $con = new db();
+        $con->consulta($query);
+        $con->close();
+    }
+    
     public function esborrarTipusPapers($query) {
         $con = new db();
         $con2 = $con->connect();
