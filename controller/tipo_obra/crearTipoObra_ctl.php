@@ -12,6 +12,7 @@ if (isset($_POST['submit'])) {
     }
 } else {
     include 'view/header.php';
+    include 'view/tipo_obra/mostrar_tipo_obra.php';
     include 'view/tipo_obra/formTipoObra.php';
     include 'view/footer.php';
     

@@ -1,5 +1,5 @@
 <?php
-$arrayDeTipusPapers = $agencia->recuperarTipusPapers();
+$arrayDeTipusObres = $agencia->recuperarTipusObres();
 ?> 
 <table>
     <tr>
@@ -13,12 +13,12 @@ $arrayDeTipusPapers = $agencia->recuperarTipusPapers();
     <?php
     $cont = 0;
     
-    foreach ($arrayDeTipusPapers as $value) {
+    foreach ($arrayDeTipusObres as $value) {
         ?>
        <tr>
         <th><?php echo $value->getId();?></th>
         <th><?php echo $value->getTipo(); ?></th>
-        <th><a href="?ctl=tipoPaper&act=eliminar&param=<?php echo $value->getId(); ?>" type="submit" class="btn red">Eliminar</a></th>
+        <th><a href="?ctl=tipoObra&act=eliminar&param=<?php echo $value->getId(); ?>" type="submit" class="btn red">Eliminar</a></th>
        </tr>
 
     <?php
