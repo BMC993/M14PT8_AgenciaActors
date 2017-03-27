@@ -72,7 +72,7 @@ class agenciadb {
         $arrayProjectes = array();
         while ($row = mysqli_fetch_array($consulta)) {
             //FALTEN ROWS! CLAUS FORANES
-            $projectes = new projecte($row["nom"], $row["descripcio"], $row["datainici"], $row["datafinal"]);
+            $projectes = new projecte($row["nom"], $row["descripcio"], $row["datainici"], $row["datafinal"], $row["id_director"], $row["fotografia"], $row["id_tipo_obra"]);
             $projectes->setId($row["id"]);
             $arrayProjectes[$cont] = $projectes;
             $cont++;

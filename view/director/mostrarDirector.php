@@ -12,11 +12,11 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($proyecto as $p) { ?>
+            <?php foreach ($llistaProjectes as $projecte) { ?>
                 <tr>
-                    <td><img height = "100px" src = "<?php echo $p->getFotografia(); ?>"></td>
-                    <td><?php echo $p->getNom(); ?> (<?php echo $p->getId_tipo_obra(); ?>)</td>
-                    <td><a class = "rounded-icon" href = "?ctl=projecte&act=mostrar&param=<?php echo $p->getId_tipo_obra(); ?>"><span class = "glyphicon glyphicon-eye-open icono"/></a></td>
+                    <td><img height = "100px" src = "<?php echo $projecte->getFotografia(); ?>"></td>
+                    <td><?php echo $projecte->getNom(); ?> (<?php echo $projecte->getId_tipo_obra(); ?>)</td>
+                    <td><a class = "rounded-icon" href = "?ctl=projecte&act=mostrar&param=<?php echo $projecte->getId_tipo_obra(); ?>"><span class = "glyphicon glyphicon-eye-open icono"/></a></td>
                 </tr>
             <?php } ?>
         </tbody>

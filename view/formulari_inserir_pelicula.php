@@ -14,8 +14,8 @@
             </select>
             <br/>
             Productora: <select name="productora">
-                <?php foreach ($arrayProductores as $p) { ?>
-                    <option value="<?php echo $p->getId(); ?>"><?php echo $p->getNom(); ?></option>
+                <?php foreach ($arrayProductores as $projecte) { ?>
+                    <option value="<?php echo $projecte->getId(); ?>"><?php echo $projecte->getNom(); ?></option>
                 <?php } ?>
             </select>
             <br/>
