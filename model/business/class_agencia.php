@@ -17,7 +17,7 @@ class agencia {
         $this->setNom($nom);
 //        $this->arrayDeProjectes = array();
         $this->arrayDeTipusObres = array();
-//        $this->arrayDeActors = array();
+        $this->arrayDeActors = array();
         $this->arrayDeDirectors = array();
 //        $this->arrayDePapers = array();
         $this->arrayDeTipusPapers = array();
@@ -37,7 +37,7 @@ class agencia {
 //        $arraydePelicules = $agenciadb->populateVideoclubdb();
 //        $this->arrayDeProjectes = $agenciadb->cercarProjectes();
         $this->arrayDeTipusObres = $agenciadb->cercarTipusObres();
-//        $this->arrayDeActors = $agenciadb->cercarActors();
+        $this->arrayDeActors = $agenciadb->cercarActors();
         $this->arrayDeDirectors = $agenciadb->cercarDirectors();
 //        $this->arrayDePapers = $agenciadb->cercarPapers();
         $this->arrayDeTipusPapers = $agenciadb->cercarTipusPapers();
@@ -94,7 +94,6 @@ class agencia {
     }
 
     public function cercarDirector($idBuscar) {
-
         $director = null;
         foreach ($this->arrayDeDirectors as $d) {
             if ($idBuscar == $d->getId()) {
@@ -103,12 +102,22 @@ class agencia {
         }
         return $director;
     }
-    
-    public function editarDirector($director, $nif, $nom, $cognom){
+
+    public function cercarActor($idBuscar) {
+        $a = null;
+        foreach ($this->arrayDeActors as $actor) {
+            if ($idBuscar == $actor->getId()) {
+                $a = $actor;
+            }
+        }
+        return $a;
+    }
+
+    public function editarDirector($director, $nif, $nom, $cognom) {
         $director->setNif($nif);
         $director->setNom($nom);
         $director->setCognom($cognom);
-        
+
         $agenciadb = new agenciadb();
         $agenciadb->editarDirector($director);
     }

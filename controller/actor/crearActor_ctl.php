@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
     }
 } else {
     include 'view/header.php';
-    include 'view/actor/formActor.php';
+    include 'view/actor/formCrearActor.php';
     include 'view/footer.php';
     
 }
