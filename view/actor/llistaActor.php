@@ -32,9 +32,9 @@
                     <?php } ?>
                 </div>
                 <div class="col-xs-12">
-                    <div class="col-xs-4"><a class="rounded-icon" href="?ctl=actor&act=editar"><span class="glyphicon glyphicon-pencil icono"/></a></div>
-                    <div class="col-xs-4"><a class="rounded-icon" href="?ctl=actor&act=eliminar"><span class="glyphicon glyphicon-remove icono"/></a></div>
-                    <div class="col-xs-4"><a class="rounded-icon" href="?ctl=actor&act=mostrar"><span class="glyphicon glyphicon-eye-open icono"/></a></div>
+                    <div class="col-xs-4"><a class="rounded-icon" href="?ctl=actor&act=editar&param=<?php echo $data->getId(); ?>"><span class="glyphicon glyphicon-pencil icono"/></a></div>
+                    <div class="col-xs-4"><a class="rounded-icon" href="?ctl=actor&act=eliminar&param=<?php echo $data->getId(); ?>"><span class="glyphicon glyphicon-remove icono"/></a></div>
+                    <div class="col-xs-4"><a class="rounded-icon" href="?ctl=actor&act=mostrar&param=<?php echo $data->getId(); ?>"><span class="glyphicon glyphicon-eye-open icono"/></a></div>
                 </div>
             </div>
         <?php } ?>

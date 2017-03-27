@@ -5,7 +5,7 @@ function __autoload($class_name) {
     $curdir = getcwd();
     //
     //
-    $ruta = "$root/M14/M14PT8_AgenciaActors";
+    $ruta = "$root/bernabe/M14/PT8";
     //chdir("$root/josep/M14/M14PT8_AgenciaActors");
     //var_dump($ruta);
     

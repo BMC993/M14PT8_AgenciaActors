@@ -1,3 +1,4 @@
 <?php
+$id = $param;
 
 ?>
