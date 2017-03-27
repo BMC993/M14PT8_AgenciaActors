@@ -53,6 +53,11 @@ class agenciadb {
         $arrayDeUsers = $this->consultarUser($query);
         return $arrayDeUsers;
     }
+    
+    public function eliminarDirector($idDirector){
+        $query = "DELETE FROM director WHERE id =" . $idDirector;
+        $this->esborrarDirector($query);
+    }
 
     public function eliminarTipusPapers($tipo_paper) {
         $query1 = "DELETE FROM papel WHERE id_tipo_papel =" . $tipo_paper;
@@ -204,6 +209,15 @@ class agenciadb {
     }
 
     public function esborrarTipusObres($query) {
+        $con = new db();
+        $con2 = $con->connect();
+        if ($con2->query($query) === FALSE) {
+            echo "Error deleting record: " . $con2->error;
+        }
+        $con2->close();
+    }
+    
+    public function esborrarDirector($query) {
         $con = new db();
         $con2 = $con->connect();
         if ($con2->query($query) === FALSE) {

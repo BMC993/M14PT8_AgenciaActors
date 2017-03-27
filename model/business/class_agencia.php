@@ -102,6 +102,11 @@ class agencia {
         }
         return $director;
     }
+    
+    public function eliminarDirector($idDirector) {
+        $agenciadb = new agenciadb();
+        $agenciadb->eliminarDirector($idDirector);
+    }
 
     public function cercarActor($idBuscar) {
         $a = null;
@@ -121,8 +126,8 @@ class agencia {
         $agenciadb = new agenciadb();
         $agenciadb->editarDirector($director);
     }
-    
-        public function cercarTipoPaper($idBuscar) {
+
+    public function cercarTipoPaper($idBuscar) {
 
         $tipo_obra = null;
         foreach ($this->arrayDeTipusPapers as $d) {
@@ -144,8 +149,8 @@ class agencia {
         $agenciadb->eliminarTipusPapers($idBuscar);
     }
 
-        public function cercarTipoObra($idBuscar) {
-       
+    public function cercarTipoObra($idBuscar) {
+
         $tipo_obra = null;
         foreach ($this->arrayDeTipusObres as $d) {
             if ($idBuscar == $d->getId()) {
@@ -154,7 +159,7 @@ class agencia {
         }
         return tipo_obra;
     }
-    
+
     public function eliminarTipoObra($idBuscar) {
         $agenciadb = new agenciadb();
         $tipo_obra = null;
@@ -191,13 +196,11 @@ class agencia {
 
     public function afegirTipoObra($nom) {
 
-
         $tipo_obra = new tipo_obra($nom);
         $tipo_obra->inserirTipoObra();
     }
 
     public function afegirTipoPaper($nom) {
-
 
         $tipo_paper = new tipo_paper($nom);
         $tipo_paper->inserirTipoPaper();
