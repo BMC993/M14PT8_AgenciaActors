@@ -55,13 +55,19 @@ class agenciadb {
     }
 
     public function eliminarTipusPapers($tipo_paper) {
-        $query = "DELETE FROM tipo_papel WHERE id =" . $tipo_paper;
-        $this->esborrarTipusPapers($query);
+        $query1 = "DELETE FROM papel WHERE id_tipo_papel =" . $tipo_paper;
+        
+        $query2 = "DELETE FROM tipo_papel WHERE id =" . $tipo_paper;
+        $this->esborrarTipusPapers($query1);
+        $this->esborrarTipusPapers($query2);
     }
 
     public function eliminarTipusObres($tipo_obra) {
-        $query = "DELETE FROM tipo_obra WHERE id =" . $tipo_obra;
-        $this->esborrarTipusObres($query);
+        $query1 = "Update projecte set id_tipo_obra = NULL where id_tipo_obra = ".$tipo_obra;
+         
+        $query2 = "DELETE FROM tipo_obra WHERE id =" . $tipo_obra;
+        $this->esborrarTipusObres($query1);
+        $this->esborrarTipusObres($query2);
     }
 
     public function consultarProjectes($query) {

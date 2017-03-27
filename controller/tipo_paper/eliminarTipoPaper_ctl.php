@@ -1,5 +1,6 @@
 <?php
     $agencia->eliminarTipoPaper($id);
+    $arrayDeTipusPapers = $agencia->recuperarTipusPapers();
     //$videoclub->afegirPelicula(addslashes($_POST['titol']), addslashes($_POST['director']), addslashes($_POST['productora']));
 
     include 'view/header.php';
