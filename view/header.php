@@ -32,16 +32,18 @@
                 <!--{% endif %} #}-->
                 <div class="menu seleccio-menu">
                     <ul>
-                       <a href="?ctl=inici"><li class="col-sm-1 col-xs-12">Inicio</li></a>
-                       <a href="{{path('frontend_proyectos')}}"><li class="col-sm-1 col-xs-12">Proyectos</li></a>
-                       <a href="?ctl=director&act=crear"><li class="col-sm-1 col-xs-12">Directores</li></a>
-                       <a href="?ctl=actor&act=llistar"><li class="col-sm-1 col-xs-12">Actores</li></a>
-                       <a href="?ctl=tipoObra&act=crear"><li class="col-sm-1 col-xs-12">Tipo Obres</li></a>
-                       <a href="?ctl=tipoPaper&act=crear"><li class="col-sm-1 col-xs-12">Tipo Paper</li></a>
+
+                       <a href="?ctl=inici"><li class="col-sm-2 col-xs-12">Inicio</li></a>
+                       <a href="{{path('frontend_proyectos')}}"><li class="col-sm-2 col-xs-12">Proyectos</li></a>
+                       <a href="?ctl=director&act=llistar"><li class="col-sm-2 col-xs-12">Directores</li></a>
+                       <a href="?ctl=actor&act=llistar"><li class="col-sm-2 col-xs-12">Actores</li></a>
+                       <a href="?ctl=tipoObra&act=crear"><li class="col-sm-2 col-xs-12">Tipo Obres</li></a>
+                       <a href="?ctl=tipoPaper&act=crear"><li class="col-sm-2 col-xs-12">Tipo Paper</li></a>
+
                    </ul>
                </div>
            </div>
        </div>
         <div id="main" class="container-fluid">
         <div class="row2">
-            <div id="container" class="col-xs-12">
+            <div id="container" class="container">

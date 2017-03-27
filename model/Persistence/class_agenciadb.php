@@ -159,6 +159,14 @@ class agenciadb {
         return $arrayTipusPapers;
     }
 
+
+    public function editarDirector($director) {
+        $query = "UPDATE director SET nif = '" . $director->getNif() . "', nom = '" . $director->getNom() . "', cognom = '" . $director->getCognom() . "' WHERE id = " . $director->getId() . ";";
+        $con = new db();
+        $con->consulta($query);
+        $con->close();
+    }
+    
     public function esborrarTipusPapers($query) {
         $con = new db();
         $con2 = $con->connect();
