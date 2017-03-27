@@ -9,9 +9,9 @@ require_once("config/db.inc.php");
 
 class projectedb {
 
-    public function inserir($director) {
-
-        $query = "insert into projecte values('', '" . $director->getNif() . "', '" . $director->getNom() . "', '" . $director->getCognom() . "');";
+    public function inserir($projecte) {
+    	
+        $query = "insert into projecte values('', '" . $projecte->getNom() . "', '" . $projecte->getDescripcio() . "', '" . date_format($projecte->getDataInici(), 'Y/m/d') . "', '" . date_format($projecte->getDataFinal(), 'Y/m/d') . "', '" . $projecte->getId_director() . "', '" . $projecte->getFotografia() . "', '" . $projecte->getId_tipo_obra() . "');";
         $con = new db();
         $con->consulta($query);
         $con->close();

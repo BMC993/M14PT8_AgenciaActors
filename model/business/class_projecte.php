@@ -98,7 +98,7 @@ class projecte {
     }
 
     public function showMe() {
-        printSomething($this->getId(), $this->getNom(), $this->getDescripcio(), $this->dataInici, $this->getDataFinal(), $this->getId_director(), $this->getFotografia(), $this->getId_tipo_obra());
+        printSomething($this->getId(), $this->getNom(), $this->getDescripcio(), $this->getDataInici(), $this->getDataFinal(), $this->getId_director(), $this->getFotografia(), $this->getId_tipo_obra());
     }
 
     public function inserirProjecte() {

@@ -157,10 +157,27 @@ class agencia {
         $agenciadb->eliminarTipusObres($idBuscar);
     }
 
+    public function cercarTipusObra($idBuscar) {
+        $agenciadb = new agenciadb();
+        $tipo_obra=null;
+        foreach ($this->arrayDeTipusObres as $d) {
+            if ($idBuscar == $d->getId()) {
+                $tipo_obra = $d;
+            }
+        }
+        return $tipo_obra;
+    }
+
     public function afegirActor($nom, $cognom, $nif, $fotografia, $genere) {
 
         $actor = new actor($nif, $nom, $cognom, $genere, $fotografia);
         $actor->inserirActor();
+    }
+
+    public function afegirProjecte($nom, $descripcio, $tipus, $dataInici, $dataFi, $idDirector, $imagen) {
+
+        $projecte = new projecte($nom, $descripcio, $tipus, $dataInici, $dataFi, $idDirector, $imagen);
+        $projecte->inserirProjecte();
     }
 
     public function afegirTipoObra($nom) {

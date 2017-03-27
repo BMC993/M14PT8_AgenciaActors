@@ -1,6 +1,5 @@
 <?php
-$arrayDeTipusObres = $agencia->recuperarTipusObres();
-$arrayDeTipusPapers = $agencia->recuperarTipusPapers();
+
 ?> 
 
 <div id="content" class="container">
