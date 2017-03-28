@@ -121,28 +121,6 @@ class agencia {
         return $a;
     }
 
-    public function cercarTipoObra($idBuscar) {
-
-        $tipo_obra = null;
-        foreach ($this->arrayDeTipusObres as $d) {
-            if ($idBuscar == $d->getId()) {
-                $tipo_obra = $d;
-            }
-        }
-        return tipo_obra;
-    }
-
-    public function cercarTipusObra($idBuscar) {
-        $agenciadb = new agenciadb();
-        $tipo_obra = null;
-        foreach ($this->arrayDeTipusObres as $d) {
-            if ($idBuscar == $d->getId()) {
-                $tipo_obra = $d;
-            }
-        }
-        return $tipo_obra;
-    }
-
     /* ---------------------------AGEFIR (new)------------------------------- */
 
     public function afegirDirector($nif, $nom, $cognom) {
