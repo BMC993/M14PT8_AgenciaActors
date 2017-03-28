@@ -121,6 +121,16 @@ class agencia {
         return $a;
     }
 
+    public function cercarTipoObra($idBuscar) {
+        $tipoObra = null;
+        foreach ($this->arrayDeTipusObres as $tipusObra) {
+            if ($idBuscar == $tipusObra->getId()) {
+                $tipoObra = $tipusObra;
+            }
+        }
+        return $tipoObra;
+    }
+
     /* ---------------------------AGEFIR (new)------------------------------- */
 
     public function afegirDirector($nif, $nom, $cognom) {

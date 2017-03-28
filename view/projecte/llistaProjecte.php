@@ -6,16 +6,20 @@
     <table class = "table table-hover">
         <thead>
             <tr>
-                <th></th>
-                <th>Proyecto</th>
-                <th>Ver</th>
+                <th class="text-center"></th>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">Director</th>
+                <th class="text-center">Fechas</th>
+                <th class="text-center">Ver</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($llistaProjectes as $projecte) { ?>
                 <tr>
-                    <td><img height = "100px" src = "<?php echo $projecte->getFotografia(); ?>"></td>
-                    <td><?php echo $projecte->getNom(); ?> (<?php echo $projecte->getId_tipo_obra(); ?>)</td>
+                    <td class="text-center"><strong class="col-xs-12"><?php echo $projecte->getTipoObra(); ?></strong><img height = "100px" src = "<?php echo $projecte->getFotografia(); ?>"></td>
+                    <td class="text-center"><?php echo $projecte->getNom(); ?></td>
+                    <td class="text-center"><?php echo $projecte->getDirector(); ?></td>
+                    <td class="text-center"><?php echo $projecte->getDataIniciObject(); ?><br>-<br><?php echo $projecte->getDataFinalObject(); ?></td>
                     <td><a class = "rounded-icon" href = "?ctl=projecte&act=mostrar&param=<?php echo $projecte->getId(); ?>"><span class = "glyphicon glyphicon-eye-open icono"/></a></td>
                 </tr>
             <?php } ?>

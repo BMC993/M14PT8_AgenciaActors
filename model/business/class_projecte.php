@@ -1,5 +1,5 @@
 <?php
-
+require_once("controller/function_AutoLoad.php");
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -53,8 +53,29 @@ class projecte {
         return $this->dataFinal;
     }
 
+    function getDataIniciObject() {
+        $data = date_create_from_format ( "Y-m-d" , $this->dataInici );
+        $data = $data->format('d/m/Y');
+        return $data;
+    }
+
+    function getDataFinalObject() {
+        $data = date_create_from_format ( "Y-m-d" , $this->dataFinal );
+        $data = $data->format('d/m/Y');
+        return $data;
+    }
+
     function getId_director() {
         return $this->id_director;
+    }
+
+    function getDirector() {
+        $agencia = unserialize($_SESSION['agencia']);
+        $director = $agencia->cercarDirector($this->id_director);
+        if ($director != NULL) {
+           return $director->getNom() . " " . $director->getCognom();
+        }
+        return "-";
     }
 
     function getFotografia() {
@@ -63,6 +84,15 @@ class projecte {
 
     function getId_tipo_obra() {
         return $this->id_tipo_obra;
+    }
+
+    function getTipoObra() {
+        $agencia = unserialize($_SESSION['agencia']);
+        $tipo = $agencia->cercarTipoObra($this->id_tipo_obra);
+        if ($tipo != NULL) {
+           return $tipo->getTipo();
+        }
+        return "-";
     }
 
     function setId($id) {
