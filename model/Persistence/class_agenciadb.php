@@ -10,16 +10,16 @@ class agenciadb {
         
     }
 
-    /*----------------------CERCAR (on es crea la query)----------------------*/
-    
+    /* ----------------------CERCAR (on es crea la query)---------------------- */
+
     public function cercarProjectes() {
         $query = "SELECT * FROM projecte;";
         $arrayDeProjectes = $this->consultarProjectes($query);
         return $arrayDeProjectes;
     }
-    
+
     public function cercarProjectesDeDirector($idDirector) {
-        $query = "SELECT * FROM projecte WHERE id_director=".$idDirector;
+        $query = "SELECT * FROM projecte WHERE id_director=" . $idDirector;
         $projectesDeDirector = $this->consultarProjectes($query);
         return $projectesDeDirector;
     }
@@ -59,10 +59,10 @@ class agenciadb {
         $arrayDeUsers = $this->consultarUser($query);
         return $arrayDeUsers;
     }
-    
-    /*---------------------ELIMINAR (on es crea la query)---------------------*/
-    
-    public function eliminarDirector($idDirector){
+
+    /* ---------------------ELIMINAR (on es crea la query)--------------------- */
+
+    public function eliminarDirector($idDirector) {
         $query = "DELETE FROM director WHERE id=" . $idDirector;
         $this->esborrarGeneral($query);
     }
@@ -76,8 +76,28 @@ class agenciadb {
         $query = "DELETE FROM tipo_obra WHERE id =" . $tipo_obra;
         $this->esborrarGeneral($query);
     }
-    
-    /*--------------------CONSULTAR (on es crea la query)--------------------*/
+
+    /* ---------------ESBORRAR GENERAL (on se li passa la query)--------------- */
+
+    public function esborrarGeneral($query) {
+        $con = new db();
+        $con2 = $con->connect();
+        if ($con2->query($query) === FALSE) {
+            echo "Error deleting record: " . $con2->error;
+        }
+        $con2->close();
+    }
+
+    /* --------------------------------EDITAR---------------------------------- */
+
+    public function editarDirector($director) {
+        $query = "UPDATE director SET nif = '" . $director->getNif() . "', nom = '" . $director->getNom() . "', cognom = '" . $director->getCognom() . "' WHERE id = " . $director->getId() . ";";
+        $con = new db();
+        $con->consulta($query);
+        $con->close();
+    }
+
+    /* ------------------CONSULTAR (on se li passa la query)------------------ */
 
     public function consultarProjectes($query) {
         $con = new db();
@@ -193,23 +213,6 @@ class agenciadb {
         }
         $con2->close();
         return $arrayTipusPapers;
-    }
-
-
-    public function editarDirector($director) {
-        $query = "UPDATE director SET nif = '" . $director->getNif() . "', nom = '" . $director->getNom() . "', cognom = '" . $director->getCognom() . "' WHERE id = " . $director->getId() . ";";
-        $con = new db();
-        $con->consulta($query);
-        $con->close();
-    }
-    
-    public function esborrarGeneral($query) {
-        $con = new db();
-        $con2 = $con->connect();
-        if ($con2->query($query) === FALSE) {
-            echo "Error deleting record: " . $con2->error;
-        }
-        $con2->close();
     }
 
 //    public function populateVideoclubdb() {

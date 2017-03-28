@@ -32,6 +32,8 @@ class agencia {
         $this->nom = $nom;
     }
 
+    /* ------------------------------POPULATE-------------------------------- */
+
     public function populateAgencia() {
         $agenciadb = new agenciadb();
 //        $arraydePelicules = $agenciadb->populateVideoclubdb();
@@ -45,15 +47,12 @@ class agencia {
 //        return $arraydePelicules;
     }
 
+    /* ------------------------RECUPERAR (tot l'array)----------------------- */
+
     public function recuperarProjectes() {
         $agenciadb = new agenciadb();
         $arrayDeProjectes = $agenciadb->cercarProjectes();
         return $arrayDeProjectes;
-    }
-    public function recuperarProjectesDeDirector($idDirector) {
-        $agenciadb = new agenciadb();
-        $projectesDeDirectors = $agenciadb->cercarProjectesDeDirector($idDirector);
-        return $projectesDeDirectors;
     }
 
     public function recuperarTipusObres() {
@@ -92,11 +91,15 @@ class agencia {
         return $arrayDeUsers;
     }
 
-    public function afegirDirector($nif, $nom, $cognom) {
+    /* --------------RECUPERAR ARRAY PER ID (d'una clau forana)-------------- */
 
-        $director = new director($nif, $nom, $cognom);
-        $director->inserirDirector();
+    public function recuperarProjectesDeDirector($idDirector) {
+        $agenciadb = new agenciadb();
+        $projectesDeDirectors = $agenciadb->cercarProjectesDeDirector($idDirector);
+        return $projectesDeDirectors;
     }
+
+    /* ---------------CERCAR (recuperar objecte per la ID)------------------- */
 
     public function cercarDirector($idBuscar) {
         $director = null;
@@ -107,11 +110,6 @@ class agencia {
         }
         return $director;
     }
-    
-    public function eliminarDirector($idDirector) {
-        $agenciadb = new agenciadb();
-        $agenciadb->eliminarDirector($idDirector);
-    }
 
     public function cercarActor($idBuscar) {
         $a = null;
@@ -121,37 +119,6 @@ class agencia {
             }
         }
         return $a;
-    }
-
-    public function editarDirector($director, $nif, $nom, $cognom) {
-        $director->setNif($nif);
-        $director->setNom($nom);
-        $director->setCognom($cognom);
-
-        $agenciadb = new agenciadb();
-        $agenciadb->editarDirector($director);
-    }
-
-    public function cercarTipoPaper($idBuscar) {
-
-        $tipo_obra = null;
-        foreach ($this->arrayDeTipusPapers as $d) {
-            if ($idBuscar == $d->getId()) {
-                $tipo_obra = $d;
-            }
-        }
-        return tipo_obra;
-    }
-
-    public function eliminarTipoPaper($idBuscar) {
-        $agenciadb = new agenciadb();
-        $tipo_obra = null;
-        foreach ($this->arrayDeTipusPapers as $d) {
-            if ($idBuscar == $d->getId()) {
-                $tipo_obra = $d;
-            }
-        }
-        $agenciadb->eliminarTipusPapers($idBuscar);
     }
 
     public function cercarTipoObra($idBuscar) {
@@ -165,7 +132,7 @@ class agencia {
         return tipo_obra;
     }
 
-    public function eliminarTipoObra($idBuscar) {
+    public function cercarTipusObra($idBuscar) {
         $agenciadb = new agenciadb();
         $tipo_obra = null;
         foreach ($this->arrayDeTipusObres as $d) {
@@ -173,18 +140,15 @@ class agencia {
                 $tipo_obra = $d;
             }
         }
-        $agenciadb->eliminarTipusObres($idBuscar);
+        return $tipo_obra;
     }
 
-    public function cercarTipusObra($idBuscar) {
-        $agenciadb = new agenciadb();
-        $tipo_obra=null;
-        foreach ($this->arrayDeTipusObres as $d) {
-            if ($idBuscar == $d->getId()) {
-                $tipo_obra = $d;
-            }
-        }
-        return $tipo_obra;
+    /* ---------------------------AGEFIR (new)------------------------------- */
+
+    public function afegirDirector($nif, $nom, $cognom) {
+
+        $director = new director($nif, $nom, $cognom);
+        $director->inserirDirector();
     }
 
     public function afegirActor($nom, $cognom, $nif, $fotografia, $genere) {
@@ -209,6 +173,45 @@ class agencia {
 
         $tipo_paper = new tipo_paper($nom);
         $tipo_paper->inserirTipoPaper();
+    }
+
+    /* ------------------------ELIMINAR (delete)---------------------------- */
+
+    public function eliminarDirector($idDirector) {
+        $agenciadb = new agenciadb();
+        $agenciadb->eliminarDirector($idDirector);
+    }
+
+    public function eliminarTipoPaper($idBuscar) {
+        $agenciadb = new agenciadb();
+        $agenciadb->eliminarTipusPapers($idBuscar);
+    }
+
+    public function eliminarTipoObra($idBuscar) {
+        $agenciadb = new agenciadb();
+        $agenciadb->eliminarTipusObres($idBuscar);
+    }
+
+    /* ------------------------------EDITAR---------------------------------- */
+
+    public function editarDirector($director, $nif, $nom, $cognom) {
+        $director->setNif($nif);
+        $director->setNom($nom);
+        $director->setCognom($cognom);
+
+        $agenciadb = new agenciadb();
+        $agenciadb->editarDirector($director);
+    }
+
+    public function cercarTipoPaper($idBuscar) {
+
+        $tipo_obra = null;
+        foreach ($this->arrayDeTipusPapers as $d) {
+            if ($idBuscar == $d->getId()) {
+                $tipo_obra = $d;
+            }
+        }
+        return tipo_obra;
     }
 
 //    public function afegirPelicula($titol, $director, $productora) {
