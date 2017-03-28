@@ -50,6 +50,11 @@ class agencia {
         $arrayDeProjectes = $agenciadb->cercarProjectes();
         return $arrayDeProjectes;
     }
+    public function recuperarProjectesDeDirector($idDirector) {
+        $agenciadb = new agenciadb();
+        $projectesDeDirectors = $agenciadb->cercarProjectesDeDirector($idDirector);
+        return $projectesDeDirectors;
+    }
 
     public function recuperarTipusObres() {
         $agenciadb = new agenciadb();

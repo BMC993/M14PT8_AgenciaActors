@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($llistaProjectes as $projecte) { ?>
+            <?php foreach ($llistaProjectesDeDirector as $projecte) { ?>
                 <tr>
                     <td><img height = "100px" src = "<?php echo $projecte->getFotografia(); ?>"></td>
                     <td><?php echo $projecte->getNom(); ?> (<?php echo $projecte->getId_tipo_obra(); ?>)</td>

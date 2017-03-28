@@ -7,8 +7,10 @@ if (isset($_POST['submit'])) {
         $cognom = $_REQUEST['cognom'];
         $nif = $_REQUEST['nif'];
 
-        $agencia->afegirDirector(addslashes($nom), addslashes($cognom), addslashes($nif));
-        //$videoclub->afegirPelicula(addslashes($_POST['titol']), addslashes($_POST['director']), addslashes($_POST['productora']));
+        $agencia->afegirDirector(addslashes($nif), addslashes($nom), addslashes($cognom));
+        
+        header("Location: ?ctl=director&act=llistar");
+        
     } else {
         echo 'caca';
     }

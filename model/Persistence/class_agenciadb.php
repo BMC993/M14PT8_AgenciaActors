@@ -10,10 +10,18 @@ class agenciadb {
         
     }
 
+    /*----------------------CERCAR (on es crea la query)----------------------*/
+    
     public function cercarProjectes() {
         $query = "SELECT * FROM projecte;";
         $arrayDeProjectes = $this->consultarProjectes($query);
         return $arrayDeProjectes;
+    }
+    
+    public function cercarProjectesDeDirector($idDirector) {
+        $query = "SELECT * FROM projecte WHERE id_director=".$idDirector;
+        $projectesDeDirector = $this->consultarProjectes($query);
+        return $projectesDeDirector;
     }
 
     public function cercarTipusObres() {
@@ -30,8 +38,6 @@ class agenciadb {
 
     public function cercarDirectors() {
         $query = "SELECT * FROM director;";
-//        $d = new directordb();
-//        $arrayDeDirectors = $d->consultarDirectors($query);
         $arrayDeDirectors = $this->consultarDirectors($query);
         return $arrayDeDirectors;
     }
@@ -54,26 +60,24 @@ class agenciadb {
         return $arrayDeUsers;
     }
     
+    /*---------------------ELIMINAR (on es crea la query)---------------------*/
+    
     public function eliminarDirector($idDirector){
-        $query = "DELETE FROM director WHERE id =" . $idDirector;
-        $this->esborrarDirector($query);
+        $query = "DELETE FROM director WHERE id=" . $idDirector;
+        $this->esborrarGeneral($query);
     }
 
     public function eliminarTipusPapers($tipo_paper) {
-        $query1 = "DELETE FROM papel WHERE id_tipo_papel =" . $tipo_paper;
-        
-        $query2 = "DELETE FROM tipo_papel WHERE id =" . $tipo_paper;
-        $this->esborrarTipusPapers($query1);
-        $this->esborrarTipusPapers($query2);
+        $query = "DELETE FROM tipo_papel WHERE id =" . $tipo_paper;
+        $this->esborrarGeneral($query);
     }
 
     public function eliminarTipusObres($tipo_obra) {
-        $query1 = "Update projecte set id_tipo_obra = NULL where id_tipo_obra = ".$tipo_obra;
-         
-        $query2 = "DELETE FROM tipo_obra WHERE id =" . $tipo_obra;
-        $this->esborrarTipusObres($query1);
-        $this->esborrarTipusObres($query2);
+        $query = "DELETE FROM tipo_obra WHERE id =" . $tipo_obra;
+        $this->esborrarGeneral($query);
     }
+    
+    /*--------------------CONSULTAR (on es crea la query)--------------------*/
 
     public function consultarProjectes($query) {
         $con = new db();
@@ -199,25 +203,7 @@ class agenciadb {
         $con->close();
     }
     
-    public function esborrarTipusPapers($query) {
-        $con = new db();
-        $con2 = $con->connect();
-        if ($con2->query($query) === FALSE) {
-            echo "Error deleting record: " . $con2->error;
-        }
-        $con2->close();
-    }
-
-    public function esborrarTipusObres($query) {
-        $con = new db();
-        $con2 = $con->connect();
-        if ($con2->query($query) === FALSE) {
-            echo "Error deleting record: " . $con2->error;
-        }
-        $con2->close();
-    }
-    
-    public function esborrarDirector($query) {
+    public function esborrarGeneral($query) {
         $con = new db();
         $con2 = $con->connect();
         if ($con2->query($query) === FALSE) {

@@ -2,4 +2,4 @@
 
 $agencia->eliminarDirector($id);
 
-header("Location ?ctl=director&act=llistar");
+header("Location: ?ctl=director&act=llistar");
