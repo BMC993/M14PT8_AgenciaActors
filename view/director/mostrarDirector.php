@@ -15,7 +15,7 @@
             <?php foreach ($llistaProjectesDeDirector as $projecte) { ?>
                 <tr>
                     <td><img height = "100px" src = "<?php echo $projecte->getFotografia(); ?>"></td>
-                    <td><?php echo $projecte->getNom(); ?> (<?php echo $projecte->getId_tipo_obra(); ?>)</td>
+                    <td><strong><?php echo $projecte->getNom(); ?></strong> (<?php echo $projecte->getTipoObra(); ?>)</td>
                     <td><a class = "rounded-icon" href = "?ctl=projecte&act=mostrar&param=<?php echo $projecte->getId_tipo_obra(); ?>"><span class = "glyphicon glyphicon-eye-open icono"/></a></td>
                 </tr>
             <?php } ?>
