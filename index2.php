@@ -13,6 +13,8 @@ require_once("controller/function_AutoLoad.php");
 
 if (isset($_SESSION['agencia'])) {
     $agencia = unserialize($_SESSION['agencia']);
+    $agencia->populateAgencia();
+    $_SESSION['agencia'] = serialize($agencia);
 } else {
     $agencia = New agencia("Agencia XXX");
     $agencia->populateAgencia();
