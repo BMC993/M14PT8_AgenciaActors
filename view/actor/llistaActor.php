@@ -2,7 +2,9 @@
     <div class="row contingut table-responsive">
         <div class="col-xs-12 text-center">
             <h2>Nuestros actores</h2>
-            <a href="?ctl=actor&act=crear"><button class="btn btn-color">Afegir actor</button></a>
+            <?php if (isset($_SESSION['admin'])) { ?>
+                <a href="?ctl=actor&act=crear"><button class="btn btn-color">Afegir actor</button></a>
+            <?php } ?>
         </div>
         <?php foreach ($llistaActors as $data) { ?>
             <div class="col-xs-12 col-sm-6 text-center llista">
@@ -31,12 +33,21 @@
                         </div>
                     <?php } ?>
                 </div>
-                <div class="col-xs-12">
-                    <div class="col-xs-4"><a class="rounded-icon" href="?ctl=actor&act=editar&param=<?php echo $data->getId(); ?>"><span class="glyphicon glyphicon-pencil icono"/></a></div>
-                    <div class="col-xs-4"><a class="rounded-icon" href="?ctl=actor&act=eliminar&param=<?php echo $data->getId(); ?>"><span class="glyphicon glyphicon-remove icono"/></a></div>
-                    <div class="col-xs-4"><a class="rounded-icon" href="?ctl=actor&act=mostrar&param=<?php echo $data->getId(); ?>"><span class="glyphicon glyphicon-eye-open icono"/></a></div>
-                </div>
+                <?php if (isset($_SESSION['admin'])) { ?>
+                    <div class="col-xs-12">
+                        <div class="col-xs-4"><a class="rounded-icon" href="?ctl=actor&act=editar&param=<?php echo $data->getId(); ?>"><span class="glyphicon glyphicon-pencil icono"/></a></div>
+                        <div class="col-xs-4"><a class="rounded-icon" href="?ctl=actor&act=eliminar&param=<?php echo $data->getId(); ?>"><span class="glyphicon glyphicon-remove icono"/></a></div>
+                        <div class="col-xs-4"><a class="rounded-icon" href="?ctl=actor&act=mostrar&param=<?php echo $data->getId(); ?>"><span class="glyphicon glyphicon-eye-open icono"/></a></div>
+                    </div>
+                <?php } else {
+                    ?>
+                    <div class = "col-xs-12">
+                        <div class = "col-xs-4 col-xs-offset-4"><a class = "rounded-icon" href = "?ctl=actor&act=mostrar&param=<?php echo $data->getId(); ?>"><span class = "glyphicon glyphicon-eye-open icono"/></a></div>
+                    </div>
+                <?php } ?>
             </div>
-        <?php } ?>
+            <?php
+        }
+        ?>
     </div>
 </div>

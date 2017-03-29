@@ -11,9 +11,13 @@ if (isset($_POST['submit'])) {
         foreach ($arrayDeUsers as $value) {
             if (strcmp($value->getUsername(), $username) == 0 && strcmp($value->getPassword(), $password) == 0) {
                 $_SESSION['admin'] = $value->getUsername();
-                echo 'prova: be';
-            }else{
-                echo 'prova: malament';
+                include 'view/header.php';
+                include 'view/paginaPrincipal.php';
+                include 'view/footer.php';
+            } else {
+                include 'view/header.php';
+                include 'view/user/formLogin.php';
+                include 'view/footer.php';
             }
         }
     }

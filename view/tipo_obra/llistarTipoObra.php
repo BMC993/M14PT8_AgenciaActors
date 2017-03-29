@@ -11,11 +11,13 @@
         ?>
         <tr>
             <th><?php echo $value->getTipo(); ?></th>
-            <th><a href="?ctl=tipoObra&act=eliminar&param=<?php echo $value->getId(); ?>" type="submit" class="btn red">Eliminar</a></th>
-        </tr>
+            <?php if (isset($_SESSION['admin'])) { ?>
+                <th><a href="?ctl=tipoObra&act=eliminar&param=<?php echo $value->getId(); ?>" type="submit" class="btn red">Eliminar</a></th>
+                    <?php } ?>
+            </tr>
 
-        <?php
-        $cont++;
-    }
-    ?>
+            <?php
+            $cont++;
+        }
+        ?>
 </table>
