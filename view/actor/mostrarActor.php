@@ -31,27 +31,27 @@
             </tr>
         </thead>
         <tbody>
-            
+
             <!--acabar aixo!-->
-            
-            
-            {% for papel in papeles %}
-            <tr>
-                {% for proyecto in proyectos %}
-                {% if proyecto.id == papel.idProjecte.id %}
-                <td><img height="100px" src="{{absolute_url(asset(proyecto.fotografia))}}"></td>
-                <td>{{proyecto.nom}}</td>
-                <td>{{papel.nom}}</td>
-                <td>{{papel.tipusPaper}}</td>
-                <td><a class="rounded-icon" href="{{path('backend_proyecto', {id:proyecto.id})}}"><span class="glyphicon glyphicon-eye-open icono"/></a></td>
-                {% endif %}
-                {% endfor %}
+
+            <?php if($llistaPapers != null){
+                foreach ($llistaPapers as $paper) { 
+                $projecte = $paper->getProjecte();?>
+                <tr>
+                <!--{% for proyecto in proyectos %}
+                {% if proyecto.id == papel.idProjecte.id %}-->
+                <td><img height="100px" src="<?php echo $projecte->getFotografia(); ?>"></td>
+                <td><?php echo $projecte->getNom(); ?></td>
+                <td><?php echo $paper->getNom();?></td>
+                <td><?php echo $paper->getTipus_paper(); ?></td>
+                <td><a class="rounded-icon" href="?ctl=projecte&act=mostrar&param="<?php echo $projecte->getId(); ?>><span class="glyphicon glyphicon-eye-open icono"/></a></td>
+                    <?php } ?>
             </tr>
-            {% else %}
+                    <?php }else{ ?>
             <tr>
                 <td colspan="7" class="text-center">Sin resultados</td>
             </tr>
-            {% endfor %}
+            <?php } ?>
         </tbody>
     </table>
 </div>

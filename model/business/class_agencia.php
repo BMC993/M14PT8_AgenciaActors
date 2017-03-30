@@ -37,7 +37,7 @@ class agencia {
     public function populateAgencia() {
         $agenciadb = new agenciadb();
 //        $arraydePelicules = $agenciadb->populateVideoclubdb();
-//        $this->arrayDeProjectes = $agenciadb->cercarProjectes();
+        $this->arrayDeProjectes = $agenciadb->cercarProjectes();
         $this->arrayDeTipusObres = $agenciadb->cercarTipusObres();
         $this->arrayDeActors = $agenciadb->cercarActors();
         $this->arrayDeDirectors = $agenciadb->cercarDirectors();
@@ -99,6 +99,12 @@ class agencia {
         return $projectesDeDirectors;
     }
 
+    public function recuperarPapersDeActor($idActor) {
+        $agenciadb = new agenciadb();
+        $papersDeActors = $agenciadb->cercarPapersDeActor($idActor);
+        return $papersDeActors;
+    }
+
     /* ---------------CERCAR (recuperar objecte per la ID)------------------- */
 
     public function cercarDirector($idBuscar) {
@@ -129,6 +135,16 @@ class agencia {
             }
         }
         return $tipoObra;
+    }
+
+    public function cercarProjecte($idBuscar) {
+        $projecte = null;
+        foreach ($this->arrayDeProjectes as $data) {
+            if ($idBuscar == $data->getId()) {
+                $projecte = $data;
+            }
+        }
+        return $projecte;
     }
 
     /* ---------------------------AGEFIR (new)------------------------------- */

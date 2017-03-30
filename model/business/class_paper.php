@@ -7,15 +7,16 @@ class paper {
     private $id;
     private $id_projecte;
     private $id_actor;
-    private $tipus_projecte;
     private $nom;
+    private $tipus_paper;
+    
 
-    function __construct($id_projecte, $id_actor, $tipus_projecte, $nom) {
+    function __construct($id_projecte, $id_actor, $nom, $tipus_paper) {
         $this->setId(null);
         $this->setId_projecte($id_projecte);
         $this->setId_actor($id_actor);
-        $this->setTipus_projecte($tipus_projecte);
         $this->setNom($nom);
+        $this->setTipus_paper($tipus_paper);
     }
 
     function getId() {
@@ -25,13 +26,21 @@ class paper {
     function getId_projecte() {
         return $this->id_projecte;
     }
+    
+    function getProjecte(){
+        $agencia = unserialize($_SESSION["agencia"]);
+        $projecte = $agencia->cercarProjecte($this->id_projecte);
+        if($projecte != null){
+            return $projecte;
+        }
+    }
 
     function getId_actor() {
         return $this->id_actor;
     }
 
-    function getTipus_projecte() {
-        return $this->tipus_projecte;
+    function getTipus_paper() {
+        return $this->tipus_paper;
     }
 
     function getNom() {
@@ -50,8 +59,8 @@ class paper {
         $this->id_actor = $id_actor;
     }
 
-    function setTipus_projecte($tipus_projecte) {
-        $this->tipus_projecte = $tipus_projecte;
+    function setTipus_paper($tipus_paper) {
+        $this->tipus_paper= $tipus_paper;
     }
 
     function setNom($nom) {
@@ -59,7 +68,7 @@ class paper {
     }
 
     public function showMe() {
-        printSomething($this->getId(), $this->getId_projecte(), $this->getId_actor(), $this->getTipus_projecte(), $this->getNom());
+        printSomething($this->getId(), $this->getId_projecte(), $this->getId_actor(), $this->getTipus_paper(), $this->getNom());
     }
 
 //    public function populateVideoclub() {

@@ -23,6 +23,12 @@ class agenciadb {
         $projectesDeDirector = $this->consultarProjectes($query);
         return $projectesDeDirector;
     }
+    
+    public function cercarPapersDeActor($idActor) {
+        $query = "SELECT * FROM papel WHERE id_actor=" . $idActor;
+        $papersDeActor = $this->consultarPapers($query);
+        return $papersDeActor;
+    }
 
     public function cercarTipusObres() {
         $query = "SELECT * FROM tipo_obra;";
@@ -172,7 +178,7 @@ class agenciadb {
         $arrayPapers = array();
         while ($row = mysqli_fetch_array($consulta)) {
             //FALTEN ROWS! CLAUS FORANES
-            $papers = new paper($row["nom"]);
+            $papers = new paper($row["id_projecte"], $row["id_actor"], $row["nom"], $row["id_tipo_papel"]);
             $papers->setId($row["id"]);
             $arrayPapers[$cont] = $papers;
             $cont++;
