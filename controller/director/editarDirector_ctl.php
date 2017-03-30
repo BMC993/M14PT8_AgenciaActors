@@ -14,8 +14,6 @@ if (isset($_POST['submit'])) {
 //        include 'view/director/llistarDirector.php';
 //        include 'view/footer.php';
         header('Location: ?ctl=director&act=llistar');
-    } else {
-        echo 'caca';
     }
 } else {
     $d = $agencia->cercarDirector($id);
