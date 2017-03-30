@@ -1,8 +1,15 @@
 <?php
 
+include("controller/user/crearCookie.php");
+include("controller/user/esborrarCookie.php");
 if (isset($_POST['submit'])) {
     if (isset($_REQUEST['user']) && isset($_REQUEST['password'])) {
-
+        if (isset($_REQUEST['recorda'])) {
+//            $galeta = $_COOKIE['recorda'];
+            crearCookie("recorda", $_REQUEST['user']);
+        } else {
+            esborrarCookie("recorda");
+        }
         $username = $_REQUEST['user'];
         $password = $_REQUEST['password'];
 
