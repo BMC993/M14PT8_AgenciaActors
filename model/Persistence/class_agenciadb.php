@@ -115,6 +115,22 @@ class agenciadb {
         $con->close();
     }
 
+    public function editarProjecte($projecte) {
+        var_dump($projecte->getDataInici());
+        $query = "UPDATE projecte SET descripcio = '
+        " . $projecte->getDescripcio() . "', nom = '
+        " . $projecte->getNom() . "', id_director = '
+        " . $projecte->getId_director() . "', id_tipo_obra = '
+        " . $projecte->getId_tipo_obra() . "', fotografia = '
+        " . $projecte->getFotografia() . "', datainici = '
+        " . $projecte->getDataInici()->format('Y-m-d') . "', datafinal = '
+        " . $projecte->getDataFinal()->format('Y-m-d') .  "
+        ' WHERE id = " . $projecte->getId() . ";";
+        $con = new db();
+        $con->consulta($query);
+        $con->close();
+    }
+
     /* ------------------CONSULTAR (on se li passa la query)------------------ */
 
     public function consultarProjectes($query) {

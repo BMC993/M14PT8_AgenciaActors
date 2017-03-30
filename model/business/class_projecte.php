@@ -115,6 +115,13 @@ class projecte {
         $this->dataFinal = $dataFinal;
     }
 
+    function setDataIniciObject($dataInici){
+        var_dump($dataInici);
+        $data = date_create_from_format ( "Y-m-d" , $dataInici );
+        $data = $data->format('d/m/Y');
+        $this->dataInici = $data;
+    }
+
     function setId_director($id_director) {
         $this->id_director = $id_director;
     }

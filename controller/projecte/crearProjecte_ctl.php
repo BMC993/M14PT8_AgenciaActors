@@ -1,5 +1,5 @@
 <?php
-include 'view/header.php';
+
 if (isset($_POST['submit'])) {
     if (isset($_REQUEST['nom']) && isset($_REQUEST['descripcio']) && isset($_REQUEST['tipus']) && isset($_REQUEST['datainici']) && isset($_REQUEST['datafinal']) && isset($_REQUEST['idDirector'])) {
         
@@ -26,14 +26,14 @@ if (isset($_POST['submit'])) {
         $imagen = $_REQUEST['imagen'];
 
         $agencia->afegirProjecte(addslashes($nom), addslashes($descripcio),  $dataInici, $dataFi, addslashes($idDirector), addslashes($imagen), addslashes($idTipusObra));
-        //$videoclub->afegirPelicula(addslashes($_POST['titol']), addslashes($_POST['director']), addslashes($_POST['productora']));
-    } else {
-        echo 'caca';
     }
+    header("Location: ?ctl=projecte&act=llistar");
 } else {
+    include 'view/header.php';
     $arrayDeTipusObres = $agencia->recuperarTipusObres();
     $arrayDeDirectors = $agencia->recuperarDirectors();
     
     include 'view/projecte/formProjecte.php';
+
+    include 'view/footer.php';
 }
-include 'view/footer.php';

@@ -15,7 +15,7 @@ class agencia {
 
     public function __construct($nom) {
         $this->setNom($nom);
-//        $this->arrayDeProjectes = array();
+        $this->arrayDeProjectes = array();
         $this->arrayDeTipusObres = array();
         $this->arrayDeActors = array();
         $this->arrayDeDirectors = array();
@@ -117,6 +117,16 @@ class agencia {
         return $director;
     }
 
+    public function cercarProjecte($idBuscar) {
+        $projecte = null;
+        foreach ($this->arrayDeProjectes as $p) {
+            if ($idBuscar == $p->getId()) {
+                $projecte = $p;
+            }
+        }
+        return $projecte;
+    }
+
     public function cercarActor($idBuscar) {
         $a = null;
         foreach ($this->arrayDeActors as $actor) {
@@ -135,16 +145,6 @@ class agencia {
             }
         }
         return $tipoObra;
-    }
-
-    public function cercarProjecte($idBuscar) {
-        $projecte = null;
-        foreach ($this->arrayDeProjectes as $data) {
-            if ($idBuscar == $data->getId()) {
-                $projecte = $data;
-            }
-        }
-        return $projecte;
     }
 
     /* ---------------------------AGEFIR (new)------------------------------- */
@@ -221,6 +221,19 @@ class agencia {
 
         $agenciadb = new agenciadb();
         $agenciadb->editarActor($actor);
+    }
+
+    public function editarProjecte($projecte, $nom, $descripcio, $dataInici, $dataFi, $idDirector, $imagen, $idTipusObra) {
+        $projecte->setNom($nom);
+        $projecte->setDescripcio($descripcio);
+        $projecte->setDataInici($dataInici);
+        $projecte->setDataFinal($dataFi);
+        $projecte->setId_director($idDirector);
+        $projecte->setFotografia($imagen);
+        $projecte->setId_tipo_obra($idTipusObra);
+
+        $agenciadb = new agenciadb();
+        $agenciadb->editarProjecte($projecte);
     }
 
     public function cercarTipoPaper($idBuscar) {
