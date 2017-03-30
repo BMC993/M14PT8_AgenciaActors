@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
         $genere = $_REQUEST['genere'];
 
         $actor = $agencia->cercarActor($id);
-        $agencia->editarActor($actor, addslashes($nom), addslashes($cognom), addslashes($nif), addslashes($fotografia), addslashes($genere));
+        $agencia->editarActor($actor, addslashes($nif), addslashes($nom), addslashes($cognom), addslashes($fotografia), addslashes($genere));
         
         header('Location: ?ctl=actor&act=llistar');
     }

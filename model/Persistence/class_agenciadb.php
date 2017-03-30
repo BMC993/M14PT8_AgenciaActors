@@ -102,6 +102,13 @@ class agenciadb {
         $con->consulta($query);
         $con->close();
     }
+    
+    public function editarActor($actor) {
+        $query = "UPDATE actor SET nif = '" . $actor->getNif() . "', nom = '" . $actor->getNom() . "', cognom = '" . $actor->getCognom() . "', sexe = '" . $actor->getSexe() . "', fotografia = '" . $actor->getFotografia() . "' WHERE id = " . $actor->getId() . ";";
+        $con = new db();
+        $con->consulta($query);
+        $con->close();
+    }
 
     /* ------------------CONSULTAR (on se li passa la query)------------------ */
 

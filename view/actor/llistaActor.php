@@ -10,7 +10,7 @@
             <div class="col-xs-12 col-sm-6 text-center llista">
                 <div class="col-xs-12">
                     <strong><?php
-                        echo $data->getNom();
+                        echo $data->getNom()." ";
                         echo $data->getCognom();
                         ?></strong>
                     <div class="col-xs-12">

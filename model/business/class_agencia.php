@@ -206,6 +206,17 @@ class agencia {
         $agenciadb = new agenciadb();
         $agenciadb->editarDirector($director);
     }
+    
+    public function editarActor($actor, $nif, $nom, $cognom, $fotografia, $genere) {
+        $actor->setNif($nif);
+        $actor->setNom($nom);
+        $actor->setCognom($cognom);
+        $actor->setFotografia($fotografia);
+        $actor->setSexe($genere);
+
+        $agenciadb = new agenciadb();
+        $agenciadb->editarActor($actor);
+    }
 
     public function cercarTipoPaper($idBuscar) {
 
