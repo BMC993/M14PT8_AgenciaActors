@@ -185,6 +185,11 @@ class agencia {
         $agenciadb = new agenciadb();
         $agenciadb->eliminarDirector($idDirector);
     }
+    
+    public function eliminarActor($idActor) {
+        $agenciadb = new agenciadb();
+        $agenciadb->eliminarActor($idActor);
+    }
 
     public function eliminarTipoPaper($idBuscar) {
         $agenciadb = new agenciadb();

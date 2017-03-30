@@ -23,7 +23,7 @@ class agenciadb {
         $projectesDeDirector = $this->consultarProjectes($query);
         return $projectesDeDirector;
     }
-    
+
     public function cercarPapersDeActor($idActor) {
         $query = "SELECT * FROM papel WHERE id_actor=" . $idActor;
         $papersDeActor = $this->consultarPapers($query);
@@ -73,6 +73,11 @@ class agenciadb {
         $this->esborrarGeneral($query);
     }
 
+    public function eliminarActor($idActor) {
+        $query = "DELETE FROM actor WHERE id=" . $idActor;
+        $this->esborrarGeneral($query);
+    }
+
     public function eliminarTipusPapers($tipo_paper) {
         $query = "DELETE FROM tipo_papel WHERE id =" . $tipo_paper;
         $this->esborrarGeneral($query);
@@ -102,7 +107,7 @@ class agenciadb {
         $con->consulta($query);
         $con->close();
     }
-    
+
     public function editarActor($actor) {
         $query = "UPDATE actor SET nif = '" . $actor->getNif() . "', nom = '" . $actor->getNom() . "', cognom = '" . $actor->getCognom() . "', sexe = '" . $actor->getSexe() . "', fotografia = '" . $actor->getFotografia() . "' WHERE id = " . $actor->getId() . ";";
         $con = new db();

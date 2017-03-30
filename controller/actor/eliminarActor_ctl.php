@@ -1,4 +1,4 @@
 <?php
-$id = $param;
-
+$agencia->eliminarActor($id);
+header("Location: ?ctl=actor&act=llistar");
 ?>
