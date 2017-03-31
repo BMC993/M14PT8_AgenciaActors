@@ -9,8 +9,6 @@ if ($projecte != NULL) {
     if (isset($_POST['submit'])) {
         if (isset($_REQUEST['nom']) && isset($_REQUEST['descripcio']) && isset($_REQUEST['tipus']) && isset($_REQUEST['datainici']) && isset($_REQUEST['datafinal']) && isset($_REQUEST['idDirector'])) {
 
-            var_dump($_REQUEST);
-
             $nom = $_REQUEST['nom'];
             $descripcio = $_REQUEST['descripcio'];
             $idTipusObra = $_REQUEST['tipus'];
@@ -34,9 +32,10 @@ if ($projecte != NULL) {
             $imagen = $_REQUEST['imagen'];
 
             $agencia->editarProjecte($projecte, addslashes($nom), addslashes($descripcio),  $dataInici, $dataFi, addslashes($idDirector), addslashes($imagen), addslashes($idTipusObra));
+
+            header('Location: ?ctl=projecte&act=llistar');
         }
-    }
-//    else { 
+    } else { 
 
     $arrayDeTipusObres = $agencia->recuperarTipusObres();
     $arrayDeDirectors = $agencia->recuperarDirectors();
@@ -48,7 +47,7 @@ if ($projecte != NULL) {
     include 'view/header.php';
     include 'view/projecte/formEditarProjecte.php';
     include 'view/footer.php';
-//    }
+    }
 
 } else {
     header("Location : ?ctl=projecte&act=llistar");

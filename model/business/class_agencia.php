@@ -162,7 +162,6 @@ class agencia {
     }
 
     public function afegirProjecte($nom, $descripcio, $tipus, $dataInici, $dataFi, $idDirector, $imagen) {
-
         $projecte = new projecte($nom, $descripcio, $tipus, $dataInici, $dataFi, $idDirector, $imagen);
         $projecte->inserirProjecte();
     }
@@ -224,6 +223,7 @@ class agencia {
     }
 
     public function editarProjecte($projecte, $nom, $descripcio, $dataInici, $dataFi, $idDirector, $imagen, $idTipusObra) {
+
         $projecte->setNom($nom);
         $projecte->setDescripcio($descripcio);
         $projecte->setDataInici($dataInici);

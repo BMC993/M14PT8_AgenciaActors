@@ -126,6 +126,12 @@ class projecte {
         $this->id_director = $id_director;
     }
 
+    function setDirector($id_director) {
+        $agencia = unserialize($_SESSION['agencia']);
+        $director = $agencia->cercarDirector($id_director);
+        $this->id_director = $director;
+    }
+
     function setFotografia($fotografia) {
         $this->fotografia = $fotografia;
     }
