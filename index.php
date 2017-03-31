@@ -6,13 +6,17 @@
 /* FALTA:
 
  * Paper
- * Validacio de sessio llista projecte
- * Validacions de sessio als controladors individuals
+ * Validacio de sessio llista projecte (GUILLEM)
+ * Validacions de sessio als controladors individuals (GUILLEM)... que porti al login
+ * Canviar tots idiomes (GUILLEM)
  * Si no hi ha foto al projecte, posar una
  * Eliminar amb AJAX
  * Acabar Projectes
  * Acabar Actors?
  * Missatges de CORRECTE!!... ???
+ * 
+ * 
+ * 
  * ... */
 
 
