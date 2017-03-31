@@ -18,36 +18,45 @@
                     </div>
                     <h2 class="col-xs-12">Agencia RA</h2>
                 </div>
-                <div class="text-right reloj col-sm-9 col-xs-12">
-                    <!--Añadir botones para acceder backend/frontend dependiendo de la vista + boton de logout en el caso de que este logged -->
-                    <?php if (isset($_SESSION['admin'])) { ?>
+                <div class="text-right col-sm-9 col-xs-12">
+
+                    <div class="menu seleccio-menu col-sm-11 col-xs-12">
+                        <ul>
+
+                            <?php if (isset($_SESSION['admin'])) { ?>
+                                <a href="?ctl=inici"><li class="col-sm-1 col-xs-12">Inici</li></a>
+                                <a href="?ctl=projecte&act=llistar"><li class="col-sm-2 col-xs-12">Projectes</li></a>
+                                <a href="?ctl=director&act=llistar"><li class="col-sm-2 col-xs-12">Directors</li></a>
+                                <a href="?ctl=actor&act=llistar"><li class="col-sm-2 col-xs-12">Actors</li></a>
+                                <a href="?ctl=tipoObra&act=crear"><li class="col-sm-2 col-xs-12">Tipus Obres</li></a>
+                                <a href="?ctl=tipoPaper&act=crear"><li class="col-sm-2 col-xs-12">Tipus Papers</li></a>
+                            <?php } else { ?>
+                                <a href="?ctl=inici"><li class="col-sm-2 col-xs-12">Inici</li></a>
+                                <a href="?ctl=projecte&act=llistar"><li class="col-sm-3 col-xs-12">Projectes</li></a>
+                                <a href="?ctl=director&act=llistar"><li class="col-sm-3 col-xs-12">Directors</li></a>
+                                <a href="?ctl=actor&act=llistar"><li class="col-sm-3 col-xs-12">Actors</li></a>
+                        <?php } ?>
+
+                        </ul>
+                    </div>
+                    <div class="col-sm-1 col-xs-12">
+                        <!--Añadir botones para acceder backend/frontend dependiendo de la vista + boton de logout en el caso de que este logged -->
+                        <?php if (isset($_SESSION['admin'])) { ?>
                             <a href="?ctl=user&act=logout">
-                                <div id="logout" class="btn btn-login col-lg-1 col-md-2 col-sm-3 col-xs-4">
+                                <div id="logout" class="btn btn-login">
                                     <span>Logout</span>
                                 </div>
                             </a>
-                    <?php } else {
-                        ?>
-                        <a href="?ctl=user&act=llistar">
-                            <div id="login" class="col-lg-1 col-md-2 col-sm-3 col-xs-4 btn btn-login">
-                                <span>Login</span>
-                            </div>
-                        </a>
-                    <?php } ?>
-                    <div class="menu seleccio-menu">
-                        <ul>
-
-                            <a href="?ctl=inici"><li class="col-sm-2 col-xs-12">Inici</li></a>
-                            <a href="?ctl=projecte&act=llistar"><li class="col-sm-2 col-xs-12">Projectes</li></a>
-                            <a href="?ctl=director&act=llistar"><li class="col-sm-2 col-xs-12">Directors</li></a>
-                            <a href="?ctl=actor&act=llistar"><li class="col-sm-2 col-xs-12">Actors</li></a>
-                            <a href="?ctl=tipoObra&act=crear"><li class="col-sm-2 col-xs-12">Tipo Obres</li></a>
-                            <a href="?ctl=tipoPaper&act=crear"><li class="col-sm-2 col-xs-12">Tipo Paper</li></a>
-                            
-                        </ul>
+                        <?php } else {
+                            ?>
+                            <a href="?ctl=user&act=llistar">
+                                <div id="login" class="btn btn-login">
+                                    <span>Login</span>
+                                </div>
+                            </a>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
             <div id="main" class="container-fluid">
-                <div class="row2">
-                    <div id="container" class="container">
+                <div id="container" class="container">

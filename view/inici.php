@@ -1,25 +1,55 @@
-<div class="col-sm-12">
-    <div class="col-sm-6">
-        <h2>Ja té casa!</h2>
-        <img src="view/images/leila.jpeg" class="img-responsive" style="width: 500px" alt="Leila en adopcio" />
-        <p>Aquí tenim a la <strong>Leila</strong>, una gossa que va ser rescatada dels carrers i ja té una bona llar on disfrutar amb la seva nova família. T'agradaría disfrutar d'aquesta experiència? </p>
-        <p> <a href="?ctl=adoptaGossos" class="link-style">Adoptar un gos!</a></p>
-    </div>
-    <div class="col-sm-6">
-        <h2>Adopcions</h2>
-        <ul>
-            <li>
-                <p>Podem adoptar gossos.</p>
-                <p><a class="btn btn-primary" href="?ctl=adoptaGossos" class="link-style">Adopta un gos!</a></p>
-            </li>
-            <li>
-                <p>També podem adoptar un gat. </p>
-                <p><a class="btn btn-primary" href="?ctl=adoptaGats" class="link-style">Adopta un gat!</a></p>
-            </li>
-            <li>
-                <p>Fins i tot podem adoptar altres animals extranys.</p>
-                <p><a class="btn btn-primary" href="?ctl=adoptaAltres" class="link-style">Adopta un altre animal!</a></p>
-            </li>
-        </ul>
+<?php
+
+?> 
+
+<div id="content" class="container">
+    <div class="wrapper row2">
+        <div id="container" class="clear">
+            <div id="" class="col-xs-12">
+                <h3>Agencia RA</h3>
+                <div class="col-sm-4 col-xs-12">
+                    <h2>Proyectos</h2>
+                    <div class="col-xs-12">
+                        <img class="img-llarga" src="view/imatges/index/proyectos.jpg" alt="">
+                        <p class="text-justify">Nuestros proyectos.</p>
+                    </div>
+                    <div class="more"><a class="rounded" href="{{path('frontend_proyectos')}}">Leer más &raquo;</a></div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <h2>Directores</h2>
+                    <div class="col-xs-12">
+                        <img class="img-llarga" src="view/imatges/index/directores.jpg" alt="">
+                        <p class="text-justify">Nuestros directores.</p>
+                    </div>
+                    <div class="more"><a class="rounded" href="{{path('frontend_directores')}}">Leer más &raquo;</a></div>
+                </div>
+
+                <div class="col-sm-4 col-xs-12">
+                    <h2>Actores</h2>
+                    <div class="col-xs-12">
+                        <img class="img-llarga" src="view/imatges/index/actores.jpg" alt="">
+                        <p class="text-justify">Nuestros actores.</p>
+                    </div>
+                    <div class="more"><a class="rounded" href="{{path('frontend_actores')}}">Leer más &raquo;</a></div>
+                </div>
+                <br><br>
+                <select>
+                    <?php
+                    foreach ($arrayDeTipusPapers as $tipo_paper) {
+                        echo "<option value='" . $tipo_paper->getId() . "'>" . $tipo_paper->getTipo() . "</option>";
+                    }
+                    ?>
+                </select>
+                <select>
+                    <?php
+                    foreach ($arrayDeTipusObres as $tipo_obra) {
+                        echo "<option value='" . $tipo_obra->getId() . "'>" . $tipo_obra->getTipo() . "</option>";
+                    }
+                    ?>
+                </select>
+
+            </div>
+        </div>
+
     </div>
 </div>

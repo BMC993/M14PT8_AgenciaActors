@@ -1,20 +1,20 @@
 <div class = "col-xs-12 text-center">
-    <h2>Projectes</h2>
+    <h2><?php echo $titol; ?></h2>
     <?php if (isset($_SESSION['admin'])) { ?>
         <a href="?ctl=projecte&act=crear"><button class="btn btn-color">Afegir projecte</button></a>
     <?php } ?>
 </div>
-<div class = "table-responsive col-xs-8 col-xs-offset-2 col-sm-offset-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+<div class = "table-responsive col-xs-12">
     <table class = "table table-hover">
         <thead>
             <tr>
                 <th class="text-center"></th>
-                <th class="text-center">Nombre</th>
+                <th class="text-center">Nom</th>
                 <th class="text-center">Director</th>
-                <th class="text-center">Fechas</th>
+                <th class="text-center">Dates</th>
                 <th class="text-center">Editar</th>
                 <th class="text-center">Eliminar</th>
-                <th class="text-center">Ver</th>
+                <th class="text-center">Veure</th>
             </tr>
         </thead>
         <tbody>

@@ -128,7 +128,10 @@ html, body {
 /* LLISTAS */
 
 .llista {
-	padding-bottom: 30px;
+	padding-bottom: 50px;
+}
+.llista img {
+    margin: 10px;
 }
 
 /* COSAS GENERALES */

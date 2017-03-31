@@ -1,9 +1,6 @@
+<h2 style="text-align: left;"><?php echo $titol; ?></h2>
+<div id="errorAfegirTipusPaper"></div>
 <table>
-    <tr>
-        <th>
-            Tipo
-        </th>
-    </tr>
     <?php
     $cont = 0;
 

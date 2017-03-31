@@ -29,11 +29,10 @@ if (isset($_POST['submit'])) {
     }
     header("Location: ?ctl=projecte&act=llistar");
 } else {
-    include 'view/header.php';
     $arrayDeTipusObres = $agencia->recuperarTipusObres();
     $arrayDeDirectors = $agencia->recuperarDirectors();
-    
+    $titol = "Afegir projecte";
+    include 'view/header.php';
     include 'view/projecte/formProjecte.php';
-
     include 'view/footer.php';
 }

@@ -5,7 +5,6 @@ $idProjecte = $_REQUEST['param'];
 $projecte = $agencia->cercarProjecte($idProjecte);
 
 if ($projecte != NULL) {
-    include 'view/header.php';
 
     if (isset($_POST['submit'])) {
         if (isset($_REQUEST['nom']) && isset($_REQUEST['descripcio']) && isset($_REQUEST['tipus']) && isset($_REQUEST['datainici']) && isset($_REQUEST['datafinal']) && isset($_REQUEST['idDirector'])) {
@@ -37,6 +36,7 @@ if ($projecte != NULL) {
             $agencia->editarProjecte($projecte, addslashes($nom), addslashes($descripcio),  $dataInici, $dataFi, addslashes($idDirector), addslashes($imagen), addslashes($idTipusObra));
         }
     }
+//    else { 
 
     $arrayDeTipusObres = $agencia->recuperarTipusObres();
     $arrayDeDirectors = $agencia->recuperarDirectors();
@@ -44,9 +44,11 @@ if ($projecte != NULL) {
     $directorSelected = $projecte->getId_Director();
     $tipoObraSelected = $projecte->getId_tipo_obra();
     
+    $titol = "Editar projecte";
+    include 'view/header.php';
     include 'view/projecte/formEditarProjecte.php';
-
     include 'view/footer.php';
+//    }
 
 } else {
     header("Location : ?ctl=projecte&act=llistar");

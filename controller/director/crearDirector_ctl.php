@@ -12,10 +12,10 @@ if (isset($_POST['submit'])) {
         header("Location: ?ctl=director&act=llistar");
         
     } else {
-        echo 'caca';
+        echo 'error';
     }
 } else {
-    
+    $titol = "Afegir director";
     include 'view/header.php';
     include 'view/director/formCrearDirector.php';
     include 'view/footer.php';

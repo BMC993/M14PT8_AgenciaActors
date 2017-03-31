@@ -17,6 +17,7 @@ if (isset($_POST['submit'])) {
     }
 } else {
     $d = $agencia->cercarDirector($id);
+    $titol = "Editar director";
 
     include 'view/header.php';
     include 'view/director/formEditarDirector.php';

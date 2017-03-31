@@ -1,39 +1,241 @@
 $(document).ready(function () {
-
-    $("#formDirector").submit(function(event){
-        var valid = validarDirector();
-//        alert(valid);
-        return valid;
-//        event.preventDefault();
+    
+    //Validacions de Projectes
+    $("#formAfegirProjecte").submit(function(){
+         return validarCrearProjecte();
     });
+//    $("#formEditarProjecte").submit(function(event){
+//        return validarEditarProjecte();
+//    });
+
+    //Validacions de Directors
+    $("#formAfegirDirector").submit(function(){
+         return validarCrearDirector();
+    });
+    $("#formEditarDirector").submit(function(){
+        return validarEditarDirector();
+    });
+    
+    //Validacions d'Actors
+    $("#formAfegirActor").submit(function(){
+        return validarCrearActor();
+    });
+    $("#formEditarActor").submit(function(){
+        return validarEditarActor();
+    });
+    
+    //Validacions Tipus d'Obres
+    $("#formAfegirTipusObra").submit(function(){
+        return validarCrearTipusObra();
+    });
+    
+    //Validacions Tipus de Papers
+    $("#formAfegirTipusPaper").submit(function(){
+        return validarCrearTipusPaper();
+    });
+    
 
 });
 
-function validarDirector() {
+//--------------------------------DIRECTORS----------------------------------
+function validarCrearProjecte() {
+    var nom = $("#nomProjecte").val();
+    var descripcio = $("#descripcioProjecte").val();
+    var tipus = $("#tipusProjecte").val();
+    var dataInici = $("#dataIniciProjecte").val();
+    var dataFi = $("#dataFiProjecte").val();
+    var director = $("#directorProjecte").val();
+    var valid = false;
+    
+    $.ajax({
+        url: "view/validacions/validacions.php",
+        type: "POST",
+        async: false,
+        data: { "validar": "crearProjecte", "nom": nom, "descripcio": descripcio, "tipus": tipus , "dataInici": dataInici , "dataFi": dataFi , "director": director},
+        dataType: "html",
+        success: function (data) {
+            if (data == 1) {
+                valid = true;
+            } else {
+                mostrarError("errorAfegirProjecte", "Informació incorrecta!")
+            }
+        }
+    }).fail(function(){alert("Error AJAX");});
+    
+    return valid;
+}
+function validarEditarProjecte() {
+    var nom = $("#nomProjecte").val();
+    var descripcio = $("#descripcioProjecte").val();
+    var tipus = $("#tipusProjecte").val();
+    var dataInici = $("#dataIniciProjecte").val();
+    var dataFi = $("#dataFiProjecte").val();
+    var director = $("#directorProjecte").val();
+    var valid = false;
+    
+    $.ajax({
+        url: "view/validacions/validacions.php",
+        type: "POST",
+        async: false,
+        data: { "validar": "editarProjecte", "nom": nom, "descripcio": descripcio, "tipus": tipus , "dataInici": dataInici , "dataFi": dataFi , "director": director },
+        dataType: "html",
+        success: function (data) {
+            if (data == 1) {
+                valid = true;
+            } else {
+                mostrarError("errorEditarProjecte", "Informació incorrecta!")
+            }
+        }
+    }).fail(function(){alert("Error AJAX");});
+    
+    return valid;
+}
+
+//--------------------------------DIRECTORS----------------------------------
+function validarCrearDirector() {
     var nom = $("#nomDirector").val();
     var cognom = $("#cognomDirector").val();
     var dni = $("#dniDirector").val();
     var valid = false;
     
     $.ajax({
-//        url: "?ctl=validacions",
         url: "view/validacions/validacions.php",
         type: "POST",
         async: false,
-        data: { "validar": "director", "nom": nom, "cognom": cognom, "dni": dni },
+        data: { "validar": "crearDirector", "nom": nom, "cognom": cognom, "dni": dni },
         dataType: "html",
         success: function (data) {
-            alert(data);
             if (data == 1) {
                 valid = true;
             } else {
-                valid = false;
+                mostrarError("errorAfegirDirector", "Informació incorrecta!")
             }
         }
-    }).fail(function(){alert("jajajaja");});
+    }).fail(function(){alert("Error AJAX");});
+    
+    return valid;
+}
+function validarEditarDirector() {
+    var nom = $("#nomDirector").val();
+    var cognom = $("#cognomDirector").val();
+    var valid = false;
+    
+    $.ajax({
+        url: "view/validacions/validacions.php",
+        type: "POST",
+        async: false,
+        data: { "validar": "editarDirector", "nom": nom, "cognom": cognom },
+        dataType: "html",
+        success: function (data) {
+            if (data == 1) {
+                valid = true;
+            } else {
+                mostrarError("errorEditarDirector", "Informació incorrecta!")
+            }
+        }
+    }).fail(function(){alert("Error AJAX");});
+    
+    return valid;
+}
+
+//--------------------------------ACTORS----------------------------------
+function validarCrearActor() {
+    var nom = $("#nomActor").val();
+    var cognom = $("#cognomActor").val();
+    var dni = $("#dniActor").val();
+    var valid = false;
+    
+    $.ajax({
+        url: "view/validacions/validacions.php",
+        type: "POST",
+        async: false,
+        data: { "validar": "crearActor", "nom": nom, "cognom": cognom, "dni": dni },
+        dataType: "html",
+        success: function (data) {
+            if (data == 1) {
+                valid = true;
+            } else {
+                mostrarError("errorAfegirActor", "Informació incorrecta!")
+            }
+        }
+    }).fail(function(){alert("Error AJAX");});
+    
+    return valid;   
+}
+function validarEditarActor() {
+    var nom = $("#nomActor").val();
+    var cognom = $("#cognomActor").val();
+    var valid = false;
+    
+    $.ajax({
+        url: "view/validacions/validacions.php",
+        type: "POST",
+        async: false,
+        data: { "validar": "editarActor", "nom": nom, "cognom": cognom },
+        dataType: "html",
+        success: function (data) {
+            if (data == 1) {
+                valid = true;
+            } else {
+                mostrarError("errorEditarActor", "Informació incorrecta!")
+            }
+        }
+    }).fail(function(){alert("Error AJAX");});
     
     return valid;
     
+}
+
+//--------------------------------TIPUS OBRA----------------------------------
+function validarCrearTipusObra() {
+    var nom = $("#nomTipusObra").val();
+    var valid = false;
+    
+    $.ajax({
+        url: "view/validacions/validacions.php",
+        type: "POST",
+        async: false,
+        data: { "validar": "crearTipusObra", "nom": nom },
+        dataType: "html",
+        success: function (data) {
+            if (data == 1) {
+                valid = true;
+            } else {
+                mostrarError("errorAfegirTipusObra", "Informació incorrecta!")
+            }
+        }
+    }).fail(function(){alert("Error AJAX");});
+    
+    return valid;
+}
+
+//--------------------------------TIPUS OBRA----------------------------------
+function validarCrearTipusPaper() {
+    var nom = $("#nomTipusPaper").val();
+    var valid = false;
+    
+    $.ajax({
+        url: "view/validacions/validacions.php",
+        type: "POST",
+        async: false,
+        data: { "validar": "crearTipusPaper", "nom": nom },
+        dataType: "html",
+        success: function (data) {
+            if (data == 1) {
+                valid = true;
+            } else {
+                mostrarError("errorAfegirTipusPaper", "Informació incorrecta!")
+            }
+        }
+    }).fail(function(){alert("Error AJAX");});
+    
+    return valid;
+}
+
+//--------------------------------ERRORS----------------------------------
+function mostrarError(id, missatge) {
+    $("#" + id).addClass("alert alert-danger");
+    $("#" + id).html(missatge);
 }
 
 

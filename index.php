@@ -1,12 +1,55 @@
 <?php
 
-//include 'model/tipusAnimal.class.php';
-//include 'model/animal.class.php';
-//include 'controller/validarSessio_ctl.php';
-//include 'view/mostrarMissatge.php';
-//$animals = new AnimalsDAO();
-//$ctl = "inici";
-//session_start();
+//PaginaPrincipal ---->>> inici     !!!!!!!!!
+//Index2 ----->>> index
+
+/* FALTA:
+
+ * Paper
+ * Validacio de sessio llista projecte
+ * Validacions de sessio als controladors individuals
+ * Si no hi ha foto al projecte, posar una
+ * Eliminar amb AJAX
+ * Acabar Projectes
+ * Acabar Actors?
+ * Missatges de CORRECTE!!... ???
+ * ... */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 require_once("config/inici.inc.php");
 require_once("config/config.inc.php");
 require_once("controller/function_AutoLoad.php");

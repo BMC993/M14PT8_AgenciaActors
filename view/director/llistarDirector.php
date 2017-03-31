@@ -1,10 +1,10 @@
 <div class="col-xs-12 text-center">
-    <h2>Els nostres directors</h2>
+    <h2><?php echo $titol; ?></h2>
     <?php if (isset($_SESSION['admin'])) { ?>
         <a href="?ctl=director&act=crear"><button class="btn btn-color">Afegir director</button></a>
     <?php } ?>
 </div>
-<div class="table-responsive col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-10 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+<div class="table-responsive col-xs-12">
     <table class="table table-hover">
         <thead>
             <tr>
