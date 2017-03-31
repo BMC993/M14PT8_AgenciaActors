@@ -20,7 +20,13 @@
         <tbody>
             <?php foreach ($llistaProjectes as $projecte) { ?>
                 <tr>
-                    <td class="text-center"><strong class="col-xs-12"><?php echo $projecte->getTipoObra(); ?></strong><img height = "100px" src = "<?php echo $projecte->getFotografia(); ?>"></td>
+                    <td class="text-center"><strong class="col-xs-12"><?php echo $projecte->getTipoObra(); ?></strong>
+                        <?php if($projecte->getFotografia() != "") { ?>
+                            <img height = "100px" src = "<?php echo $projecte->getFotografia(); ?>">
+                        <?php } else { ?>
+                            <img height = "100px" style="border:2px solid #770e0e;" src = "view/imatges/proyectos/not-found.png">
+                        <?php } ?>
+                    </td>
                     <td class="text-center"><?php echo $projecte->getNom(); ?></td>
                     <td class="text-center"><?php echo $projecte->getDirector(); ?></td>
                     <td class="text-center"><?php echo $projecte->getDataIniciObject(); ?><br>-<br><?php echo $projecte->getDataFinalObject(); ?></td>
