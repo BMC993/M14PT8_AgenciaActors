@@ -29,15 +29,18 @@ $(document).ready(function () {
         return validarCrearTipusObra();
     });
     
-    //Validacions Tipus de Papers
+    //Validacions
     $("#formAfegirTipusPaper").submit(function(){
         return validarCrearTipusPaper();
     });
     
-
+    //Validacions Creacio Papers
+    $("#afegirPaper").click(function(){
+        return validarCrearPaper();
+    });
 });
 
-//--------------------------------DIRECTORS----------------------------------
+//--------------------------------PROJECTES----------------------------------
 function validarCrearProjecte() {
     var nom = $("#nomProjecte").val();
     var descripcio = $("#descripcioProjecte").val();
@@ -209,7 +212,7 @@ function validarCrearTipusObra() {
     return valid;
 }
 
-//--------------------------------TIPUS OBRA----------------------------------
+//--------------------------------TIPUS PAPER----------------------------------
 function validarCrearTipusPaper() {
     var nom = $("#nomTipusPaper").val();
     var valid = false;
@@ -225,6 +228,33 @@ function validarCrearTipusPaper() {
                 valid = true;
             } else {
                 mostrarError("errorAfegirTipusPaper", "Informació incorrecta!")
+            }
+        }
+    }).fail(function(){alert("Error AJAX");});
+    
+    return valid;
+}
+
+//--------------------------------PAPER----------------------------------
+function validarCrearPaper() {
+    var idProjecte = $("#idProjecte").val(); //AQUEST CANVIAL JAJAJAJ SALUDOS
+    var idActor = $("#idActor").val();
+    var nomPaper = $("#nomPaper").val();
+    var idTipusPaper = $("#idTipusPaper").val();
+    var valid = false;
+    
+    $.ajax({
+        url: "view/validacions/validacions.php",
+        type: "POST",
+        async: false,
+        data: { "validar": "crearPaper", "idProjecte": idProjecte, "idActor": idActor, "nomPaper": nomPaper, "idTipusPaper": idTipusPaper, },
+        dataType: "html",
+        success: function (data) {
+            if (data == 1) {
+                //AQUI FES COSETES ALEIX
+                valid = true;
+            } else {
+                mostrarError("errorAfegirPaper", "Informació incorrecta!")
             }
         }
     }).fail(function(){alert("Error AJAX");});

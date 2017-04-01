@@ -4,7 +4,7 @@
     <div class="form-group">
         <div class="col-xs-12">
             <label class="control-label">Actors</label>
-            <select id="nomActor" class="form-control" name="idActor">
+            <select id="idActor" class="form-control" name="idActor">
                 <?php
                 foreach ($llistaActors as $actor) {
                     echo "<option value='" . $actor->getId() . "' >" . $actor->getNom() . " " . $actor->getCognom() . "</option>";
@@ -15,14 +15,14 @@
     </div>
     <div class="form-group">
         <div class="col-xs-12">
-            <label class="control-label">Nom Paper</label>
+            <label class="control-label">Nom paper</label>
             <input id="nomPaper" class="form-control" type="text" name="nomPaper">
         </div>
     </div>
     <div class="form-group">
         <div class="col-xs-12">
-            <label class="control-label">Tipo papel</label>
-            <select id="tipusPaper" class="form-control" name="idTipusPaper">
+            <label class="control-label">Tipus paper</label>
+            <select id="idTipusPaper" class="form-control" name="idTipusPaper">
                 <?php
                 foreach ($arrayDeTipusPapers as $tipusPaper) {
                     echo "<option value='" . $tipusPaper->getId() . "' >" . $tipusPaper->getTipo() . "</option>";
@@ -33,7 +33,7 @@
     </div>
     <div class="form-group">
         <div class="text-center col-xs-12">
-            <input class="btn btn-color" type="submit" name="submit" value="Añadir papel" />
+            <input class="btn btn-color" id="afegirPaper" type="button" name="submit" value="Afegir paper" />
         </div>
     </div>
 </form>
