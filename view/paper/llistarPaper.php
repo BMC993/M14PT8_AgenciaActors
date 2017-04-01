@@ -11,7 +11,7 @@ foreach ($llistaTipusPapers as $tipusPaper) {
             <p>
                 <a class="rounded" href="?ctl=actor&act=mostrar&param=<?php echo $actor->getId(); ?>">
                     <?php echo $actor->getNom(); ?> <?php echo $actor->getCognom(); ?></a> (<?php echo $paper->getNom(); ?>)
-                    <a class="rounded-icon" href="#">
+                    <a class="rounded-icon" href="?ctl=paper&act=eliminar&param=<?php echo $paper->getId(); ?>">
                         <span class="glyphicon glyphicon-remove icono"/>
                     </a>
                 </p>

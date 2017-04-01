@@ -28,10 +28,7 @@
                     </div>
                     <div class="more"><a class="rounded" href="?ctl=actor&act=llistar">Llegir més &raquo;</a></div>
                 </div>
-
             </div>
         </div>
-<a class="rounded" href="?ctl=paper&act=crear">CREAR PAPER</a>
-<a class="rounded" href="?ctl=paper&act=llistar">LLISTAR PAPER</a>
     </div>
 </div>

@@ -5,16 +5,16 @@
         <!--    <input type="text" name="id" hidden="">-->
 
         <div class="form-group">
-            <label class="control-label">Nombre</label>
+            <label class="control-label">Nom</label>
             <input id="nomProjecte" class="form-control" type="text" name="nom" value="<?php echo $projecte->getNom(); ?>">
         </div>
         <div class="form-group">
-            <label class="control-label">Descripcion</label>
+            <label class="control-label">Descripció</label>
             <input id="descripcioProjecte" class="form-control" type="text" name="descripcio" value="<?php echo $projecte->getDescripcio(); ?>">
         </div>
 
         <div class="form-group">
-            <label class="control-label">Tipo</label>
+            <label class="control-label">Tipus</label>
             <select id="tipusProjecte" class="form-control" type="text" name="tipus">
                 <?php
                 foreach ($arrayDeTipusObres as $tipo_obra) {
@@ -28,11 +28,11 @@
             </select>
         </div>
         <div class="form-group">
-            <label class="control-label">Fecha inicio</label>
+            <label class="control-label">Data inici</label>
             <input id="dataIniciProjecte" class=" form-control" type="text" name="datainici" placeholder="DD/MM/YYYY" value="<?php echo $projecte->getDataIniciObject(); ?>">
         </div>  
         <div class="form-group">
-            <label class="control-label">Fecha fin</label>
+            <label class="control-label">Data fi</label>
             <input id="dataFiProjecte" class=" form-control" type="text" name="datafinal" placeholder="DD/MM/YYYY" value="<?php echo $projecte->getDataFinalObject(); ?>">
         </div>   
         <div class="form-group">
@@ -67,7 +67,7 @@
         <form class="form-horizontal" id="formAfegirPaper" role="form" action="?ctl=paper&act=crear&param=<?php echo $projecte->getId(); ?>" name="crearPapel" method="POST">
             <div class="form-group">
                 <div class="col-xs-12">
-                    <label class="control-label">Actors</label>
+                    <label class="control-label">Actor</label>
                     <select id="idActor" class="form-control" name="idActor">
                         <?php
                         foreach ($llistaActors as $actor) {
@@ -116,20 +116,24 @@
                     <p>
                         <a class="rounded" href="?ctl=actor&act=mostrar&param=<?php echo $actor->getId(); ?>">
                             <?php echo $actor->getNom(); ?> <?php echo $actor->getCognom(); ?></a> (<?php echo $paper->getNom(); ?>)
-                            <a class="rounded-icon" href="#">
-                                <span class="glyphicon glyphicon-remove icono"/>
-                            </a>
-                        </p>
-                        <?php
-                    }
+                        <a class="rounded-icon" id="eliminarPaper" href="?ctl=paper&act=eliminar&param=<?php echo $paper->getId(); ?>">
+                            <span class="glyphicon glyphicon-remove icono"/>
+                        </a>
+                    </p>
+                    <?php
                 }
             }
-            ?>
+        }
+        ?>
     </div>
 </div>
 <script>
-    $("#formAfegirPaper").submit(function(){
+    $("#formAfegirPaper").submit(function () {
         afegirPaper('formAfegirPaper');
+        return false;
+    });
+    $("#eliminarPaper").click(function () {
+        eliminarPaper('eliminarPaper');
         return false;
     });
 
@@ -138,7 +142,7 @@
             method: metodo,
             url: url,
             data: param,
-            success: function(data){
+            success: function (data) {
                 funcion(data);
             }
         });
@@ -148,34 +152,49 @@
         form = document.getElementById(nomForm);
         formVacio = comprobarCampos(form);
         action = form.action;
-        data = $("#"+nomForm).serialize();
+        data = $("#" + nomForm).serialize();
         if (formVacio == false) {
             peticioAjax(action, "POST", recarregarPapers, data);
         }
     }
 
     function recarregarPapers(data) {
-      if (data == true) {
-        mostrarSuccess("errorEditarProjecte", "S'ha afegit el paper correctament!");
-        peticioAjax("?ctl=paper&act=llistar", "GET", llistarPapers, "param="+<?php echo $projecte->getId(); ?>);
-      } else {
-        mostrarError("errorEditarProjecte", "Informació incorrecta!");
-      }
+        if (data == true) {
+            mostrarSuccess("errorEditarProjecte", "S'ha afegit el paper correctament!");
+            peticioAjax("?ctl=paper&act=llistar", "GET", llistarPapers, "param=" +<?php echo $projecte->getId(); ?>);
+        } else {
+            mostrarError("errorEditarProjecte", "Informació incorrecta!");
+        }
     }
 
-    function llistarPapers(data){
+    function llistarPapers(data) {
         $('#llistaPapers').html(data);
     }
 
-    function comprobarCampos(form){
+    function comprobarCampos(form) {
         elementoVacio = false;
-        for (i=form.elements.length-1; i>=0; i--){
+        for (i = form.elements.length - 1; i >= 0; i--) {
             if (form.elements[i].value == "" && form.elements[i].type != "submit") {
                 form.elements[i].focus();
                 elementoVacio = true;
             }
         }
         return elementoVacio;
-    };
+    }
+    ;
+
+    function eliminarPaper(id) {
+        var ruta = $("#" + id).attr('href');
+        peticioAjax(ruta, "POST", recarregarPapersEnEliminar);
+    }
+
+    function recarregarPapersEnEliminar(data) {
+//        if (data == true) {
+        mostrarSuccess("errorEditarProjecte", "S'ha eliminat el paper correctament!");
+        peticioAjax("?ctl=paper&act=llistar", "GET", llistarPapers, "param=" +<?php echo $projecte->getId(); ?>);
+//        } else {
+//            mostrarError("errorEditarProjecte", "Informació incorrecta!");
+//        }
+    }
 
 </script>

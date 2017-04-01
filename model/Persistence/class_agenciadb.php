@@ -101,6 +101,11 @@ class agenciadb {
         $this->esborrarGeneral($query);
     }
 
+    public function eliminarPaper($idPaper) {
+        $query = "DELETE FROM papel WHERE id=" . $idPaper;
+        $this->esborrarGeneral($query);
+    }
+    
     public function eliminarTipusPapers($tipo_paper) {
         $query = "DELETE FROM tipo_papel WHERE id =" . $tipo_paper;
         $this->esborrarGeneral($query);
