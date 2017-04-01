@@ -1,7 +1,3 @@
-<?php
-
-?> 
-
 <div id="content" class="container">
     <div class="wrapper row2">
         <div id="container" class="clear">
@@ -35,6 +31,6 @@
 
             </div>
         </div>
-
+<a class="rounded" href="?ctl=paper&act=crear">CREAR PAPER</a>
     </div>
 </div>

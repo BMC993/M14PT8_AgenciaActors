@@ -172,6 +172,12 @@ class agencia {
         $tipo_obra->inserirTipoObra();
     }
 
+    public function afegirPaper($idProjecte, $idActor, $nomPaper, $idTipusPaper) {
+
+        $paper = new paper($idProjecte, $idActor, $nomPaper, $idTipusPaper);
+        $paper->inserirPaper();
+    }
+    
     public function afegirTipoPaper($nom) {
 
         $tipo_paper = new tipo_paper($nom);

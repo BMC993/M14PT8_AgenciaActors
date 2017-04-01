@@ -67,10 +67,10 @@ class paper {
         $this->nom = $nom;
     }
 
-    public function showMe() {
-        printSomething($this->getId(), $this->getId_projecte(), $this->getId_actor(), $this->getTipus_paper(), $this->getNom());
+    public function inserirPaper() {
+        $paperDb = new paperdb();
+        $paperDb->inserir($this);
     }
-
 //    public function populateVideoclub() {
 //        $videoclubdb = new videoclubdb();
 //        $arraydePelicules = $videoclubdb->populateVideoclubdb();

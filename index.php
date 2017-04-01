@@ -17,6 +17,8 @@
  * 
  * 
  * 
+ * DEIXAR BASE DE DADS AMB INFORMACIO MACA
+ * 
  * ... */
 
 
