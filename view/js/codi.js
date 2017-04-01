@@ -35,9 +35,9 @@ $(document).ready(function () {
     });
     
     //Validacions Creacio Papers
-    $("#afegirPaper").click(function(){
-        return validarCrearPaper();
-    });
+    // $("#afegirPaper").click(function(){
+    //     return validarCrearPaper();
+    // });
 });
 
 //--------------------------------PROJECTES----------------------------------
@@ -254,7 +254,7 @@ function validarCrearPaper() {
                 //AQUI FES COSETES ALEIX
                 valid = true;
             } else {
-                mostrarError("errorAfegirPaper", "Informació incorrecta!")
+                mostrarError("errorAfegirPaper", "Informació incorrecta!");
             }
         }
     }).fail(function(){alert("Error AJAX");});
@@ -262,12 +262,40 @@ function validarCrearPaper() {
     return valid;
 }
 
-//--------------------------------ERRORS----------------------------------
+//--------------------------------ALERTES----------------------------------
 function mostrarError(id, missatge) {
-    $("#" + id).addClass("alert alert-danger");
-    $("#" + id).html(missatge);
+    element = $("#" + id);
+    element.slideUp();
+    element.removeClass("alert-success");
+    element.addClass("alert alert-danger");
+    element.html(missatge);
+    element.hide();
+    element.slideDown();
+
+    removeAlerta(id);
 }
 
+function mostrarSuccess(id, missatge) {
+    element = $("#" + id);
+    element.slideUp();
+    element.removeClass("alert-danger");
+    element.addClass("alert alert-success");
+    element.html(missatge);
+    element.hide();
+    element.slideDown();
+
+    removeAlerta(id);
+}
+
+function removeAlerta(id){
+    element = $("#" + id);
+
+    setTimeout(function(){
+        element.slideUp();
+        element.html("");
+    }, 4000);
+    
+}
 
 
 //Variables utilitzades per mostrar el botó. A cada comprovació d'errors

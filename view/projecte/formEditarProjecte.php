@@ -58,50 +58,46 @@
                 <input class="btn btn-color" type="submit"  name="submit" value="Enviar" />      
             </div>
         </div>
-
-
-
-
     </form>
 </div>
 
 
 <div class="col-xs-12 col-sm-5 col-sm-offset-1">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-    <form class="form-horizontal" role="form" aaction="?ctl=paper&act=crear&param=<?php echo $projecte->getId(); ?>" name="crearPapel" method="POST">
-            <div class="form-group">   
+        <form class="form-horizontal" id="formAfegirPaper" role="form" action="?ctl=paper&act=crear&param=<?php echo $projecte->getId(); ?>" name="crearPapel" method="POST">
+            <div class="form-group">
                 <div class="col-xs-12">
-                    <label class="control-label">Nombre papel</label>
-                    <select class="form-control" name="actor">
-                    <?php
+                    <label class="control-label">Actors</label>
+                    <select id="idActor" class="form-control" name="idActor">
+                        <?php
                         foreach ($llistaActors as $actor) {
                             echo "<option value='" . $actor->getId() . "' >" . $actor->getNom() . " " . $actor->getCognom() . "</option>";
                         }
-                    ?>
-                    </select>     
-                </div>      
+                        ?>
+                    </select>
+                </div>
             </div>
             <div class="form-group">
                 <div class="col-xs-12">
-                    <label class="control-label">Nombre papel</label>
-                    <input class="form-control" type="text" name="nombrePapel">
+                    <label class="control-label">Nom paper</label>
+                    <input id="nomPaper" class="form-control" type="text" name="nomPaper">
                 </div>
-            </div>    
+            </div>
             <div class="form-group">
                 <div class="col-xs-12">
-                    <label class="control-label">Tipo papel</label>
-                    <select class="form-control" name="tipusPaper">
-                    <?php
+                    <label class="control-label">Tipus paper</label>
+                    <select id="idTipusPaper" class="form-control" name="idTipusPaper">
+                        <?php
                         foreach ($arrayDeTipusPapers as $tipusPaper) {
                             echo "<option value='" . $tipusPaper->getId() . "' >" . $tipusPaper->getTipo() . "</option>";
                         }
-                    ?>
-                    </select>   
+                        ?>
+                    </select>
                 </div>
-            </div> 
-            <div class="form-group">           
+            </div>
+            <div class="form-group">
                 <div class="text-center col-xs-12">
-                    <input class="btn btn-color" type="submit" value="Añadir papel" />      
+                    <input class="btn btn-color" id="afegirPaper" type="submit" name="submit" value="Afegir paper" />
                 </div>
             </div>
         </form>
@@ -122,3 +118,50 @@
         {% endfor %}
     </div>
 </div>
+<script>
+    $("#formAfegirPaper").submit(function(){
+        afegirPaper('formAfegirPaper');
+        return false;
+    });
+
+    function peticioAjax(url, metodo, funcion, param) {
+        $.ajax({
+            method: metodo,
+            url: url,
+            data: param,
+            success: function(data){
+                funcion(data);
+            }
+        });
+    }
+
+    function afegirPaper(nomForm) {
+        form = document.getElementById(nomForm);
+        formVacio = comprobarCampos(form);
+        action = form.action;
+        data = $("#"+nomForm).serialize();
+        if (formVacio == false) {
+            peticioAjax(action, "POST", recarregarPapers, data);
+        }
+    }
+
+    function recarregarPapers(data) {
+      if (data == true) {
+        mostrarSuccess("errorEditarProjecte", "S'ha afegit el paper correctament!");
+      } else {
+        mostrarError("errorEditarProjecte", "Informació incorrecta!");
+      }
+    }
+
+    function comprobarCampos(form){
+        elementoVacio = false;
+        for (i=form.elements.length-1; i>=0; i--){
+            if (form.elements[i].value == "" && form.elements[i].type != "submit") {
+                form.elements[i].focus();
+                elementoVacio = true;
+            }
+        }
+        return elementoVacio;
+    };
+
+</script>

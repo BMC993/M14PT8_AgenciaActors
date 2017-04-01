@@ -33,7 +33,7 @@
     </div>
     <div class="form-group">
         <div class="text-center col-xs-12">
-            <input class="btn btn-color" id="afegirPaper" type="button" name="submit" value="Afegir paper" />
+            <input class="btn btn-color" id="afegirPaper" type="submit" name="submit" value="Afegir paper" />
         </div>
     </div>
 </form>
