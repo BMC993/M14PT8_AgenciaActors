@@ -36,6 +36,12 @@ class agenciadb {
         return $actorDePaper;
     }
     
+    public function cercarPapersDeProjecte($idProjecte) {
+        $query = "SELECT * FROM papel WHERE id_projecte=" . $idProjecte;
+        $papersDeProjecte = $this->consultarPapers($query);
+        return $papersDeProjecte;
+    }
+    
     public function cercarPapersDeTipusPaper($idTipusPaper) {
         $query = "SELECT * FROM papel WHERE id_tipo_papel=" . $idTipusPaper;
         $papersDeTipusPaper = $this->consultarPapers($query);

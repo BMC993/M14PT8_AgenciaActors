@@ -1,9 +1,9 @@
 <?php
 
-
-//$llistaPapers = $agencia->recuperarPapers();
+//$idProjecte = $id;
+$idProjecte = 1;
+$llistaPapers = $agencia->recuperarPapersDeProjectes($idProjecte);
 $llistaTipusPapers = $agencia->recuperarTipusPapers();
-$llistaActors = $agencia->recuperarActors();
     
 //$titol = "Projectes";
 

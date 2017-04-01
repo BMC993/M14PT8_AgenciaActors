@@ -103,6 +103,12 @@ class agencia {
         return $papersDeActors;
     }
 
+    public function recuperarPapersDeProjectes($idProjecte) {
+        $agenciadb = new agenciadb();
+        $papersDeProjecte = $agenciadb->cercarPapersDeProjecte($idProjecte);
+        return $papersDeProjecte;
+    }
+    
     public function recuperarActorDePaper($idActor) {
         $agenciadb = new agenciadb();
         $actorDePaper = $agenciadb->cercarActorDePaper($idActor);

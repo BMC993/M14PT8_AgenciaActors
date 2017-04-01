@@ -58,6 +58,15 @@ class paper {
     function setId_actor($id_actor) {
         $this->id_actor = $id_actor;
     }
+    
+    function getActor() {
+        $agencia = unserialize($_SESSION['agencia']);
+        $actor = $agencia->cercarActor($this->id_actor);
+        if ($actor != NULL) {
+           return $actor;
+        }
+        return "-";
+    }
 
     function setTipus_paper($tipus_paper) {
         $this->tipus_paper= $tipus_paper;
