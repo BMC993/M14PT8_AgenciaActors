@@ -102,20 +102,29 @@
             </div>
         </form>
     </div>
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-        <strong>Papeles principales:</strong>
-        {% for papel in papeles %}
-        {% if papel.tipusPaper == "Primario" %}
-        <p><a class="rounded" href="{{path('backend_formulario_actor', {id:papel.idActor.id})}}">{{papel.idActor.nom}} {{papel.idActor.cognom}}</a> ({{papel.nom}}) <a class="rounded-icon" href="{{path('backend_eliminar_papel', {idProyecto:id, idPapel:papel.id})}}"><span class="glyphicon glyphicon-remove icono"/></a></p>
-        {% endif %}
-        {% endfor %}
-        <br>
-        <strong>Papeles secundarios:</strong>
-        {% for papel in papeles %}
-        {% if papel.tipusPaper == "Secundario" %}
-        <p><a class="rounded" href="{{path('backend_formulario_actor', {id:papel.idActor.id})}}">{{papel.idActor.nom}} {{papel.idActor.cognom}}</a> ({{papel.nom}}) <a class="rounded-icon" href="{{path('backend_eliminar_papel', {idProyecto:id, idPapel:papel.id})}}"><span class="glyphicon glyphicon-remove icono"/></a></p>
-        {% endif %}
-        {% endfor %}
+    <div id="llistaPapers" class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <?php
+        foreach ($llistaTipusPapers as $tipusPaper) {
+            $llistaActors = $agencia->recuperarActorsDeTipusPaper($tipusPaper->getId());
+            ?>
+            <div style="padding-top: 10px;">Tipus paper: <strong><?php echo $tipusPaper->getTipo(); ?></strong></div>
+            <?php
+            foreach ($llistaPapers as $paper) {
+                if ($tipusPaper->getId() == $paper->getTipus_paper()) {
+                    $actor = $paper->getActor();
+                    ?>
+                    <p>
+                        <a class="rounded" href="?ctl=actor&act=mostrar&param=<?php echo $actor->getId(); ?>">
+                            <?php echo $actor->getNom(); ?> <?php echo $actor->getCognom(); ?></a> (<?php echo $paper->getNom(); ?>)
+                            <a class="rounded-icon" href="#">
+                                <span class="glyphicon glyphicon-remove icono"/>
+                            </a>
+                        </p>
+                        <?php
+                    }
+                }
+            }
+            ?>
     </div>
 </div>
 <script>
@@ -148,9 +157,14 @@
     function recarregarPapers(data) {
       if (data == true) {
         mostrarSuccess("errorEditarProjecte", "S'ha afegit el paper correctament!");
+        peticioAjax("?ctl=paper&act=llistar", "GET", llistarPapers, "param="+<?php echo $projecte->getId(); ?>);
       } else {
         mostrarError("errorEditarProjecte", "Informació incorrecta!");
       }
+    }
+
+    function llistarPapers(data){
+        $('#llistaPapers').html(data);
     }
 
     function comprobarCampos(form){

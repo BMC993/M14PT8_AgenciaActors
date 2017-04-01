@@ -294,7 +294,6 @@ function removeAlerta(id){
         element.slideUp();
         element.html("");
     }, 4000);
-    
 }
 
 

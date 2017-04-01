@@ -35,6 +35,8 @@ if ($projecte != NULL) {
             header('Location: ?ctl=projecte&act=llistar');
         }
     } else {
+        $llistaPapers = $agencia->recuperarPapersDeProjectes($id);
+        $llistaTipusPapers = $agencia->recuperarTipusPapers();
         $llistaActors = $agencia->recuperarActors();
         $arrayDeTipusPapers = $agencia->recuperarTipusPapers();
 
