@@ -19,7 +19,7 @@ class agencia {
         $this->arrayDeTipusObres = array();
         $this->arrayDeActors = array();
         $this->arrayDeDirectors = array();
-//        $this->arrayDePapers = array();
+        $this->arrayDePapers = array();
         $this->arrayDeTipusPapers = array();
         $this->arrayDeUsers = array();
     }
@@ -36,15 +36,13 @@ class agencia {
 
     public function populateAgencia() {
         $agenciadb = new agenciadb();
-//        $arraydePelicules = $agenciadb->populateVideoclubdb();
         $this->arrayDeProjectes = $agenciadb->cercarProjectes();
         $this->arrayDeTipusObres = $agenciadb->cercarTipusObres();
         $this->arrayDeActors = $agenciadb->cercarActors();
         $this->arrayDeDirectors = $agenciadb->cercarDirectors();
-//        $this->arrayDePapers = $agenciadb->cercarPapers();
+        $this->arrayDePapers = $agenciadb->cercarPapers();
         $this->arrayDeTipusPapers = $agenciadb->cercarTipusPapers();
         $this->arrayDeUsers = $agenciadb->cercarUser();
-//        return $arraydePelicules;
     }
 
     /* ------------------------RECUPERAR (tot l'array)----------------------- */
@@ -103,6 +101,41 @@ class agencia {
         $agenciadb = new agenciadb();
         $papersDeActors = $agenciadb->cercarPapersDeActor($idActor);
         return $papersDeActors;
+    }
+
+    public function recuperarActorDePaper($idActor) {
+        $agenciadb = new agenciadb();
+        $actorDePaper = $agenciadb->cercarActorDePaper($idActor);
+        return $actorDePaper;
+    }
+
+    public function recuperarPapersDeTipusPaper($idTipusPaper) {
+        $agenciadb = new agenciadb();
+        $papersDeTipusPaper = $agenciadb->cercarPapersDeTipusPaper($idTipusPaper);
+        return $papersDeTipusPaper;
+    }
+
+    public function recuperarActorsDeTipusPaper($idTipusPaper) {
+
+        $actors = array();
+        foreach ($this->arrayDeActors as $a) {
+            foreach ($this->arrayDePapers as $p) {
+                if ($a->getId() == $p->getId_actor() && $p->getTipus_paper() == $idTipusPaper) {
+                    array_push($actors, $a);
+                }
+            }
+        }
+
+        return $actors;
+    }
+    
+    public function getNomPaperDeActor($idActor){
+        foreach ($this->arrayDePapers as $p) {
+            if ($p->getId_actor() == $idActor) {
+                $nomPaper = $p->getNom();
+            }
+        }
+        return $nomPaper;
     }
 
     /* ---------------CERCAR (recuperar objecte per la ID)------------------- */
@@ -177,7 +210,7 @@ class agencia {
         $paper = new paper($idProjecte, $idActor, $nomPaper, $idTipusPaper);
         $paper->inserirPaper();
     }
-    
+
     public function afegirTipoPaper($nom) {
 
         $tipo_paper = new tipo_paper($nom);
@@ -195,7 +228,7 @@ class agencia {
         $agenciadb = new agenciadb();
         $agenciadb->eliminarProjecte($idProjecte);
     }
-    
+
     public function eliminarActor($idActor) {
         $agenciadb = new agenciadb();
         $agenciadb->eliminarActor($idActor);
@@ -221,7 +254,7 @@ class agencia {
         $agenciadb = new agenciadb();
         $agenciadb->editarDirector($director);
     }
-    
+
     public function editarActor($actor, $nif, $nom, $cognom, $fotografia, $genere) {
         $actor->setNif($nif);
         $actor->setNom($nom);

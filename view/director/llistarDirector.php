@@ -27,14 +27,14 @@
                     <?php if (isset($_SESSION['admin'])) { ?>
                         <td class="text-center"><a class="rounded-icon" href="?ctl=director&act=editar&param=<?php echo $d->getId(); ?>"><span class="glyphicon glyphicon-pencil icono"/></a></td>
                         <td class="text-center"><a class="rounded-icon" href="?ctl=director&act=eliminar&param=<?php echo $d->getId(); ?>"><span class="glyphicon glyphicon-remove icono"/></a></td>
-                        <?php } ?>
-                        <td class="text-center"><a class="rounded-icon" href="?ctl=director&act=mostrar&param=<?php echo $d->getId(); ?>"><span class="glyphicon glyphicon-eye-open icono"/></a></td>
-                    </tr>
-                    <!--{% else %}-->
-        <!--                <tr>
-                        <td colspan="7" class="text-center">Sin resultados</td>
-                    </tr>-->
-                <?php } ?>
+                    <?php } ?>
+                    <td class="text-center"><a class="rounded-icon" href="?ctl=director&act=mostrar&param=<?php echo $d->getId(); ?>"><span class="glyphicon glyphicon-eye-open icono"/></a></td>
+                </tr>
+                <!--{% else %}-->
+    <!--                <tr>
+                    <td colspan="7" class="text-center">Sin resultados</td>
+                </tr>-->
+            <?php } ?>
         </tbody>
     </table>
 </div>
