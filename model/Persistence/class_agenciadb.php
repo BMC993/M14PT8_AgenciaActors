@@ -73,6 +73,11 @@ class agenciadb {
         $this->esborrarGeneral($query);
     }
 
+    public function eliminarProjecte($idProjecte) {
+        $query = "DELETE FROM projecte WHERE id=" . $idProjecte;
+        $this->esborrarGeneral($query);
+    }
+
     public function eliminarActor($idActor) {
         $query = "DELETE FROM actor WHERE id=" . $idActor;
         $this->esborrarGeneral($query);

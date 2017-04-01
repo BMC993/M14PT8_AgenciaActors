@@ -22,7 +22,6 @@
 
                     <div class="menu seleccio-menu col-sm-11 col-xs-12">
                         <ul>
-
                             <?php if (isset($_SESSION['admin'])) { ?>
                                 <a href="?ctl=inici"><li class="col-sm-1 col-xs-12">Inici</li></a>
                                 <a href="?ctl=projecte&act=llistar"><li class="col-sm-2 col-xs-12">Projectes</li></a>

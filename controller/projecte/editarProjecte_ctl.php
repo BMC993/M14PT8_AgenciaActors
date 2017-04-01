@@ -1,8 +1,7 @@
 <?php
 
 
-$idProjecte = $_REQUEST['param'];
-$projecte = $agencia->cercarProjecte($idProjecte);
+$projecte = $agencia->cercarProjecte($id);
 
 if ($projecte != NULL) {
 
@@ -35,18 +34,20 @@ if ($projecte != NULL) {
 
             header('Location: ?ctl=projecte&act=llistar');
         }
-    } else { 
+    } else {
+        $llistaActors = $agencia->recuperarActors();
+        $arrayDeTipusPapers = $agencia->recuperarTipusPapers();
 
-    $arrayDeTipusObres = $agencia->recuperarTipusObres();
-    $arrayDeDirectors = $agencia->recuperarDirectors();
+        $arrayDeTipusObres = $agencia->recuperarTipusObres();
+        $arrayDeDirectors = $agencia->recuperarDirectors();
 
-    $directorSelected = $projecte->getId_Director();
-    $tipoObraSelected = $projecte->getId_tipo_obra();
-    
-    $titol = "Editar projecte";
-    include 'view/header.php';
-    include 'view/projecte/formEditarProjecte.php';
-    include 'view/footer.php';
+        $directorSelected = $projecte->getId_Director();
+        $tipoObraSelected = $projecte->getId_tipo_obra();
+        
+        $titol = "Editar projecte";
+        include 'view/header.php';
+        include 'view/projecte/formEditarProjecte.php';
+        include 'view/footer.php';
     }
 
 } else {

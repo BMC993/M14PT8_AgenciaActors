@@ -1,8 +1,9 @@
 <h2><?php echo $titol; ?></h2>
 <div id="errorEditarProjecte"></div>
-<form class="form-horizontal" id="formEditarProjecte" role="form" action="?ctl=projecte&act=editar&param=<?php echo $projecte->getId(); ?>" name="añadir" method="POST">
-<!--    <input type="text" name="id" hidden="">-->
-    <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+<div class="col-xs-12 col-sm-6">
+    <form class="form-horizontal" id="formEditarProjecte" role="form" action="?ctl=projecte&act=editar&param=<?php echo $projecte->getId(); ?>" method="POST">
+        <!--    <input type="text" name="id" hidden="">-->
+
         <div class="form-group">
             <label class="control-label">Nombre</label>
             <input id="nomProjecte" class="form-control" type="text" name="nom" value="<?php echo $projecte->getNom(); ?>">
@@ -57,5 +58,67 @@
                 <input class="btn btn-color" type="submit"  name="submit" value="Enviar" />      
             </div>
         </div>
+
+
+
+
+    </form>
+</div>
+
+
+<div class="col-xs-12 col-sm-5 col-sm-offset-1">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    <form class="form-horizontal" role="form" aaction="?ctl=paper&act=crear&param=<?php echo $projecte->getId(); ?>" name="crearPapel" method="POST">
+            <div class="form-group">   
+                <div class="col-xs-12">
+                    <label class="control-label">Nombre papel</label>
+                    <select class="form-control" name="actor">
+                    <?php
+                        foreach ($llistaActors as $actor) {
+                            echo "<option value='" . $actor->getId() . "' >" . $actor->getNom() . " " . $actor->getCognom() . "</option>";
+                        }
+                    ?>
+                    </select>     
+                </div>      
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <label class="control-label">Nombre papel</label>
+                    <input class="form-control" type="text" name="nombrePapel">
+                </div>
+            </div>    
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <label class="control-label">Tipo papel</label>
+                    <select class="form-control" name="tipusPaper">
+                    <?php
+                        foreach ($arrayDeTipusPapers as $tipusPaper) {
+                            echo "<option value='" . $tipusPaper->getId() . "' >" . $tipusPaper->getTipo() . "</option>";
+                        }
+                    ?>
+                    </select>   
+                </div>
+            </div> 
+            <div class="form-group">           
+                <div class="text-center col-xs-12">
+                    <input class="btn btn-color" type="submit" value="Añadir papel" />      
+                </div>
+            </div>
+        </form>
     </div>
-</form>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <strong>Papeles principales:</strong>
+        {% for papel in papeles %}
+        {% if papel.tipusPaper == "Primario" %}
+        <p><a class="rounded" href="{{path('backend_formulario_actor', {id:papel.idActor.id})}}">{{papel.idActor.nom}} {{papel.idActor.cognom}}</a> ({{papel.nom}}) <a class="rounded-icon" href="{{path('backend_eliminar_papel', {idProyecto:id, idPapel:papel.id})}}"><span class="glyphicon glyphicon-remove icono"/></a></p>
+        {% endif %}
+        {% endfor %}
+        <br>
+        <strong>Papeles secundarios:</strong>
+        {% for papel in papeles %}
+        {% if papel.tipusPaper == "Secundario" %}
+        <p><a class="rounded" href="{{path('backend_formulario_actor', {id:papel.idActor.id})}}">{{papel.idActor.nom}} {{papel.idActor.cognom}}</a> ({{papel.nom}}) <a class="rounded-icon" href="{{path('backend_eliminar_papel', {idProyecto:id, idPapel:papel.id})}}"><span class="glyphicon glyphicon-remove icono"/></a></p>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>

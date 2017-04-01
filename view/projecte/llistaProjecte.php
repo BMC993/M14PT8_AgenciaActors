@@ -12,8 +12,10 @@
                 <th class="text-center">Nom</th>
                 <th class="text-center">Director</th>
                 <th class="text-center">Dates</th>
-                <th class="text-center">Editar</th>
-                <th class="text-center">Eliminar</th>
+                <?php if (isset($_SESSION['admin'])) { ?>
+                    <th class="text-center">Editar</th>
+                    <th class="text-center">Eliminar</th>
+                <?php } ?>
                 <th class="text-center">Veure</th>
             </tr>
         </thead>
@@ -30,8 +32,10 @@
                     <td class="text-center"><?php echo $projecte->getNom(); ?></td>
                     <td class="text-center"><?php echo $projecte->getDirector(); ?></td>
                     <td class="text-center"><?php echo $projecte->getDataIniciObject(); ?><br>-<br><?php echo $projecte->getDataFinalObject(); ?></td>
-                    <td class="text-center"><a class = "rounded-icon" href = "?ctl=projecte&act=editar&param=<?php echo $projecte->getId(); ?>"><span class = "glyphicon glyphicon-pencil icono"/></a></td>
-                    <td class="text-center"><a class = "rounded-icon" href = "?ctl=projecte&act=eliminar&param=<?php echo $projecte->getId(); ?>"><span class = "glyphicon glyphicon-remove icono"/></a></td>
+                    <?php if (isset($_SESSION['admin'])) { ?>
+                        <td class="text-center"><a class = "rounded-icon" href = "?ctl=projecte&act=editar&param=<?php echo $projecte->getId(); ?>"><span class = "glyphicon glyphicon-pencil icono"/></a></td>
+                        <td class="text-center"><a class = "rounded-icon" href = "?ctl=projecte&act=eliminar&param=<?php echo $projecte->getId(); ?>"><span class = "glyphicon glyphicon-remove icono"/></a></td>
+                    <?php } ?>
                     <td class="text-center"><a class = "rounded-icon" href = "?ctl=projecte&act=mostrar&param=<?php echo $projecte->getId(); ?>"><span class = "glyphicon glyphicon-eye-open icono"/></a></td>
                 </tr>
             <?php } ?>
