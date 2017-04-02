@@ -7,6 +7,7 @@ if (isset($_SESSION['admin'])) {
             $nom = $_REQUEST['nom'];
 
             $agencia->afegirTipoPaper(addslashes($nom));
+            header("Location: ?ctl=tipoPaper&act=crear");
         } else {
             echo 'error';
         }
