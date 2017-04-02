@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
         echo 'error';
     }
 } else {
-    $titol = "Tipus Papers";
+//    $titol = "Tipus Papers";
     include 'view/header.php';
     include 'view/tipo_paper/mostrar_tipo_paper.php';
     include 'view/tipo_paper/formTipoPaper.php';

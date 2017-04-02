@@ -1,4 +1,4 @@
-<h2 style="text-align: left;"><?php echo $titol; ?></h2>
+<h2 style="text-align: left;">Tipus Papers</h2>
 <div id="errorAfegirTipusPaper"></div>
 <table>
     <?php

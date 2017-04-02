@@ -95,6 +95,14 @@ if (isset($_REQUEST['validar'])) {
         } else {
             echo 2;
         }
+    } else if ($_REQUEST['validar'] == "crearTipusPaper") {
+        $nom = $_REQUEST["nom"];
+
+        if (trim($nom) != "") {
+            echo 1;
+        } else {
+            echo 2;
+        }
     }
 } else {
     echo "no entra al validar";
