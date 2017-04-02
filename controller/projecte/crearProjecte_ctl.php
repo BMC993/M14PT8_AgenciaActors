@@ -1,5 +1,5 @@
 <?php
-
+if (isset($_SESSION['admin'])) {
 if (isset($_POST['submit'])) {
     if (isset($_REQUEST['nom']) && isset($_REQUEST['descripcio']) && isset($_REQUEST['tipus']) && isset($_REQUEST['datainici']) && isset($_REQUEST['datafinal']) && isset($_REQUEST['idDirector'])) {
         
@@ -35,4 +35,11 @@ if (isset($_POST['submit'])) {
     include 'view/header.php';
     include 'view/projecte/formProjecte.php';
     include 'view/footer.php';
+}
+}
+else{
+   $titol = "Login";
+    include 'view/header.php';
+    include 'view/user/formLogin.php';
+    include 'view/footer.php'; 
 }

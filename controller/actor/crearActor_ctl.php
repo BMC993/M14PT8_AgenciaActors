@@ -1,5 +1,5 @@
 <?php
-
+if (isset($_SESSION['admin'])) {
 if (isset($_POST['submit'])) {
     if (isset($_REQUEST['nom']) && isset($_REQUEST['cognom']) && isset($_REQUEST['nif'])) {
         $nom = $_REQUEST['nom'];
@@ -18,5 +18,11 @@ if (isset($_POST['submit'])) {
     $titol = "Afegir actor";
     include 'view/header.php';
     include 'view/actor/formCrearActor.php';
+    include 'view/footer.php';
+}
+}else{
+        $titol = "Login";
+    include 'view/header.php';
+    include 'view/user/formLogin.php';
     include 'view/footer.php';
 }
