@@ -44,8 +44,8 @@
                 <td><img height="100px" src="<?php echo $projecte->getFotografia(); ?>"></td>
                 <td><?php echo $projecte->getNom(); ?></td>
                 <td><?php echo $paper->getNom();?></td>
-                <td><?php echo $paper->getTipus_paper(); ?></td>
-                <td><a class="rounded-icon" href="?ctl=projecte&act=mostrar&param="<?php echo $projecte->getId(); ?>><span class="glyphicon glyphicon-eye-open icono"/></a></td>
+                <td><?php echo $paper->getNomTipus_paper(); ?></td>
+                <td><a class="rounded-icon" href="?ctl=projecte&act=mostrar&param=<?php echo $projecte->getId(); ?>"><span class="glyphicon glyphicon-eye-open icono"/></a></td>
                     <?php } ?>
             </tr>
                     <?php }else{ ?>

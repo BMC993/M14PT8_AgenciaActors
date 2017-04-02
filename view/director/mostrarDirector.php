@@ -16,7 +16,7 @@
                 <tr>
                     <td><img height = "100px" src = "<?php echo $projecte->getFotografia(); ?>"></td>
                     <td><strong><?php echo $projecte->getNom(); ?></strong> (<?php echo $projecte->getTipoObra(); ?>)</td>
-                    <td><a class = "rounded-icon" href = "?ctl=projecte&act=mostrar&param=<?php echo $projecte->getId_tipo_obra(); ?>"><span class = "glyphicon glyphicon-eye-open icono"/></a></td>
+                    <td><a class = "rounded-icon" href = "?ctl=projecte&act=mostrar&param=<?php echo $projecte->getId(); ?>"><span class = "glyphicon glyphicon-eye-open icono"/></a></td>
                 </tr>
             <?php } ?>
         </tbody>

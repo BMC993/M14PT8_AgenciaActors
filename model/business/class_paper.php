@@ -43,6 +43,15 @@ class paper {
         return $this->tipus_paper;
     }
 
+    function getNomTipus_paper() {
+        $agencia = unserialize($_SESSION['agencia']);
+        $tipusPaper = $agencia->cercarTipoPaper($this->tipus_paper);
+        if ($tipusPaper != NULL) {
+           return $tipusPaper->getTipo();
+        }
+        return "-";
+    }
+
     function getNom() {
         return $this->nom;
     }

@@ -2,6 +2,6 @@
 
 $agencia->eliminarPaper($id);
 
-//echo true;
+return true;
 
 ?>

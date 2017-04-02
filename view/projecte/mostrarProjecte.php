@@ -32,37 +32,29 @@
 		</div>
 	</div>
 	<div class="col-xs-12 area-proyecto-actores">
-		<div>
-			<strong>Actores principales:</strong>
-			<p>
-				{% for papelPrincipal in papelesPrincipales %}
-				<a class="rounded" href="{{path('backend_actor', {id : papelPrincipal.idActor.id})}}">{{papelPrincipal.idActor.nom}} {{papelPrincipal.idActor.cognom}}</a> ({{papelPrincipal.nom}})
-				{% if papelPrincipal == papelesPrincipales|last %}
-				.
-				{% else %}
-				, 
-				{% endif %}
-				{% else %}
-				-
-				{% endfor %}
-			</p>
-		</div>
-		<div>
-			<strong>Actores secundarios:</strong>
-			<p>
-				{% for papelSecundario in papelesSecundarios %}
-				<a class="rounded" href="{{path('backend_actor', {id : papelSecundario.idActor.id})}}">{{papelSecundario.idActor.nom}} {{papelSecundario.idActor.cognom}}</a> ({{papelSecundario.nom}})
-				{% if papelSecundario == papelesSecundarios|last %}
-				.
-				{% else %}
-				, 
-				{% endif %}
-				{% else %}
-				-
-				{% endfor %}
-			</p>
-		</div>
-
-
+		<?php
+        foreach ($llistaTipusPapers as $tipusPaper) {
+            $llistaActors = $agencia->recuperarActorsDeTipusPaper($tipusPaper->getId());
+            ?>
+            <div style="padding-top: 10px;">Tipus paper: <strong><?php echo $tipusPaper->getTipo(); ?></strong></div>
+            <p>
+            <?php
+            foreach ($llistaPapers as $paper) {
+                if ($tipusPaper->getId() == $paper->getTipus_paper()) {
+                    $actor = $paper->getActor();
+                    ?>
+                        <a class="rounded" href="?ctl=actor&act=mostrar&param=<?php echo $actor->getId(); ?>">
+                            <?php echo $actor->getNom(); ?> <?php echo $actor->getCognom(); ?></a> (<?php echo $paper->getNom(); ?>)
+                    
+                    <?php
+                    if($paper == end($llistaPapers) || count($llistaPapers) <= 1) {
+						echo ".";
+					} else {
+						echo ","; 
+					}
+                }
+            }?>
+            </p>
+        <?php } ?>
 	</div>
 </div>

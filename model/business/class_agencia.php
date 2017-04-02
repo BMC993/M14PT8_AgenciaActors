@@ -186,6 +186,16 @@ class agencia {
         return $tipoObra;
     }
 
+    public function cercarTipoPaper($idBuscar) {
+        $tipoPaper = null;
+        foreach ($this->arrayDeTipusPapers as $tipusPaper) {
+            if ($idBuscar == $tipusPaper->getId()) {
+                $tipoPaper = $tipusPaper;
+            }
+        }
+        return $tipoPaper;
+    }
+
     /* ---------------------------AGEFIR (new)------------------------------- */
 
     public function afegirDirector($nif, $nom, $cognom) {
@@ -290,17 +300,6 @@ class agencia {
 
         $agenciadb = new agenciadb();
         $agenciadb->editarProjecte($projecte);
-    }
-
-    public function cercarTipoPaper($idBuscar) {
-
-        $tipo_obra = null;
-        foreach ($this->arrayDeTipusPapers as $d) {
-            if ($idBuscar == $d->getId()) {
-                $tipo_obra = $d;
-            }
-        }
-        return tipo_obra;
     }
 
 //    public function afegirPelicula($titol, $director, $productora) {
