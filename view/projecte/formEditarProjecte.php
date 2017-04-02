@@ -103,28 +103,9 @@
         </form>
     </div>
     <div id="llistaPapers" class="col-xs-12 col-sm-10 col-sm-offset-1">
-        <?php
-        foreach ($llistaTipusPapers as $tipusPaper) {
-            $llistaActors = $agencia->recuperarActorsDeTipusPaper($tipusPaper->getId());
-            ?>
-            <div style="padding-top: 10px;">Tipus paper: <strong><?php echo $tipusPaper->getTipo(); ?></strong></div>
-            <?php
-            foreach ($llistaPapers as $paper) {
-                if ($tipusPaper->getId() == $paper->getTipus_paper()) {
-                    $actor = $paper->getActor();
-                    ?>
-                    <p>
-                        <a class="rounded" href="?ctl=actor&act=mostrar&param=<?php echo $actor->getId(); ?>">
-                            <?php echo $actor->getNom(); ?> <?php echo $actor->getCognom(); ?></a> (<?php echo $paper->getNom(); ?>)
-                        <a class="rounded-icon" id="eliminarPaper" href="?ctl=paper&act=eliminar&param=<?php echo $paper->getId(); ?>">
-                            <span class="glyphicon glyphicon-remove icono"/>
-                        </a>
-                    </p>
-                    <?php
-                }
-            }
-        }
-        ?>
+    <?php
+        include 'view/paper/llistarPaper.php';
+    ?>
     </div>
 </div>
 <script>
@@ -132,9 +113,8 @@
         afegirPaper('formAfegirPaper');
         return false;
     });
-    $("#eliminarPaper").click(function () {
+    $("#eliminarPaper").click(function (event) {
         eliminarPaper('eliminarPaper');
-        return false;
     });
 
     function peticioAjax(url, metodo, funcion, param) {
@@ -181,20 +161,15 @@
         }
         return elementoVacio;
     }
-    ;
 
     function eliminarPaper(id) {
-        var ruta = $("#" + id).attr('href');
+        var ruta = $("#" + id).attr('value');
         peticioAjax(ruta, "POST", recarregarPapersEnEliminar);
     }
 
     function recarregarPapersEnEliminar(data) {
-//        if (data == true) {
         mostrarSuccess("errorEditarProjecte", "S'ha eliminat el paper correctament!");
-        peticioAjax("?ctl=paper&act=llistar", "GET", llistarPapers, "param=" +<?php echo $projecte->getId(); ?>);
-//        } else {
-//            mostrarError("errorEditarProjecte", "Informació incorrecta!");
-//        }
+        peticioAjax("?ctl=paper&act=llistar", "GET", llistarPapers, "param="+<?php echo $projecte->getId(); ?>);
     }
 
 </script>
