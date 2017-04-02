@@ -1,4 +1,4 @@
-<h2><?php echo $titol; ?></h2>
+<h2 class="esquerra"><?php echo $titol; ?></h2>
 <div id="errorEditarProjecte"></div>
 <div class="col-xs-12 col-sm-6">
     <form class="form-horizontal" id="formEditarProjecte" role="form" action="?ctl=projecte&act=editar&param=<?php echo $projecte->getId(); ?>" method="POST">
@@ -55,7 +55,7 @@
         </div>
         <div class="form-group">           
             <div class="text-center col-xs-12">
-                <input class="btn btn-color" type="submit"  name="submit" value="Enviar" />      
+                <input class="btn btn-color" type="submit"  name="submit" value="Editar" />      
             </div>
         </div>
     </form>
@@ -63,6 +63,7 @@
 
 
 <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+        <h4>Afegir paper:</h4>
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
         <form class="form-horizontal" id="formAfegirPaper" role="form" action="?ctl=paper&act=crear&param=<?php echo $projecte->getId(); ?>" name="crearPapel" method="POST">
             <div class="form-group">
@@ -102,12 +103,13 @@
             </div>
         </form>
     </div>
+    <h4>Papers:</h4>
     <div id="llistaPapers" class="col-xs-12 col-sm-10 col-sm-offset-1">
         <?php
         foreach ($llistaTipusPapers as $tipusPaper) {
             $llistaActors = $agencia->recuperarActorsDeTipusPaper($tipusPaper->getId());
             ?>
-            <div style="padding-top: 10px;">Tipus paper: <strong><?php echo $tipusPaper->getTipo(); ?></strong></div>
+            <div style="padding-top: 10px;"><strong><?php echo $tipusPaper->getTipo(); ?></strong></div>
             <?php
             foreach ($llistaPapers as $paper) {
                 if ($tipusPaper->getId() == $paper->getTipus_paper()) {
@@ -190,7 +192,9 @@
 
     function recarregarPapersEnEliminar(data) {
 //        if (data == true) {
-        mostrarSuccess("errorEditarProjecte", "S'ha eliminat el paper correctament!");
+//            mostrarSuccess("errorEditarProjecte", "S'ha afegit el paper correctament!");
+//        mostrarSuccess("errorEditarProjecte", "S'ha afegit el paper correctament!");
+//        mostrarSuccess("errorEditarProjecte", "S'ha eliminat el paper correctament!");
         peticioAjax("?ctl=paper&act=llistar", "GET", llistarPapers, "param=" +<?php echo $projecte->getId(); ?>);
 //        } else {
 //            mostrarError("errorEditarProjecte", "Informació incorrecta!");

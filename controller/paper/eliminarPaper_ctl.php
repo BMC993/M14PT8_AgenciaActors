@@ -2,6 +2,6 @@
 
 $agencia->eliminarPaper($id);
 
-header("Location: ?ctl=paper&act=llistar");
+//echo true;
 
 ?>
