@@ -41,7 +41,13 @@
                 <tr>
                 <!--{% for proyecto in proyectos %}
                 {% if proyecto.id == papel.idProjecte.id %}-->
-                <td><img height="100px" src="<?php echo $projecte->getFotografia(); ?>"></td>
+                <td>
+                    <?php if($projecte->getFotografia() != "") { ?>
+                        <img height = "100px" src = "<?php echo $projecte->getFotografia(); ?>">
+                    <?php } else { ?>
+                        <img height = "100px" style="border:2px solid #770e0e;" src = "view/imatges/proyectos/not-found.png">
+                    <?php } ?>
+                </td>
                 <td><?php echo $projecte->getNom(); ?></td>
                 <td><?php echo $paper->getNom();?></td>
                 <td><?php echo $paper->getNomTipus_paper(); ?></td>

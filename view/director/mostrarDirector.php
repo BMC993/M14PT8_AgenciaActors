@@ -14,7 +14,13 @@
         <tbody>
             <?php foreach ($llistaProjectesDeDirector as $projecte) { ?>
                 <tr>
-                    <td><img height = "100px" src = "<?php echo $projecte->getFotografia(); ?>"></td>
+                    <td>
+                        <?php if($projecte->getFotografia() != "") { ?>
+                            <img height = "100px" src = "<?php echo $projecte->getFotografia(); ?>">
+                        <?php } else { ?>
+                            <img height = "100px" style="border:2px solid #770e0e;" src = "view/imatges/proyectos/not-found.png">
+                        <?php } ?>
+                    </td>
                     <td><strong><?php echo $projecte->getNom(); ?></strong> (<?php echo $projecte->getTipoObra(); ?>)</td>
                     <td><a class = "rounded-icon" href = "?ctl=projecte&act=mostrar&param=<?php echo $projecte->getId(); ?>"><span class = "glyphicon glyphicon-eye-open icono"/></a></td>
                 </tr>
